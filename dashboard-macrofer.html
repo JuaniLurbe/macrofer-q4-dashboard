@@ -1222,14 +1222,12 @@
 
       <div style="margin-bottom: 14px; text-align: left;">
         <label style="font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">PIN de Acceso:</label>
-        <input type="password" id="loginPinInput" class="pin-input" placeholder="••••" maxlength="6" value="1025">
+        <input type="password" id="loginPinInput" class="pin-input" placeholder="••••" maxlength="6" autocomplete="current-password" inputmode="numeric" onkeydown="if(event.key==='Enter') handleLogin()">
       </div>
 
       <button class="login-btn touchable" onclick="handleLogin()">Ingresar</button>
       
-      <p style="font-size: 11px; color: var(--text-secondary); margin-top: 16px;">
-        PINs: Nai & Emily (1025) • Juani (2026) • Martín (1234) • Marti (1145)
-      </p>
+      
     </div>
   </div>
 
@@ -1617,7 +1615,17 @@
 
     // State
     let currentUser = null;
-    let profiles = [];
+    
+    const FALLBACK_PROFILES = [
+      { id: '1', name: 'Martín', email: 'martin@macrofer.com', pin: '1234', role: 'Capitán & Dirección General', avatar: 'M', color: '#016135', default_tab: 'control' },
+      { id: '2', name: 'Juani', email: 'juani@macrofer.com', pin: '2026', role: 'Producción Audiovisual & Edición', avatar: 'J', color: '#2563EB', default_tab: 'guiones' },
+      { id: '3', name: 'Agustina', email: 'agustina@macrofer.com', pin: '2026', role: 'Producción Audiovisual & Cámara', avatar: 'A', color: '#3B82F6', default_tab: 'guiones' },
+      { id: '4', name: 'Marti', email: 'marti@macrofer.com', pin: '1145', role: 'Diseño Gráfico & Programación META', avatar: 'MA', color: '#9333EA', default_tab: 'historias' },
+      { id: '5', name: 'Nai & Emily', email: 'cm@macrofer.com', pin: '1025', role: 'Community Managers & Historias', avatar: 'NE', color: '#D97706', default_tab: 'historias' },
+      { id: '6', name: 'Seba & Ale', email: 'ventas@macrofer.com', pin: '5901', role: 'Ventas & Talentos en Cámara', avatar: 'SA', color: '#059669', default_tab: 'guiones' }
+    ];
+    let profiles = FALLBACK_PROFILES;
+
     let reels = [];
     let stories = [];
     let activityLogs = [];
@@ -1632,9 +1640,9 @@
     // INIT & AUTH
     // ==========================================
     document.addEventListener('DOMContentLoaded', async () => {
-      // 1. Load profiles from Supabase
-      profiles = await sbFetch('profiles?select=*') || [];
+      // Immediate render from memory
       renderModalProfiles();
+      renderLoginDropdown();
 
       // Check stored user session
       const storedEmail = localStorage.getItem('macrofer_user_email');
@@ -1647,14 +1655,45 @@
         }
       }
 
+      // Try fetching latest profiles from Supabase in background
+      try {
+        const fetched = await sbFetch('profiles?select=*');
+        if (fetched && fetched.length > 0) {
+          profiles = fetched;
+          renderModalProfiles();
+          renderLoginDropdown();
+        }
+      } catch (e) {
+        console.warn('Using offline profiles fallback', e);
+      }
+
       // Show login view
       document.getElementById('login-view').style.display = 'flex';
     });
 
+    
+    function renderLoginDropdown() {
+      const select = document.getElementById('loginUserSelect');
+      if (!select) return;
+      const currentVal = select.value;
+      select.innerHTML = profiles.map(p => `
+        <option value="${p.email}" ${p.email === currentVal ? 'selected' : ''}>
+          ${p.name} (${p.role.split('&')[0].trim()})
+        </option>
+      `).join('');
+    }
+
     async function handleLogin() {
       const select = document.getElementById('loginUserSelect');
-      const pin = document.getElementById('loginPinInput').value.trim();
+      const pinInput = document.getElementById('loginPinInput');
+      const pin = pinInput.value.trim();
       const email = select.value;
+
+      if (!pin) {
+        alert('Por favor ingresá tu PIN de acceso.');
+        pinInput.focus();
+        return;
+      }
 
       const profile = profiles.find(p => p.email === email);
       if (!profile) {
@@ -1662,17 +1701,24 @@
         return;
       }
 
-      if (profile.pin !== pin) {
-        alert('PIN incorrecto. Revisá el PIN sugerido.');
+      if (String(profile.pin).trim() !== String(pin).trim()) {
+        alert('PIN incorrecto para ' + profile.name);
+        pinInput.value = '';
+        pinInput.focus();
         return;
       }
 
       currentUser = profile;
       localStorage.setItem('macrofer_user_email', email);
       
-      await logActivity('login', 'session', `${currentUser.name} inició sesión en la app`);
+      try {
+        await logActivity('login', 'session', `${currentUser.name} inició sesión en la app`);
+      } catch (e) {
+        console.warn('Log activity error', e);
+      }
       initApp();
     }
+
 
     function handleLogout() {
       localStorage.removeItem('macrofer_user_email');

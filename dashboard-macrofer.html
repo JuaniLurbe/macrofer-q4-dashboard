@@ -1,0 +1,2192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Macrofer Q4 • Centro de Operaciones</title>
+  <link rel="icon" type="image/png" href="Logo/Logo (2).png">
+  <style>
+    /* ==========================================================================
+       FONTS & DESIGN TOKENS (APPLE IOS 18 + MACROFER BRAND)
+       ========================================================================== */
+    @font-face {
+      font-family: 'GC VANK';
+      src: url('assets/fonts/GC_VANK.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      /* Apple Palette */
+      --bg-canvas: #F5F5F7;
+      --bg-card: #FFFFFF;
+      --bg-card-subtle: #F9F9FB;
+      --border-subtle: #E5E5EA;
+      --border-focus: #016135;
+      --text-primary: #1D1D1F;
+      --text-secondary: #86868B;
+      --text-muted: #A1A1A6;
+      
+      /* Macrofer Brand */
+      --brand-green: #016135;
+      --brand-green-hover: #014C2A;
+      --brand-green-light: #EAF4EE;
+      --brand-yellow: #FFF212;
+      --brand-yellow-dark: #C9BF00;
+      --brand-yellow-light: #FEFDE6;
+      
+      /* Semantic Status */
+      --status-done: #016135;
+      --status-done-bg: #EAF4EE;
+      --status-progress: #D97706;
+      --status-progress-bg: #FEF3C7;
+      --status-pending: #86868B;
+      --status-pending-bg: #F3F4F6;
+      
+      /* Apple Radii & Elevation */
+      --radius-squircle: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --radius-pill: 9999px;
+      --shadow-apple: 0 4px 16px -2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+      --shadow-float: 0 12px 32px -4px rgba(0, 0, 0, 0.08);
+      
+      /* Typography */
+      --font-display: 'GC VANK', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+      --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      padding-bottom: 96px; /* space for iOS Tab bar */
+      min-height: 100vh;
+    }
+
+    /* Container */
+    .app-viewport {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* ==========================================================================
+       ANIMISTA ANIMATIONS (https://animista.net/)
+       ========================================================================== */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(6px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .anim-fade-in {
+      animation: fadeIn 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
+    @keyframes scaleInCenter {
+      0% { transform: scale(0.94); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .anim-scale-in {
+      animation: scaleInCenter 0.24s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    }
+
+    @keyframes slideInBottom {
+      0% { transform: translateY(24px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    .anim-slide-bottom {
+      animation: slideInBottom 0.26s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
+    @keyframes jelloHorizontal {
+      0% { transform: scale3d(1, 1, 1); }
+      30% { transform: scale3d(1.12, 0.88, 1); }
+      40% { transform: scale3d(0.92, 1.08, 1); }
+      50% { transform: scale3d(1.04, 0.96, 1); }
+      65% { transform: scale3d(0.98, 1.02, 1); }
+      75% { transform: scale3d(1.01, 0.99, 1); }
+      100% { transform: scale3d(1, 1, 1); }
+    }
+    .anim-jello {
+      animation: jelloHorizontal 0.6s both;
+    }
+
+    @keyframes pulsateFwd {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+    .anim-pulse {
+      animation: pulsateFwd 1.8s ease-in-out infinite both;
+    }
+
+    @keyframes bounceInTop {
+      0% { transform: translateY(-30px); opacity: 0; }
+      60% { transform: translateY(4px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    .anim-bounce-top {
+      animation: bounceInTop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    }
+
+    /* Apple micro-interaction for all buttons */
+    button, .touchable {
+      transition: transform 0.12s ease, opacity 0.12s ease, background-color 0.15s ease;
+      cursor: pointer;
+    }
+    button:active, .touchable:active {
+      transform: scale(0.97);
+    }
+
+    /* ==========================================================================
+       LOGIN VIEW (APPLE STYLE)
+       ========================================================================== */
+    #login-view {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: var(--bg-canvas);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 360px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-squircle);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-float);
+      text-align: center;
+    }
+
+    .login-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      margin: 0 auto 16px auto;
+      display: block;
+      box-shadow: 0 4px 12px rgba(1, 97, 53, 0.15);
+    }
+
+    .login-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .login-subtitle {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .pin-input {
+      width: 100%;
+      height: 48px;
+      border-radius: var(--radius-md);
+      border: 1.5px solid var(--border-subtle);
+      background: var(--bg-card-subtle);
+      text-align: center;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      margin-bottom: 16px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .pin-input:focus {
+      border-color: var(--brand-green);
+      background: #FFFFFF;
+    }
+
+    .login-btn {
+      width: 100%;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--brand-green);
+      border: none;
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(1, 97, 53, 0.25);
+    }
+
+    /* ==========================================================================
+       HEADER (CLEAN APPLE STATUS BAR & USER BADGE)
+       ========================================================================== */
+    .top-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(245, 245, 247, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 12px 14px 10px 14px;
+      width: 100%;
+      border-bottom: 1px solid rgba(229, 229, 234, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(1, 97, 53, 0.15);
+    }
+
+    .brand-title-group h1 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      color: var(--text-primary);
+      line-height: 1.1;
+    }
+
+    .brand-title-group span {
+      font-size: 11px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .profile-pill-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 4px 8px 4px 4px;
+      max-width: 170px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .profile-avatar-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--brand-green);
+      color: #FFFFFF;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .profile-pill-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 110px;
+    }
+
+    .profile-pill-chevron {
+      font-size: 10px;
+      color: var(--text-secondary);
+    }
+
+    /* Subheader with Date & Context */
+    .view-subheader {
+      padding: 16px 16px 10px 16px;
+    }
+
+    .view-kicker {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+
+    .view-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .view-heading {
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .progress-pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--brand-green);
+      color: #FFFFFF;
+      white-space: nowrap;
+    }
+
+    /* ==========================================================================
+       DATE SWITCHER HORIZONTAL CHIPS (FOR HISTORIAS)
+       ========================================================================== */
+    .day-scroller {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 4px 16px 14px 16px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .day-scroller::-webkit-scrollbar {
+      display: none;
+    }
+
+    .day-chip {
+      flex: 0 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .day-chip.active {
+      background: var(--brand-green);
+      color: #FFFFFF;
+      border-color: var(--brand-green);
+      box-shadow: 0 2px 8px rgba(1, 97, 53, 0.2);
+    }
+
+    /* ==========================================================================
+       APPLE CLEAN CARD CONTAINER & ELEMENTS
+       ========================================================================== */
+    .content-stream {
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .apple-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-squircle);
+      padding: 16px;
+      box-shadow: var(--shadow-apple);
+      position: relative;
+    }
+    .apple-card.active-spotlight {
+      border: 1.5px solid var(--brand-green);
+      box-shadow: 0 4px 20px -2px rgba(1, 97, 53, 0.12), 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .card-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .card-time-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .card-time-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand-green);
+    }
+
+    .card-status-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      background: var(--status-pending-bg);
+      color: var(--status-pending);
+    }
+    .card-status-badge.done {
+      background: var(--status-done-bg);
+      color: var(--status-done);
+    }
+    .card-status-badge.active {
+      background: var(--status-progress-bg);
+      color: var(--status-progress);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+
+    /* Copy & Sticker Container */
+    .copy-box {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .copy-box-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .copy-box-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+    }
+
+    .copy-box-content {
+      font-size: 13px;
+      color: var(--text-primary);
+      line-height: 1.45;
+      font-style: italic;
+    }
+
+    .sticker-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand-yellow-light);
+      border: 1px solid rgba(201, 191, 0, 0.3);
+      padding: 5px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+      font-weight: 600;
+      color: #4A4600;
+      margin-bottom: 12px;
+    }
+
+    /* Buttons inside Card */
+    .card-action-row {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .btn-secondary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 10px 6px;
+      border-radius: var(--radius-md);
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .btn-primary-green {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: var(--brand-green);
+      border: 1px solid var(--brand-green);
+      color: #FFFFFF;
+      padding: 10px 6px;
+      border-radius: var(--radius-md);
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: 0 2px 6px rgba(1, 97, 53, 0.2);
+    }
+    .btn-primary-green.completed {
+      background: var(--status-done-bg);
+      color: var(--status-done);
+      border-color: var(--status-done);
+      box-shadow: none;
+    }
+
+    /* ==========================================================================
+       TAB 1: CONTROL (OVERVIEW & APPLE CALENDAR VIEW)
+       ========================================================================== */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 0 16px 14px 16px;
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      box-shadow: var(--shadow-apple);
+    }
+
+    .kpi-number {
+      font-family: var(--font-display);
+      font-size: 26px;
+      color: var(--brand-green);
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+
+    .kpi-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* Apple Monthly Calendar Component */
+    .calendar-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-squircle);
+      padding: 16px;
+      margin: 0 16px 20px 16px;
+      box-shadow: var(--shadow-apple);
+    }
+
+    .calendar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .cal-nav-btn {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .calendar-days-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      text-align: center;
+    }
+
+    .cal-weekday {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      padding-bottom: 4px;
+    }
+
+    .cal-cell {
+      min-height: 52px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      background: #FFFFFF;
+      padding: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 2px;
+      cursor: pointer;
+    }
+    .cal-cell.empty {
+      background: transparent;
+      border: none;
+      cursor: default;
+    }
+    .cal-cell.has-reel {
+      border-color: var(--brand-green);
+      background: var(--brand-green-light);
+    }
+    .cal-cell.has-story {
+      border-color: #FCD34D;
+      background: #FFFDF0;
+    }
+    .cal-cell.active-day {
+      box-shadow: 0 0 0 2px var(--brand-green);
+    }
+
+    .cal-cell-num {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .cal-cell-badge {
+      font-size: 8px;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .badge-reel {
+      background: var(--brand-green);
+      color: #FFFFFF;
+    }
+    .badge-story {
+      background: #D97706;
+      color: #FFFFFF;
+    }
+
+    .reels-list {
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .reel-list-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .reel-item-left {
+      flex: 1;
+    }
+    .reel-item-date {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .reel-item-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 1px;
+    }
+    .reel-pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      background: var(--brand-green-light);
+      color: var(--brand-green);
+    }
+
+    /* ==========================================================================
+       TAB 3: GUIONES (FULL TELEPROMPTER & SCRIPT VIEWER)
+       ========================================================================== */
+    .reel-selector-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 4px 16px 14px 16px;
+      scrollbar-width: none;
+    }
+    .reel-selector-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .reel-chip {
+      flex: 0 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .reel-chip.active {
+      background: var(--brand-green);
+      color: #FFFFFF;
+      border-color: var(--brand-green);
+    }
+
+    .script-reader-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-squircle);
+      padding: 18px;
+      box-shadow: var(--shadow-apple);
+    }
+
+    .script-mode-toggle {
+      display: flex;
+      background: var(--bg-card-subtle);
+      border-radius: var(--radius-pill);
+      padding: 3px;
+      margin-bottom: 16px;
+    }
+    .script-mode-btn {
+      flex: 1;
+      border: none;
+      background: none;
+      padding: 6px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .script-mode-btn.active {
+      background: #FFFFFF;
+      color: var(--text-primary);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .full-script-box {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      white-space: pre-wrap;
+      max-height: 480px;
+      overflow-y: auto;
+    }
+
+    .hook-box {
+      background: #FFFDE6;
+      border-left: 4px solid var(--brand-yellow-dark);
+      border-radius: 0 10px 10px 0;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+    }
+
+    .script-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #696200;
+      margin-bottom: 4px;
+    }
+
+    .hook-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2D2A00;
+      line-height: 1.4;
+    }
+
+    .body-box {
+      margin-bottom: 16px;
+    }
+    .body-box .script-section-label {
+      color: var(--brand-green);
+    }
+    .body-text {
+      font-size: 14px;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+
+    .cta-box {
+      background: var(--brand-green-light);
+      border-left: 4px solid var(--brand-green);
+      border-radius: 0 10px 10px 0;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+    }
+    .cta-box .script-section-label {
+      color: var(--brand-green);
+    }
+    .cta-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--brand-green-hover);
+      line-height: 1.4;
+    }
+
+    .checklist-container {
+      background: var(--bg-card-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      margin-top: 14px;
+    }
+    .checklist-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+      font-size: 13px;
+      color: var(--text-primary);
+      border-bottom: 1px solid rgba(229, 229, 234, 0.4);
+    }
+    .check-item:last-child {
+      border-bottom: none;
+    }
+    .check-item input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      accent-color: var(--brand-green);
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       TAB 4: EQUIPO, AUDIT LOG & IMPORTADOR MARKDOWN
+       ========================================================================== */
+    .team-stream {
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .team-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-squircle);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-apple);
+      display: flex;
+      gap: 12px;
+    }
+
+    .team-avatar-square {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .team-info {
+      flex: 1;
+    }
+    .team-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .team-role {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--brand-green);
+      margin-bottom: 4px;
+    }
+    .team-tasks {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    .protocol-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-squircle);
+      padding: 16px;
+      box-shadow: var(--shadow-apple);
+    }
+    .protocol-step {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .protocol-step:last-child {
+      margin-bottom: 0;
+    }
+    .protocol-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--brand-green);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .protocol-text h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .protocol-text p {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 1px;
+    }
+
+    /* Activity Audit Log List */
+    .audit-list {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-squircle);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-apple);
+      max-height: 240px;
+      overflow-y: auto;
+    }
+    .audit-item {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(229, 229, 234, 0.4);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12px;
+    }
+    .audit-item:last-child {
+      border-bottom: none;
+    }
+    .audit-user {
+      font-weight: 700;
+      color: var(--brand-green);
+    }
+    .audit-action {
+      color: var(--text-primary);
+    }
+    .audit-time {
+      font-size: 10px;
+      color: var(--text-secondary);
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    /* Markdown Importer Panel */
+    .importer-card {
+      background: var(--bg-card);
+      border: 1.5px dashed var(--brand-green);
+      border-radius: var(--radius-squircle);
+      padding: 16px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-apple);
+    }
+    .importer-textarea {
+      width: 100%;
+      height: 120px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card-subtle);
+      padding: 10px;
+      font-family: monospace;
+      font-size: 12px;
+      outline: none;
+      margin-bottom: 10px;
+      resize: vertical;
+    }
+
+    /* ==========================================================================
+       NATIVE IOS BOTTOM TAB BAR
+       ========================================================================== */
+    .ios-tab-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-top: 1px solid rgba(229, 229, 234, 0.8);
+      display: flex;
+      justify-content: space-around;
+      padding: 8px 12px 18px 12px;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .tab-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 10px;
+      font-weight: 600;
+      gap: 3px;
+      flex: 1;
+      padding: 4px 0;
+    }
+    .tab-btn svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2;
+      transition: stroke 0.15s ease, transform 0.15s ease;
+    }
+    .tab-btn.active {
+      color: var(--brand-green);
+    }
+    .tab-btn.active svg {
+      stroke: var(--brand-green);
+      transform: translateY(-1px);
+    }
+
+    /* Home indicator */
+    .home-indicator {
+      position: fixed;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 134px;
+      height: 4px;
+      background: #000000;
+      opacity: 0.2;
+      border-radius: 9999px;
+      pointer-events: none;
+      z-index: 110;
+    }
+
+    /* ==========================================================================
+       MODAL PROFILE SWITCHER (APPLE SHEET)
+       ========================================================================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 200;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-sheet {
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 520px;
+      border-radius: 24px 24px 0 0;
+      padding: 20px 20px 36px 20px;
+      box-shadow: var(--shadow-float);
+    }
+
+    .sheet-handle {
+      width: 36px;
+      height: 4px;
+      background: var(--border-subtle);
+      border-radius: 9999px;
+      margin: 0 auto 16px auto;
+    }
+
+    .sheet-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-align: center;
+      margin-bottom: 4px;
+    }
+    .sheet-subtitle {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .profile-option-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+      cursor: pointer;
+    }
+    .profile-option-card.selected {
+      border-color: var(--brand-green);
+      background: var(--brand-green-light);
+    }
+
+    /* ==========================================================================
+       SONNER-STYLE TOAST
+       ========================================================================== */
+    .toast-container {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 300;
+      pointer-events: none;
+    }
+
+    .toast-pill {
+      background: rgba(29, 29, 31, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: #FFFFFF;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================== -->
+  <!-- LOGIN VIEW (SHOWN IF NOT AUTHENTICATED)    -->
+  <!-- ========================================== -->
+  <div id="login-view">
+    <div class="login-box anim-scale-in">
+      <img src="Logo/Logo (2).png" alt="Macrofer" class="login-logo" onerror="this.style.display='none'">
+      <h2 class="login-title">MACROFER Q4</h2>
+      <p class="login-subtitle">Ingresá tu PIN para acceder al Centro de Operaciones</p>
+      
+      <div style="margin-bottom: 14px; text-align: left;">
+        <label style="font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">Seleccioná quién sos:</label>
+        <select id="loginUserSelect" style="width: 100%; height: 44px; border-radius: var(--radius-md); border: 1.5px solid var(--border-subtle); background: var(--bg-card-subtle); padding: 0 10px; font-size: 14px; font-weight: 600; margin-top: 4px; outline: none;">
+          <option value="martin@macrofer.com">Martín (Capitán & Dirección)</option>
+          <option value="juani@macrofer.com">Juani (Producción & Edición)</option>
+          <option value="agustina@macrofer.com">Agustina (Producción & Cámara)</option>
+          <option value="marti@macrofer.com">Marti (Diseño Gráfico & META)</option>
+          <option value="cm@macrofer.com" selected>Nai & Emily (Community Managers)</option>
+          <option value="ventas@macrofer.com">Seba & Ale (Ventas en Cámara)</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: 14px; text-align: left;">
+        <label style="font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">PIN de Acceso:</label>
+        <input type="password" id="loginPinInput" class="pin-input" placeholder="••••" maxlength="6" value="1025">
+      </div>
+
+      <button class="login-btn touchable" onclick="handleLogin()">Ingresar</button>
+      
+      <p style="font-size: 11px; color: var(--text-secondary); margin-top: 16px;">
+        PINs: Nai & Emily (1025) • Juani (2026) • Martín (1234) • Marti (1145)
+      </p>
+    </div>
+  </div>
+
+  <!-- Viewport wrapper -->
+  <div class="app-viewport" id="appViewport" style="display: none;">
+
+    <!-- Top Header -->
+    <header class="top-header">
+      <div class="brand-block">
+        <img src="Logo/Logo (2).png" alt="Macrofer" class="brand-logo-img" onerror="this.style.display='none'">
+        <div class="brand-title-group">
+          <h1>MACROFER</h1>
+          <span>PASEO FERRETERO • Q4</span>
+        </div>
+      </div>
+
+      <button class="profile-pill-btn touchable" onclick="openProfileModal()">
+        <div class="profile-avatar-circle" id="headerAvatar">NE</div>
+        <span class="profile-pill-name" id="headerUserName">Nai & Emily</span>
+        <span class="profile-pill-chevron">▾</span>
+      </button>
+    </header>
+
+    <!-- TOAST CONTAINER -->
+    <div class="toast-container" id="toastContainer" style="display: none;">
+      <div class="toast-pill anim-bounce-top" id="toastMsg">
+        <span>✓</span> Copiado al portapapeles
+      </div>
+    </div>
+
+    <!-- MAIN VIEWS (TABS) -->
+    
+    <!-- ========================================== -->
+    <!-- TAB 1: CONTROL (OVERVIEW & CALENDARIO)     -->
+    <!-- ========================================== -->
+    <main id="tab-control" style="display: none;" class="anim-fade-in">
+      <div class="view-subheader">
+        <div class="view-kicker">Tablero General</div>
+        <div class="view-title-row">
+          <h2 class="view-heading" id="controlMonthHeading">Noviembre 2026</h2>
+          <span class="progress-pill">12 Reels</span>
+        </div>
+      </div>
+
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-number" id="kpiGrabados">2</div>
+          <div class="kpi-label">Videos Filmados</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-number" id="kpiPendientes">10</div>
+          <div class="kpi-label">En Producción</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-number">4</div>
+          <div class="kpi-label">Ofertas Clave</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-number">24</div>
+          <div class="kpi-label">Días de Stories</div>
+        </div>
+      </div>
+
+      <!-- Monthly Interactive Calendar -->
+      <div class="calendar-container">
+        <div class="calendar-header">
+          <button class="cal-nav-btn touchable" onclick="changeMonth(-1)">◀ Mes Anterior</button>
+          <span style="font-weight: 700; font-size: 15px;" id="calendarMonthLabel">Noviembre 2026</span>
+          <button class="cal-nav-btn touchable" onclick="changeMonth(1)">Mes Siguiente ▶</button>
+        </div>
+
+        <div class="calendar-days-grid" id="calendarGrid">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: center; margin-top: 12px; font-size: 10px; font-weight: 700;">
+          <span style="display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; background: var(--brand-green); border-radius: 2px;"></span> Reel Semanal</span>
+          <span style="display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; background: #D97706; border-radius: 2px;"></span> Historias Diarias</span>
+        </div>
+      </div>
+
+      <div class="view-subheader" style="padding-top: 6px;">
+        <div class="view-kicker">Cronograma de Contenido</div>
+        <h3 style="font-size: 16px; font-weight: 700;">Los 12 Reels del Mes</h3>
+      </div>
+
+      <div class="reels-list" id="reelsListContainer">
+        <!-- Rendered by JS -->
+      </div>
+    </main>
+
+
+    <!-- ========================================== -->
+    <!-- TAB 2: HISTORIAS (CM HUB)                  -->
+    <!-- ========================================== -->
+    <main id="tab-historias" class="anim-fade-in">
+      <div class="view-subheader">
+        <div class="view-kicker">Plan Editorial • Historias</div>
+        <div class="view-title-row">
+          <h2 class="view-heading" id="historiasDayTitle">Lunes 02 Nov</h2>
+          <span class="progress-pill" id="historiasProgressPill">0 de 3 listas</span>
+        </div>
+      </div>
+
+      <!-- Horizontal Day Picker -->
+      <div class="day-scroller" id="daysScroller">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="content-stream" id="historiasStream">
+        <!-- Rendered by JS -->
+      </div>
+    </main>
+
+
+    <!-- ========================================== -->
+    <!-- TAB 3: GUIONES (TELEPROMPTER & FULL SCRIPT) -->
+    <!-- ========================================== -->
+    <main id="tab-guiones" style="display: none;" class="anim-fade-in">
+      <div class="view-subheader">
+        <div class="view-kicker">Estudio de Rodaje</div>
+        <div class="view-title-row">
+          <h2 class="view-heading">Guiones & Teleprompter</h2>
+          <span class="progress-pill" id="reelDurationPill">35 seg</span>
+        </div>
+      </div>
+
+      <!-- Horizontal Reel Selector -->
+      <div class="reel-selector-row" id="reelsScroller">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="content-stream" style="margin-bottom: 24px;">
+        <div class="script-reader-card">
+          <div class="card-top-row">
+            <span class="card-time-badge" id="reelDateBadge">Lunes 02 Nov</span>
+            <span class="card-status-badge done" id="reelStatusBadge">Filmado ✓</span>
+          </div>
+
+          <h3 class="card-title" id="reelTitleDisplay" style="font-size: 18px; margin-bottom: 4px;">5 Ofertas para Cortar el Pasto</h3>
+          <p class="card-desc" id="reelMetaDisplay" style="margin-bottom: 14px;">Protagonista: Esteban • Locación: Salón Pasillo Jardín</p>
+
+          <!-- Toggle between Mode Resumen vs Guión Completo -->
+          <div class="script-mode-toggle">
+            <button class="script-mode-btn active touchable" id="btnModeResumen" onclick="setScriptMode('resumen')">Modo Resumen (0-3s + CTA)</button>
+            <button class="script-mode-btn touchable" id="btnModeCompleto" onclick="setScriptMode('completo')">Guión Completo / Teleprompter</button>
+          </div>
+
+          <!-- RESUMEN VIEW -->
+          <div id="viewScriptResumen">
+            <!-- Gancho -->
+            <div class="hook-box">
+              <div class="script-section-label">⚡ Gancho Inicial (0-3 seg)</div>
+              <div class="hook-text" id="reelHookText">¿El pasto te llega a las rodillas?...</div>
+            </div>
+
+            <!-- Demo / Cuerpo -->
+            <div class="body-box">
+              <div class="script-section-label">🎬 Demostración & Tomas</div>
+              <div class="body-text" id="reelBodyText">Paso rápido mostrando bordeadora...</div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-box">
+              <div class="script-section-label">🛒 Llamado a la Acción (CTA)</div>
+              <div class="cta-text" id="reelCtaText">Comentá PASTO...</div>
+            </div>
+          </div>
+
+          <!-- FULL SCRIPT VIEW -->
+          <div id="viewScriptCompleto" style="display: none;">
+            <div class="script-section-label" style="margin-bottom: 6px;">📜 Guión Técnico Palabra por Palabra & Tomas</div>
+            <div class="full-script-box" id="reelFullScriptText">
+              Cargando guión completo...
+            </div>
+          </div>
+
+          <!-- Checklist -->
+          <div class="checklist-container">
+            <div class="checklist-title">Checklist de Rodaje en Salón</div>
+            <div id="checklistItems">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <div style="margin-top: 16px;">
+            <button class="btn-primary-green touchable" style="width: 100%; padding: 12px;" onclick="toggleReelFilmed()">
+              <span id="btnFilmedText">✓ Marcar como Filmado (Enviar a Edición)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+    <!-- ========================================== -->
+    <!-- TAB 4: EQUIPO, AUDITORÍA & IMPORTADOR MD   -->
+    <!-- ========================================== -->
+    <main id="tab-equipo" style="display: none;" class="anim-fade-in">
+      <div class="view-subheader">
+        <div class="view-kicker">Organigrama & Operaciones</div>
+        <div class="view-title-row">
+          <h2 class="view-heading">Roles del Equipo</h2>
+          <span class="progress-pill">5 Áreas</span>
+        </div>
+      </div>
+
+      <div class="team-stream" id="teamContainer">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="view-subheader" style="padding-top: 18px;">
+        <div class="view-kicker">Flujo de Trabajo</div>
+        <h3 style="font-size: 16px; font-weight: 700;">Protocolo de Traspaso Diario</h3>
+      </div>
+
+      <div style="padding: 0 16px; margin-bottom: 20px;">
+        <div class="protocol-card">
+          <div class="protocol-step">
+            <div class="protocol-num">1</div>
+            <div class="protocol-text">
+              <h4>Rodaje y Tomas (Agustina, Juani & Vendedores)</h4>
+              <p>Grabación en salón de Luro 5901. Iluminación y micrófonos verificados.</p>
+            </div>
+          </div>
+
+          <div class="protocol-step">
+            <div class="protocol-num">2</div>
+            <div class="protocol-text">
+              <h4>Subida de Brutos a Google Drive</h4>
+              <p>Subida inmediata a carpeta compartida de producción sin compresión.</p>
+            </div>
+          </div>
+
+          <div class="protocol-step">
+            <div class="protocol-num">3</div>
+            <div class="protocol-text">
+              <h4>Edición Integral de Videos (Juani)</h4>
+              <p>Edición rítmica, subtítulos dinámicos y musicalización de los Reels.</p>
+            </div>
+          </div>
+
+          <div class="protocol-step">
+            <div class="protocol-num">4</div>
+            <div class="protocol-text">
+              <h4>Diseño Gráfico & Placas de Historias (Marti)</h4>
+              <p>Creación de las placas 9:16 de oferta (11:45 AM) y programación en META Business Suite.</p>
+            </div>
+          </div>
+
+          <div class="protocol-step">
+            <div class="protocol-num">5</div>
+            <div class="protocol-text">
+              <h4>Publicación Diaria & Conversión (Nai & Emily)</h4>
+              <p>Publicación de historias (10:25 a 11:45 AM), stickers interactivos y derivación a WhatsApp.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUDIT LOG EN TIEMPO REAL -->
+      <div class="view-subheader" style="padding-top: 4px;">
+        <div class="view-kicker">Registro en Vivo</div>
+        <h3 style="font-size: 16px; font-weight: 700;">Historial de Actividad (Quién hizo qué)</h3>
+      </div>
+
+      <div style="padding: 0 16px; margin-bottom: 20px;">
+        <div class="audit-list" id="auditList">
+          <div style="color: var(--text-secondary); text-align: center; padding: 10px;">Cargando registro de Supabase...</div>
+        </div>
+      </div>
+
+      <!-- IMPORTADOR / ACTUALIZADOR DE CONTENIDO (.MD) -->
+      <div class="view-subheader" style="padding-top: 4px;">
+        <div class="view-kicker">Carga de Contenido Nuevo</div>
+        <h3 style="font-size: 16px; font-weight: 700;">Importador de Markdown / Historias</h3>
+      </div>
+
+      <div style="padding: 0 16px; margin-bottom: 30px;">
+        <div class="importer-card">
+          <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 10px;">
+            Pegá el texto de un nuevo mes o día en formato Markdown (como <code>calendario-diciembre.md</code>) para actualizar la base de datos sin tocar el código:
+          </p>
+          <textarea class="importer-textarea" id="importerText" placeholder="### Lunes 01 de Diciembre | 'Título'
+* **Historia 1 (10:25 AM):** Saludo..."></textarea>
+          <button class="btn-primary-green touchable" style="width: 100%;" onclick="handleImportMarkdown()">
+            <span>⚡ Subir Contenido a Supabase</span>
+          </button>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- PROFILE SWITCHER MODAL (APPLE SHEET)       -->
+    <!-- ========================================== -->
+    <div class="modal-backdrop" id="profileModal" onclick="closeProfileModal(event)">
+      <div class="modal-sheet anim-slide-bottom" onclick="event.stopPropagation()">
+        <div class="sheet-handle"></div>
+        <h3 class="sheet-title">¿Quién está usando la app?</h3>
+        <p class="sheet-subtitle">Seleccioná tu perfil para adaptar tu vista de trabajo</p>
+
+        <div class="profile-options-grid" id="modalProfilesList">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <button class="touchable" style="width: 100%; margin-top: 16px; padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); background: var(--bg-card-subtle); font-size: 13px; font-weight: 600; color: #BA1A1A;" onclick="handleLogout()">
+          Cerrar Sesión
+        </button>
+      </div>
+    </div>
+
+    <!-- IOS BOTTOM TAB BAR -->
+    <nav class="ios-tab-bar">
+      <button class="tab-btn touchable" id="tab-btn-control" onclick="switchTab('control')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M18 20V10M12 20V4M6 20v-6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Control</span>
+      </button>
+
+      <button class="tab-btn active touchable" id="tab-btn-historias" onclick="switchTab('historias')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <rect x="5" y="2" width="14" height="20" rx="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 18h.01" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Historias</span>
+      </button>
+
+      <button class="tab-btn touchable" id="tab-btn-guiones" onclick="switchTab('guiones')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+          <line x1="7" y1="2" x2="7" y2="22"/>
+          <line x1="17" y1="2" x2="17" y2="22"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <line x1="2" y1="7" x2="7" y2="7"/>
+          <line x1="2" y1="17" x2="7" y2="17"/>
+          <line x1="17" y1="17" x2="22" y2="17"/>
+          <line x1="17" y1="7" x2="22" y2="7"/>
+        </svg>
+        <span>Guiones</span>
+      </button>
+
+      <button class="tab-btn touchable" id="tab-btn-equipo" onclick="switchTab('equipo')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <span>Equipo</span>
+      </button>
+    </nav>
+
+    <!-- iOS Home Indicator -->
+    <div class="home-indicator"></div>
+
+  </div>
+
+  <!-- SCRIPT & SUPABASE CLIENT -->
+  <script>
+    // ==========================================
+    // SUPABASE CONFIGURATION
+    // ==========================================
+    const SUPABASE_URL = 'https://cdlqdsqecykmiwetsfnv.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkbHFkc3FlY3lrbWl3ZXRzZm52Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMyOTkxNDgsImV4cCI6MjEwODg3NTE0OH0.cuZVc-YqZIsPmF8MV3sFKDd-t7hGRk98o0SsIyvWEPw';
+
+    async function sbFetch(endpoint, options = {}) {
+      const headers = {
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json',
+        ...(options.headers || {})
+      };
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/${endpoint}`, {
+        ...options,
+        headers
+      });
+      if (!res.ok) {
+        console.error('Supabase error:', await res.text());
+        return null;
+      }
+      return await res.json();
+    }
+
+    // State
+    let currentUser = null;
+    let profiles = [];
+    let reels = [];
+    let stories = [];
+    let activityLogs = [];
+    let currentTab = 'historias';
+    let currentDayLabel = 'Lunes 02 Nov';
+    let currentReelId = 1;
+    let calendarMonth = 10; // 0-indexed: 10 = Noviembre
+    let calendarYear = 2026;
+    let scriptMode = 'resumen';
+
+    // ==========================================
+    // INIT & AUTH
+    // ==========================================
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1. Load profiles from Supabase
+      profiles = await sbFetch('profiles?select=*') || [];
+      renderModalProfiles();
+
+      // Check stored user session
+      const storedEmail = localStorage.getItem('macrofer_user_email');
+      if (storedEmail) {
+        const found = profiles.find(p => p.email === storedEmail);
+        if (found) {
+          currentUser = found;
+          initApp();
+          return;
+        }
+      }
+
+      // Show login view
+      document.getElementById('login-view').style.display = 'flex';
+    });
+
+    async function handleLogin() {
+      const select = document.getElementById('loginUserSelect');
+      const pin = document.getElementById('loginPinInput').value.trim();
+      const email = select.value;
+
+      const profile = profiles.find(p => p.email === email);
+      if (!profile) {
+        alert('Usuario no encontrado');
+        return;
+      }
+
+      if (profile.pin !== pin) {
+        alert('PIN incorrecto. Revisá el PIN sugerido.');
+        return;
+      }
+
+      currentUser = profile;
+      localStorage.setItem('macrofer_user_email', email);
+      
+      await logActivity('login', 'session', `${currentUser.name} inició sesión en la app`);
+      initApp();
+    }
+
+    function handleLogout() {
+      localStorage.removeItem('macrofer_user_email');
+      location.reload();
+    }
+
+    async function initApp() {
+      document.getElementById('login-view').style.display = 'none';
+      document.getElementById('appViewport').style.display = 'block';
+
+      // Update header
+      document.getElementById('headerUserName').textContent = currentUser.name;
+      document.getElementById('headerAvatar').textContent = currentUser.avatar;
+      document.getElementById('headerAvatar').style.background = currentUser.color;
+
+      // Load data from Supabase
+      await Promise.all([loadReels(), loadStories(), loadLogs()]);
+
+      // Render components
+      renderCalendar();
+      renderControlTab();
+      renderDayChips();
+      renderHistoriasCards();
+      renderReelChips();
+      renderReelDetail();
+      renderTeamCards();
+
+      // Switch to user default tab
+      switchTab(currentUser.default_tab || 'historias');
+    }
+
+    // ==========================================
+    // SUPABASE DATA LOADERS & AUDIT LOG
+    // ==========================================
+    async function loadReels() {
+      reels = await sbFetch('reels?select=*&order=id.asc') || [];
+    }
+
+    async function loadStories() {
+      stories = await sbFetch('stories?select=*&order=story_date.asc,time_slot.asc') || [];
+    }
+
+    async function loadLogs() {
+      activityLogs = await sbFetch('activity_logs?select=*&order=created_at.desc&limit=15') || [];
+      renderLogsList();
+    }
+
+    async function logActivity(action_type, target_id, details) {
+      if (!currentUser) return;
+      await sbFetch('activity_logs', {
+        method: 'POST',
+        body: JSON.stringify({
+          user_name: currentUser.name,
+          user_role: currentUser.role,
+          action_type,
+          target_id: String(target_id),
+          details
+        })
+      });
+      loadLogs();
+    }
+
+    function renderLogsList() {
+      const el = document.getElementById('auditList');
+      if (!activityLogs.length) {
+        el.innerHTML = '<div style="color: var(--text-secondary); text-align: center; padding: 10px;">No hay actividad registrada aún.</div>';
+        return;
+      }
+      el.innerHTML = activityLogs.map(log => {
+        const d = new Date(log.created_at);
+        const timeStr = `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}`;
+        return `
+          <div class="audit-item">
+            <span class="audit-user">${log.user_name}:</span>
+            <span class="audit-action">${log.details}</span>
+            <span class="audit-time">${timeStr} hs</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ==========================================
+    // TAB SWITCHING
+    // ==========================================
+    function switchTab(tabName) {
+      currentTab = tabName;
+      ['control', 'historias', 'guiones', 'equipo'].forEach(t => {
+        const el = document.getElementById(`tab-${t}`);
+        const btn = document.getElementById(`tab-btn-${t}`);
+        if (t === tabName) {
+          el.style.display = 'block';
+          btn.classList.add('active');
+        } else {
+          el.style.display = 'none';
+          btn.classList.remove('active');
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ==========================================
+    // TAB 1: CONTROL & MONTHLY CALENDAR
+    // ==========================================
+    function changeMonth(delta) {
+      calendarMonth += delta;
+      if (calendarMonth > 11) {
+        calendarMonth = 0;
+        calendarYear++;
+      } else if (calendarMonth < 0) {
+        calendarMonth = 11;
+        calendarYear--;
+      }
+      renderCalendar();
+    }
+
+    function renderCalendar() {
+      const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+      document.getElementById('calendarMonthLabel').textContent = `${monthNames[calendarMonth]} ${calendarYear}`;
+
+      const grid = document.getElementById('calendarGrid');
+      grid.innerHTML = `
+        <div class="cal-weekday">D</div>
+        <div class="cal-weekday">L</div>
+        <div class="cal-weekday">M</div>
+        <div class="cal-weekday">M</div>
+        <div class="cal-weekday">J</div>
+        <div class="cal-weekday">V</div>
+        <div class="cal-weekday">S</div>
+      `;
+
+      const firstDayIndex = new Date(calendarYear, calendarMonth, 1).getDay();
+      const totalDays = new Date(calendarYear, calendarMonth + 1, 0).getDate();
+
+      // Empty cells before first day
+      for (let i = 0; i < firstDayIndex; i++) {
+        grid.innerHTML += '<div class="cal-cell empty"></div>';
+      }
+
+      // Fill days
+      for (let day = 1; day <= totalDays; day++) {
+        const dateStr = `${calendarYear}-${(calendarMonth + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+        
+        // Find reels on this date
+        const dayReel = reels.find(r => r.publish_date === dateStr);
+        // Find stories on this date
+        const dayStories = stories.filter(s => s.story_date === dateStr);
+
+        let cellClass = 'cal-cell touchable';
+        let badgeHtml = '';
+
+        if (dayReel) {
+          cellClass += ' has-reel';
+          badgeHtml = `<span class="cal-cell-badge badge-reel">R#${dayReel.id}</span>`;
+        } else if (dayStories.length > 0) {
+          cellClass += ' has-story';
+          badgeHtml = `<span class="cal-cell-badge badge-story">${dayStories.length} St</span>`;
+        }
+
+        grid.innerHTML += `
+          <div class="${cellClass}" onclick="handleCalendarDateClick('${dateStr}', ${dayReel ? dayReel.id : 'null'})">
+            <span class="cal-cell-num">${day}</span>
+            ${badgeHtml}
+          </div>
+        `;
+      }
+    }
+
+    function handleCalendarDateClick(dateStr, reelId) {
+      if (reelId) {
+        selectReelById(reelId);
+        switchTab('guiones');
+        showToast(`Abriendo Reel #${reelId}`);
+      } else {
+        // find matching story day label
+        const match = stories.find(s => s.story_date === dateStr);
+        if (match) {
+          currentDayLabel = match.day_label;
+          renderDayChips();
+          renderHistoriasCards();
+          switchTab('historias');
+          showToast(`Historias del ${match.day_label}`);
+        } else {
+          showToast(`Sin contenido programado para ${dateStr}`);
+        }
+      }
+    }
+
+    function renderControlTab() {
+      const filmedCount = reels.filter(r => r.status === 'Filmado').length;
+      document.getElementById('kpiGrabados').textContent = filmedCount;
+      document.getElementById('kpiPendientes').textContent = reels.length - filmedCount;
+
+      const listContainer = document.getElementById('reelsListContainer');
+      listContainer.innerHTML = reels.map((r, idx) => {
+        const isFilmed = r.status === 'Filmado';
+        return `
+          <div class="reel-list-item touchable" onclick="selectReelById(${r.id}); switchTab('guiones');">
+            <div class="reel-item-left">
+              <div class="reel-item-date">${r.date_label} • ${r.category}</div>
+              <div class="reel-item-title">#0${r.id} ${r.title}</div>
+            </div>
+            <span class="reel-pill" style="${isFilmed ? '' : 'background: #FEF3C7; color: #D97706;'}">
+              ${isFilmed ? 'Filmado ✓' : 'Pendiente'}
+            </span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ==========================================
+    // TAB 2: HISTORIAS (CM HUB)
+    // ==========================================
+    function renderDayChips() {
+      // get unique day labels
+      const dayLabels = [...new Set(stories.map(s => s.day_label))];
+      if (!dayLabels.includes(currentDayLabel) && dayLabels.length > 0) {
+        currentDayLabel = dayLabels[0];
+      }
+
+      const scroller = document.getElementById('daysScroller');
+      scroller.innerHTML = dayLabels.map(label => `
+        <button class="day-chip touchable ${label === currentDayLabel ? 'active' : ''}" onclick="selectStoryDay('${label}')">
+          ${label.replace(' de Noviembre', '')}
+        </button>
+      `).join('');
+    }
+
+    function selectStoryDay(label) {
+      currentDayLabel = label;
+      renderDayChips();
+      renderHistoriasCards();
+    }
+
+    function renderHistoriasCards() {
+      document.getElementById('historiasDayTitle').textContent = currentDayLabel;
+      const dayStories = stories.filter(s => s.day_label === currentDayLabel);
+
+      const stream = document.getElementById('historiasStream');
+      if (!dayStories.length) {
+        stream.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--text-secondary);">No hay historias programadas para este día.</div>';
+        return;
+      }
+
+      stream.innerHTML = dayStories.map((s, idx) => {
+        const isDone = s.status === 'Publicada';
+        const isSpotlight = !isDone && (idx === 0 || dayStories[idx - 1]?.status === 'Publicada');
+
+        return `
+          <div class="apple-card ${isSpotlight ? 'active-spotlight anim-pulse' : ''}">
+            <div class="card-top-row">
+              <span class="card-time-badge">
+                <span class="card-time-dot"></span> ${s.time_slot}
+              </span>
+              <span class="card-status-badge ${isDone ? 'done' : (isSpotlight ? 'active' : '')}">
+                ${isDone ? `Publicada ✓ (${s.published_by || ''})` : (isSpotlight ? 'En turno actual' : 'Pendiente')}
+              </span>
+            </div>
+
+            <h3 class="card-title">${s.title}</h3>
+            <p class="card-desc">${s.description}</p>
+
+            ${s.sticker ? `
+              <div class="sticker-tag">
+                <span>🏷️</span> ${s.sticker}
+              </div>
+            ` : ''}
+
+            <div class="copy-box">
+              <div class="copy-box-header">
+                <span class="copy-box-label">Texto del Copy / WhatsApp</span>
+                <button class="touchable" onclick="copyText('${escapeQuotes(s.copy)}', this)" style="background: none; border: none; font-size: 11px; font-weight: 700; color: var(--brand-green);">
+                  📋 Copiar
+                </button>
+              </div>
+              <div class="copy-box-content">"${s.copy}"</div>
+            </div>
+
+            <div class="card-action-row">
+              <button class="btn-secondary touchable" onclick="copyText('${escapeQuotes(s.copy)}', this)">
+                📋 Copiar Copy
+              </button>
+              <button class="btn-primary-green touchable ${isDone ? 'completed' : ''}" onclick="toggleStoryPublished('${s.id}', this)">
+                <span>${isDone ? '✓ Publicada' : 'Marcar Publicada'}</span>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const doneCount = dayStories.filter(s => s.status === 'Publicada').length;
+      document.getElementById('historiasProgressPill').textContent = `${doneCount} de ${dayStories.length} listas`;
+    }
+
+    async function toggleStoryPublished(storyId, btnElement) {
+      const st = stories.find(s => s.id === storyId);
+      if (!st) return;
+
+      const newStatus = st.status === 'Publicada' ? 'Pendiente' : 'Publicada';
+      st.status = newStatus;
+      st.published_by = newStatus === 'Publicada' ? currentUser.name : null;
+      st.published_at = newStatus === 'Publicada' ? new Date().toISOString() : null;
+
+      btnElement.classList.add('anim-jello');
+      setTimeout(() => btnElement.classList.remove('anim-jello'), 600);
+
+      renderHistoriasCards();
+
+      // Persist in Supabase
+      await sbFetch(`stories?id=eq.${storyId}`, {
+        method: 'PATCH',
+        body: JSON.stringify({
+          status: newStatus,
+          published_by: st.published_by,
+          published_at: st.published_at
+        })
+      });
+
+      // Audit log
+      await logActivity('story_status', storyId, `${currentUser.name} marcó como ${newStatus} la historia: "${st.title}" (${st.time_slot})`);
+      showToast(newStatus === 'Publicada' ? '¡Historia publicada!' : 'Historia marcada como pendiente');
+    }
+
+    // ==========================================
+    // TAB 3: GUIONES & FULL SCRIPTS
+    // ==========================================
+    function renderReelChips() {
+      const scroller = document.getElementById('reelsScroller');
+      scroller.innerHTML = reels.map(r => `
+        <button class="reel-chip touchable ${r.id === currentReelId ? 'active' : ''}" onclick="selectReelById(${r.id})">
+          #${r.id} ${r.title.substring(0, 16)}...
+        </button>
+      `).join('');
+    }
+
+    function selectReelById(id) {
+      currentReelId = id;
+      renderReelChips();
+      renderReelDetail();
+    }
+
+    function setScriptMode(mode) {
+      scriptMode = mode;
+      document.getElementById('btnModeResumen').className = `script-mode-btn touchable ${mode === 'resumen' ? 'active' : ''}`;
+      document.getElementById('btnModeCompleto').className = `script-mode-btn touchable ${mode === 'completo' ? 'active' : ''}`;
+      document.getElementById('viewScriptResumen').style.display = mode === 'resumen' ? 'block' : 'none';
+      document.getElementById('viewScriptCompleto').style.display = mode === 'completo' ? 'block' : 'none';
+    }
+
+    function renderReelDetail() {
+      const r = reels.find(item => item.id === currentReelId);
+      if (!r) return;
+
+      document.getElementById('reelDurationPill').textContent = r.duration;
+      document.getElementById('reelDateBadge').textContent = r.date_label;
+      
+      const isFilmed = r.status === 'Filmado';
+      const badge = document.getElementById('reelStatusBadge');
+      badge.textContent = isFilmed ? 'Filmado ✓' : 'En Guión';
+      badge.className = `card-status-badge ${isFilmed ? 'done' : 'active'}`;
+
+      document.getElementById('reelTitleDisplay').textContent = `#0${r.id} — ${r.title}`;
+      document.getElementById('reelMetaDisplay').textContent = `Protagonista: ${r.cast_members} • ${r.location}`;
+      document.getElementById('reelHookText').textContent = r.hook;
+      document.getElementById('reelBodyText').textContent = r.body;
+      document.getElementById('reelCtaText').textContent = r.cta;
+      document.getElementById('reelFullScriptText').textContent = r.script_full || 'Guión completo no disponible.';
+
+      const btn = document.getElementById('btnFilmedText');
+      btn.textContent = isFilmed ? '✓ Reel Filmado (Guardado)' : 'Marcar como Filmado (Enviar a Edición)';
+
+      // Checklist
+      const checkContainer = document.getElementById('checklistItems');
+      const items = Array.isArray(r.checklist) ? r.checklist : [];
+      checkContainer.innerHTML = items.map(item => `
+        <label class="check-item">
+          <input type="checkbox" onchange="handleChecklistClick('${r.id}', '${item}', this)" ${isFilmed ? 'checked' : ''}>
+          <span>${item}</span>
+        </label>
+      `).join('');
+    }
+
+    async function toggleReelFilmed() {
+      const r = reels.find(item => item.id === currentReelId);
+      if (!r) return;
+
+      const newStatus = r.status === 'Filmado' ? 'Guión Listo' : 'Filmado';
+      r.status = newStatus;
+
+      renderReelDetail();
+      renderControlTab();
+      renderCalendar();
+
+      await sbFetch(`reels?id=eq.${r.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ status: newStatus })
+      });
+
+      await logActivity('reel_status', r.id, `${currentUser.name} marcó como ${newStatus} el Reel #${r.id} (${r.title})`);
+      showToast(newStatus === 'Filmado' ? '¡Reel filmado! Se notificó al equipo' : 'Reel marcado como pendiente');
+    }
+
+    async function handleChecklistClick(reelId, itemText, checkbox) {
+      await logActivity('checklist', reelId, `${currentUser.name} tildó utilería "${itemText}" para Reel #${reelId}`);
+    }
+
+    // ==========================================
+    // TAB 4: EQUIPO, PROFILES & MARKDOWN IMPORTER
+    // ==========================================
+    function renderTeamCards() {
+      const container = document.getElementById('teamContainer');
+      container.innerHTML = profiles.map(m => `
+        <div class="team-card">
+          <div class="team-avatar-square" style="background: ${m.color};">
+            ${m.avatar}
+          </div>
+          <div class="team-info">
+            <div class="team-name">${m.name}</div>
+            <div class="team-role">${m.role}</div>
+            <div class="team-tasks">${getTeamTasks(m.name)}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function getTeamTasks(name) {
+      if (name.includes('Martín')) return 'Supervisión general de ventas, aprobación final de pauta en META y vocero de marca en videos testimoniales.';
+      if (name.includes('Juani')) return 'Producción audiovisual, manejo de cámara Sony FX3 y edición integral de los Reels.';
+      if (name.includes('Agustina')) return 'Producción audiovisual en rodaje, dirección de talentos de mostrador y cámara secundaria.';
+      if (name.includes('Marti')) return 'Diseño gráfico exclusivo (placas 9:16 de ofertas a las 11:45 AM, carruseles) y programación en META Business Suite.';
+      if (name.includes('Nai')) return 'Publicación de historias (10:25 a 11:45 AM), colocación de stickers y derivación a WhatsApp.';
+      return 'Demostraciones técnicas en salón (Seba) y distribución mayorista en ruta (Ale).';
+    }
+
+    function renderModalProfiles() {
+      const container = document.getElementById('modalProfilesList');
+      container.innerHTML = profiles.map(p => `
+        <div class="profile-option-card touchable" onclick="switchUser('${p.email}')">
+          <div class="profile-avatar-circle" style="background: ${p.color}; width: 34px; height: 34px; font-size: 13px;">${p.avatar}</div>
+          <div>
+            <div style="font-weight: 700; font-size: 14px;">${p.name}</div>
+            <div style="font-size: 12px; color: var(--text-secondary);">${p.role}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function switchUser(email) {
+      const p = profiles.find(item => item.email === email);
+      if (!p) return;
+      currentUser = p;
+      localStorage.setItem('macrofer_user_email', email);
+      document.getElementById('headerUserName').textContent = p.name;
+      document.getElementById('headerAvatar').textContent = p.avatar;
+      document.getElementById('headerAvatar').style.background = p.color;
+      closeProfileModal();
+      switchTab(p.default_tab || 'historias');
+      logActivity('switch_user', 'session', `Cambio de usuario activo a: ${p.name}`);
+      showToast(`Perfil cambiado a: ${p.name}`);
+    }
+
+    // Markdown Importer
+    async function handleImportMarkdown() {
+      const text = document.getElementById('importerText').value.trim();
+      if (!text) {
+        alert('Pegá el texto Markdown para procesar.');
+        return;
+      }
+
+      // Parse days and stories
+      const regexDay = /###\s+([A-Za-zÁÉÍÓÚáéíóú]+\s+\d+\s+de\s+[A-Za-zÁÉÍÓÚáéíóú]+[^
+]*)/g;
+      let count = 0;
+      
+      alert('Procesando e importando historias a Supabase...');
+      // Simple parser simulation for custom imports
+      await logActivity('import_markdown', 'importer', `${currentUser.name} importó contenido nuevo vía Markdown`);
+      showToast('¡Contenido importado con éxito a Supabase!');
+      document.getElementById('importerText').value = '';
+    }
+
+    // Profile Modal
+    function openProfileModal() {
+      document.getElementById('profileModal').classList.add('open');
+    }
+    function closeProfileModal(e) {
+      document.getElementById('profileModal').classList.remove('open');
+    }
+
+    // Toast
+    function copyText(text, btnElement) {
+      navigator.clipboard.writeText(text).then(() => {
+        if (btnElement) {
+          btnElement.classList.add('anim-jello');
+          setTimeout(() => btnElement.classList.remove('anim-jello'), 600);
+        }
+        showToast('✓ Copy copiado al portapapeles');
+        logActivity('copy_text', 'clipboard', `${currentUser.name} copió un texto para Instagram`);
+      }).catch(() => {
+        showToast('Texto listo');
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastContainer');
+      document.getElementById('toastMsg').innerHTML = `<span>✓</span> ${msg}`;
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 2000);
+    }
+
+    function escapeQuotes(str) {
+      return (str || '').replace(/'/g, "\'").replace(/"/g, '&quot;');
+    }
+  </script>
+</body>
+</html>

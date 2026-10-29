@@ -2188,8 +2188,7 @@
       }
 
       // Parse days and stories
-      const regexDay = /###\s+([A-Za-zÁÉÍÓÚáéíóú]+\s+\d+\s+de\s+[A-Za-zÁÉÍÓÚáéíóú]+[^
-]*)/g;
+      const regexDay = /###\s+([A-Za-z0-9\s|]+)/g;
       let count = 0;
       
       alert('Procesando e importando historias a Supabase...');

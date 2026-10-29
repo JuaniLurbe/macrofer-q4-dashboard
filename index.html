@@ -412,9 +412,24 @@
       box-shadow: var(--shadow-apple);
       position: relative;
     }
+    @keyframes borderGlowPulse {
+      0% {
+        border-color: rgba(1, 97, 53, 0.4);
+        box-shadow: 0 0 0 0 rgba(1, 97, 53, 0.15), 0 4px 16px -2px rgba(0, 0, 0, 0.04);
+      }
+      50% {
+        border-color: rgba(1, 97, 53, 0.95);
+        box-shadow: 0 0 0 3px rgba(1, 97, 53, 0.14), 0 6px 20px -2px rgba(1, 97, 53, 0.12);
+      }
+      100% {
+        border-color: rgba(1, 97, 53, 0.4);
+        box-shadow: 0 0 0 0 rgba(1, 97, 53, 0.15), 0 4px 16px -2px rgba(0, 0, 0, 0.04);
+      }
+    }
+
     .apple-card.active-spotlight {
       border: 1.5px solid var(--brand-green);
-      box-shadow: 0 4px 20px -2px rgba(1, 97, 53, 0.12), 0 2px 6px rgba(0,0,0,0.02);
+      animation: borderGlowPulse 2.8s ease-in-out infinite;
     }
 
     .card-top-row {
@@ -471,35 +486,22 @@
       margin-bottom: 12px;
     }
 
-    /* Copy & Sticker Container */
-    .copy-box {
-      background: var(--bg-card-subtle);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 12px;
+    /* Streamlined Copy Card: Ultra Clean & Legible */
+    .copy-speech-bubble {
+      background: #F9FAF9;
+      border: 1px solid #E2E8E4;
+      border-left: 3.5px solid var(--brand-green);
+      border-radius: 0 12px 12px 0;
+      padding: 12px 14px;
       margin-bottom: 12px;
+      position: relative;
     }
 
-    .copy-box-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 6px;
-    }
-
-    .copy-box-label {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-secondary);
-    }
-
-    .copy-box-content {
-      font-size: 13px;
-      color: var(--text-primary);
-      line-height: 1.45;
-      font-style: italic;
+    .copy-text-main {
+      font-size: 14px;
+      color: #1A2E22;
+      line-height: 1.5;
+      font-weight: 500;
     }
 
     .sticker-tag {
@@ -2143,7 +2145,7 @@
         const isSpotlight = !isDone && (idx === 0 || dayStories[idx - 1]?.status === 'Publicada');
 
         return `
-          <div class="apple-card ${isSpotlight ? 'active-spotlight anim-pulse' : ''}">
+          <div class="apple-card ${isSpotlight ? 'active-spotlight' : ''}">
             <div class="card-top-row">
               <span class="card-time-badge">
                 <span class="card-time-dot"></span> ${s.time_slot}
@@ -2162,14 +2164,8 @@
               </div>
             ` : ''}
 
-            <div class="copy-box">
-              <div class="copy-box-header">
-                <span class="copy-box-label">Texto del Copy / WhatsApp</span>
-                <button class="touchable" onclick="copyText('${escapeQuotes(s.copy)}', this)" style="background: none; border: none; font-size: 11px; font-weight: 700; color: var(--brand-green);">
-                  📋 Copiar
-                </button>
-              </div>
-              <div class="copy-box-content">"${s.copy}"</div>
+            <div class="copy-speech-bubble">
+              <div class="copy-text-main">“${s.copy}”</div>
             </div>
 
             <div class="card-action-row">

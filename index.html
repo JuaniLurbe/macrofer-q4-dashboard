@@ -1044,6 +1044,111 @@
     /* ==========================================================================
        BLOQUE DINÁMICO: ¿QUÉ TENGO QUE HACER HOY?
        ========================================================================== */
+        /* Segmented Control for Leaders (Juani, Agustina, Martín) */
+    .today-view-segmented-control {
+      display: flex;
+      background: #ECEEEF;
+      border-radius: var(--radius-pill);
+      padding: 3px;
+      margin-bottom: 14px;
+      gap: 3px;
+    }
+
+    .today-seg-btn {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .today-seg-btn.active {
+      background: #FFFFFF;
+      color: var(--brand-green);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Team Roadmap Cards */
+    .team-roadmap-stream {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .team-member-roadmap-card {
+      background: #FAFAFA;
+      border: 1px solid #E5E9E6;
+      border-radius: 14px;
+      padding: 12px 14px;
+      transition: all 0.15s ease;
+    }
+
+    .team-member-roadmap-card:hover {
+      border-color: #CDE0D3;
+      background: #FFFFFF;
+    }
+
+    .team-member-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .team-member-profile-info {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .team-member-avatar-pill {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .team-member-name-tag {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .team-member-role-badge {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--brand-green);
+      line-height: 1.2;
+    }
+
+    .team-member-count-badge {
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      background: #E8F0EC;
+      color: var(--brand-green);
+      white-space: nowrap;
+    }
+
     .today-tasks-card {
       background: #FFFFFF;
       border: 1.5px solid rgba(1, 97, 53, 0.22);
@@ -2791,9 +2896,36 @@
       ];
     }
 
+    let todayViewMode = 'personal'; // 'personal' or 'team'
+
+    function setTodayViewMode(mode) {
+      todayViewMode = mode;
+      renderTodayTasks();
+    }
+
     function toggleTodayTask(taskIdx) {
       const user = currentUser || profiles[0];
       const storageKey = `macrofer_tasks_done_${user.id || user.name}_${currentDayLabel}`;
+      let completedSet = new Set();
+      try {
+        const saved = localStorage.getItem(storageKey);
+        if (saved) completedSet = new Set(JSON.parse(saved));
+      } catch (e) {}
+
+      if (completedSet.has(taskIdx)) {
+        completedSet.delete(taskIdx);
+      } else {
+        completedSet.add(taskIdx);
+      }
+
+      localStorage.setItem(storageKey, JSON.stringify([...completedSet]));
+      renderTodayTasks();
+    }
+
+    function toggleTeamMemberTask(memberId, taskIdx) {
+      const member = profiles.find(p => p.id === memberId || p.name === memberId);
+      const mKey = member ? (member.id || member.name) : memberId;
+      const storageKey = `macrofer_tasks_done_${mKey}_${currentDayLabel}`;
       let completedSet = new Set();
       try {
         const saved = localStorage.getItem(storageKey);
@@ -2820,26 +2952,17 @@
       const userAvatar = user.avatar || 'J';
       const userRole = user.role || 'Producción Audiovisual & Edición';
 
+      // Check if current user is part of the leadership trio (Juani, Agustina, Martín)
+      const uLower = userName.toLowerCase();
+      const isLeader = uLower.includes('juani') || uLower.includes('agustina') || uLower.includes('martín') || uLower.includes('martin');
+
       // Find content for currentDayLabel
       const dayStories = stories.filter(s => s.day_label === currentDayLabel && s.month === 'Noviembre 2026');
       
       const dayMatch = currentDayLabel.match(/(\d+)/);
       const dayNum = dayMatch ? parseInt(dayMatch[1], 10) : 2;
       const dayIso = `2026-11-${String(dayNum).padStart(2, '0')}`;
-      
       const dayReel = reels.find(r => r.publish_date === dayIso);
-
-      const tasks = getTasksForUserAndDay(userName, dayNum, dayReel, dayStories);
-
-      const storageKey = `macrofer_tasks_done_${user.id || userName}_${currentDayLabel}`;
-      let completedSet = new Set();
-      try {
-        const saved = localStorage.getItem(storageKey);
-        if (saved) completedSet = new Set(JSON.parse(saved));
-      } catch (e) {}
-
-      const completedCount = tasks.filter((_, idx) => completedSet.has(idx)).length;
-      const progressPercent = tasks.length > 0 ? Math.round((completedCount / tasks.length) * 100) : 0;
 
       let contextSnippet = '';
       if (dayReel) {
@@ -2850,26 +2973,149 @@
         contextSnippet = `🗓️ <strong>Plan del día:</strong> Contenido y operaciones en salón de Av. Luro 5901`;
       }
 
+      // If user is not leader, enforce personal mode
+      const activeMode = isLeader ? todayViewMode : 'personal';
+
+      // ==========================================
+      // MODE 1: PERSONAL ("¿QUÉ TENGO QUE HACER HOY?")
+      // ==========================================
+      if (activeMode === 'personal') {
+        const tasks = getTasksForUserAndDay(userName, dayNum, dayReel, dayStories);
+        const storageKey = `macrofer_tasks_done_${user.id || userName}_${currentDayLabel}`;
+        let completedSet = new Set();
+        try {
+          const saved = localStorage.getItem(storageKey);
+          if (saved) completedSet = new Set(JSON.parse(saved));
+        } catch (e) {}
+
+        const completedCount = tasks.filter((_, idx) => completedSet.has(idx)).length;
+        const progressPercent = tasks.length > 0 ? Math.round((completedCount / tasks.length) * 100) : 0;
+
+        container.innerHTML = `
+          <div class="today-tasks-card">
+            ${isLeader ? `
+              <div class="today-view-segmented-control">
+                <button class="today-seg-btn active" onclick="setTodayViewMode('personal')">
+                  <span>👤</span> ¿Qué tengo que hacer hoy?
+                </button>
+                <button class="today-seg-btn" onclick="setTodayViewMode('team')">
+                  <span>👥</span> ¿Qué hace el equipo hoy?
+                </button>
+              </div>
+            ` : ''}
+
+            <div class="today-tasks-top-row">
+              <span class="today-kicker">📌 Mi Hoja de Ruta Diaria</span>
+              <span class="today-day-badge">${escapeHtml(currentDayLabel)}</span>
+            </div>
+
+            <h2 class="today-heading">¿Qué tengo que hacer hoy?</h2>
+            <div class="today-subtitle">
+              Hola <strong>${escapeHtml(userName)}</strong>, estas son tus prioridades asignadas para hoy según tu rol:
+            </div>
+
+            <div class="today-user-bar">
+              <div class="today-avatar-mini" style="background: ${userColor};">
+                ${escapeHtml(userAvatar)}
+              </div>
+              <div class="today-user-info">
+                <div class="today-user-name">${escapeHtml(userName)}</div>
+                <div class="today-user-role">${escapeHtml(userRole)}</div>
+              </div>
+            </div>
+
+            <div class="today-context-box">
+              ${contextSnippet}
+            </div>
+
+            <div class="today-progress-container">
+              <div class="today-progress-text">
+                <span>Tu progreso personal</span>
+                <span>${completedCount} de ${tasks.length} completadas (${progressPercent}%)</span>
+              </div>
+              <div class="today-progress-bar-bg">
+                <div class="today-progress-bar-fill" style="width: ${progressPercent}%;"></div>
+              </div>
+            </div>
+
+            <div class="today-task-list">
+              ${tasks.map((t, idx) => {
+                const isDone = completedSet.has(idx);
+                return `
+                  <div class="today-task-item ${isDone ? 'completed' : ''}" onclick="toggleTodayTask(${idx})">
+                    <div class="today-task-checkbox">
+                      ${isDone ? '✓' : ''}
+                    </div>
+                    <div class="today-task-text">${t}</div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+
+            <div class="today-actions-row">
+              <button class="today-btn-quick touchable" onclick="switchTab('historias')">
+                📱 Ir a Historias (${dayStories.length})
+              </button>
+              <button class="today-btn-quick touchable" onclick="switchTab('guiones')">
+                🎬 Ver Guiones de Reels
+              </button>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // ==========================================
+      // MODE 2: TEAM ("¿QUÉ HACE EL EQUIPO HOY?")
+      // Available to Juani, Agustina, Martín
+      // ==========================================
+      // Compute team statistics
+      let totalTeamTasks = 0;
+      let totalCompletedTasks = 0;
+
+      const teamMembersData = profiles.map(member => {
+        const mTasks = getTasksForUserAndDay(member.name, dayNum, dayReel, dayStories);
+        const mKey = member.id || member.name;
+        const mStorageKey = `macrofer_tasks_done_${mKey}_${currentDayLabel}`;
+        let mCompletedSet = new Set();
+        try {
+          const saved = localStorage.getItem(mStorageKey);
+          if (saved) mCompletedSet = new Set(JSON.parse(saved));
+        } catch (e) {}
+
+        const mDoneCount = mTasks.filter((_, idx) => mCompletedSet.has(idx)).length;
+        totalTeamTasks += mTasks.length;
+        totalCompletedTasks += mDoneCount;
+
+        return {
+          member,
+          tasks: mTasks,
+          completedSet: mCompletedSet,
+          doneCount: mDoneCount
+        };
+      });
+
+      const teamOverallPercent = totalTeamTasks > 0 ? Math.round((totalCompletedTasks / totalTeamTasks) * 100) : 0;
+
       container.innerHTML = `
         <div class="today-tasks-card">
+          <div class="today-view-segmented-control">
+            <button class="today-seg-btn" onclick="setTodayViewMode('personal')">
+              <span>👤</span> ¿Qué tengo que hacer hoy?
+            </button>
+            <button class="today-seg-btn active" onclick="setTodayViewMode('team')">
+              <span>👥</span> ¿Qué hace el equipo hoy?
+            </button>
+          </div>
+
           <div class="today-tasks-top-row">
-            <span class="today-kicker">📌 Mi Hoja de Ruta Diaria</span>
+            <span class="today-kicker">👥 Hoja de Ruta Operativa del Equipo</span>
             <span class="today-day-badge">${escapeHtml(currentDayLabel)}</span>
           </div>
 
-          <h2 class="today-heading">¿Qué tengo que hacer hoy?</h2>
+          <h2 class="today-heading">¿Qué hace el equipo hoy?</h2>
           <div class="today-subtitle">
-            Hola <strong>${escapeHtml(userName)}</strong>, estas son tus prioridades sincronizadas para hoy:
-          </div>
-
-          <div class="today-user-bar">
-            <div class="today-avatar-mini" style="background: ${userColor};">
-              ${escapeHtml(userAvatar)}
-            </div>
-            <div class="today-user-info">
-              <div class="today-user-name">${escapeHtml(userName)}</div>
-              <div class="today-user-role">${escapeHtml(userRole)}</div>
-            </div>
+            Sincronización de tareas asignadas a cada integrante para el plan de hoy en Av. Luro 5901:
           </div>
 
           <div class="today-context-box">
@@ -2878,23 +3124,48 @@
 
           <div class="today-progress-container">
             <div class="today-progress-text">
-              <span>Progreso de hoy</span>
-              <span>${completedCount} de ${tasks.length} completadas (${progressPercent}%)</span>
+              <span>Progreso general del equipo</span>
+              <span>${totalCompletedTasks} de ${totalTeamTasks} tareas completadas (${teamOverallPercent}%)</span>
             </div>
             <div class="today-progress-bar-bg">
-              <div class="today-progress-bar-fill" style="width: ${progressPercent}%;"></div>
+              <div class="today-progress-bar-fill" style="width: ${teamOverallPercent}%;"></div>
             </div>
           </div>
 
-          <div class="today-task-list">
-            ${tasks.map((t, idx) => {
-              const isDone = completedSet.has(idx);
+          <div class="team-roadmap-stream">
+            ${teamMembersData.map(data => {
+              const m = data.member;
+              const isAllDone = data.tasks.length > 0 && data.doneCount === data.tasks.length;
               return `
-                <div class="today-task-item ${isDone ? 'completed' : ''}" onclick="toggleTodayTask(${idx})">
-                  <div class="today-task-checkbox">
-                    ${isDone ? '✓' : ''}
+                <div class="team-member-roadmap-card">
+                  <div class="team-member-header-row">
+                    <div class="team-member-profile-info">
+                      <div class="team-member-avatar-pill" style="background: ${m.color};">
+                        ${escapeHtml(m.avatar)}
+                      </div>
+                      <div>
+                        <div class="team-member-name-tag">${escapeHtml(m.name)}</div>
+                        <div class="team-member-role-badge">${escapeHtml(m.role)}</div>
+                      </div>
+                    </div>
+                    <span class="team-member-count-badge" style="background: ${isAllDone ? '#DEF7EC' : '#E8F0EC'}; color: ${isAllDone ? '#03543F' : 'var(--brand-green)'};">
+                      ${isAllDone ? '✓ Todo Listo' : `${data.doneCount}/${data.tasks.length} listas`}
+                    </span>
                   </div>
-                  <div class="today-task-text">${t}</div>
+
+                  <div class="today-task-list" style="margin-bottom: 0;">
+                    ${data.tasks.map((t, idx) => {
+                      const isDone = data.completedSet.has(idx);
+                      return `
+                        <div class="today-task-item ${isDone ? 'completed' : ''}" onclick="toggleTeamMemberTask('${m.id || m.name}', ${idx})">
+                          <div class="today-task-checkbox">
+                            ${isDone ? '✓' : ''}
+                          </div>
+                          <div class="today-task-text" style="font-size: 12.5px;">${t}</div>
+                        </div>
+                      `;
+                    }).join('')}
+                  </div>
                 </div>
               `;
             }).join('')}

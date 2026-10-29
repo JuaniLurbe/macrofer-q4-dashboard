@@ -1280,7 +1280,7 @@
         <select id="loginUserSelect" style="width: 100%; height: 44px; border-radius: var(--radius-md); border: 1.5px solid var(--border-subtle); background: var(--bg-card-subtle); padding: 0 10px; font-size: 14px; font-weight: 600; margin-top: 4px; outline: none;">
           <option value="martin@macrofer.com">Martín (Capitán & Dirección)</option>
           <option value="juani@macrofer.com">Juani (Producción & Edición)</option>
-          <option value="agustina@macrofer.com">Agustina (Producción & Cámara)</option>
+          <option value="agustina@macrofer.com">Agustina (Estrategia de Negocio & Operaciones)</option>
           <option value="marti@macrofer.com">Marti (Diseño Gráfico & META)</option>
           <option value="cm@macrofer.com" selected>Nai & Emily (Community Managers)</option>
           <option value="ventas@macrofer.com">Seba & Ale (Ventas en Cámara)</option>
@@ -1521,7 +1521,7 @@
           <div class="protocol-step">
             <div class="protocol-num">1</div>
             <div class="protocol-text">
-              <h4>Rodaje y Tomas (Agustina, Juani & Vendedores)</h4>
+              <h4>Estrategia, Stock & Rodaje (Agustina, Juani & Vendedores)</h4>
               <p>Grabación en salón de Luro 5901. Iluminación y micrófonos verificados.</p>
             </div>
           </div>
@@ -1712,7 +1712,7 @@
     const FALLBACK_PROFILES = [
       { id: '1', name: 'Martín', email: 'martin@macrofer.com', pin: '1234', role: 'Capitán & Dirección General', avatar: 'M', color: '#016135', default_tab: 'control' },
       { id: '2', name: 'Juani', email: 'juani@macrofer.com', pin: '2026', role: 'Producción Audiovisual & Edición', avatar: 'J', color: '#2563EB', default_tab: 'guiones' },
-      { id: '3', name: 'Agustina', email: 'agustina@macrofer.com', pin: '2026', role: 'Producción Audiovisual & Cámara', avatar: 'A', color: '#3B82F6', default_tab: 'guiones' },
+      { id: '3', name: 'Agustina', email: 'agustina@macrofer.com', pin: '2026', role: 'Estrategia de Negocio, Stock & Operaciones', avatar: 'A', color: '#3B82F6', default_tab: 'control' },
       { id: '4', name: 'Marti', email: 'marti@macrofer.com', pin: '1145', role: 'Diseño Gráfico & Programación META', avatar: 'MA', color: '#9333EA', default_tab: 'historias' },
       { id: '5', name: 'Nai & Emily', email: 'cm@macrofer.com', pin: '1025', role: 'Community Managers & Historias', avatar: 'NE', color: '#D97706', default_tab: 'historias' },
       { id: '6', name: 'Seba & Ale', email: 'ventas@macrofer.com', pin: '5901', role: 'Ventas & Talentos en Cámara', avatar: 'SA', color: '#059669', default_tab: 'guiones' }
@@ -2322,7 +2322,7 @@
     function getTeamTasks(name) {
       if (name.includes('Martín')) return 'Supervisión general de ventas, aprobación final de pauta en META y vocero de marca en videos testimoniales.';
       if (name.includes('Juani')) return 'Producción audiovisual, manejo de cámara Sony FX3 y edición integral de los Reels.';
-      if (name.includes('Agustina')) return 'Producción audiovisual en rodaje, dirección de talentos de mostrador y cámara secundaria.';
+      if (name.includes('Agustina')) return 'Asesoramiento estratégico interno, fuente oficial de productos, marcas y stock en góndola, promociones bancarias, custodia del equipamiento y articulación comercial con Juani.';
       if (name.includes('Marti')) return 'Diseño gráfico exclusivo (placas 9:16 de ofertas a las 11:45 AM, carruseles) y programación en META Business Suite.';
       if (name.includes('Nai')) return 'Publicación de historias (10:25 a 11:45 AM), colocación de stickers y derivación a WhatsApp.';
       return 'Demostraciones técnicas en salón (Seba) y distribución mayorista en ruta (Ale).';

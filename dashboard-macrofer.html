@@ -1726,28 +1726,46 @@
     }
 
     async function initApp() {
-      document.getElementById('login-view').style.display = 'none';
-      document.getElementById('appViewport').style.display = 'block';
+      try {
+        // Immediately switch views to guarantee instant entry
+        document.getElementById('login-view').style.display = 'none';
+        document.getElementById('appViewport').style.display = 'block';
 
-      // Update header
-      document.getElementById('headerUserName').textContent = currentUser.name;
-      document.getElementById('headerAvatar').textContent = currentUser.avatar;
-      document.getElementById('headerAvatar').style.background = currentUser.color;
+        // Update header
+        if (currentUser) {
+          document.getElementById('headerUserName').textContent = currentUser.name;
+          document.getElementById('headerAvatar').textContent = currentUser.avatar;
+          document.getElementById('headerAvatar').style.background = currentUser.color;
+        }
 
-      // Load data from Supabase
-      await Promise.all([loadReels(), loadStories(), loadLogs()]);
+        // Render components immediately with fallback / local state
+        renderCalendar();
+        renderControlTab();
+        renderDayChips();
+        renderHistoriasCards();
+        renderReelChips();
+        renderReelDetail();
+        renderTeamCards();
 
-      // Render components
-      renderCalendar();
-      renderControlTab();
-      renderDayChips();
-      renderHistoriasCards();
-      renderReelChips();
-      renderReelDetail();
-      renderTeamCards();
+        // Switch to user default tab
+        switchTab(currentUser ? (currentUser.default_tab || 'historias') : 'historias');
 
-      // Switch to user default tab
-      switchTab(currentUser.default_tab || 'historias');
+        // Then fetch latest live data from Supabase in background without blocking the UI
+        Promise.all([loadReels(), loadStories(), loadLogs()]).then(() => {
+          renderCalendar();
+          renderControlTab();
+          renderDayChips();
+          renderHistoriasCards();
+          renderReelChips();
+          renderReelDetail();
+        }).catch(err => console.warn('Background sync note:', err));
+
+      } catch (err) {
+        console.error('Error during initApp:', err);
+        // Fallback: still show the viewport
+        document.getElementById('login-view').style.display = 'none';
+        document.getElementById('appViewport').style.display = 'block';
+      }
     }
 
     // ==========================================

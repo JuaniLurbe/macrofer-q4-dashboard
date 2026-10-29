@@ -486,36 +486,119 @@
       margin-bottom: 12px;
     }
 
-    /* Streamlined Copy Card: Ultra Clean & Legible */
-    .copy-speech-bubble {
-      background: #F9FAF9;
-      border: 1px solid #E2E8E4;
-      border-left: 3.5px solid var(--brand-green);
-      border-radius: 0 12px 12px 0;
-      padding: 12px 14px;
-      margin-bottom: 12px;
-      position: relative;
+    /* Refined Editorial Dialogue & Script Card */
+    .story-index-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--brand-green);
+      background: var(--brand-green-light);
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.02em;
     }
 
-    .copy-text-main {
-      font-size: 14px;
-      color: #1A2E22;
-      line-height: 1.5;
+    .story-visual-scene {
+      background: #F8FAF9;
+      border: 1px solid #E4EAE6;
+      border-radius: 10px;
+      padding: 9px 12px;
+      margin-bottom: 10px;
+    }
+
+    .story-scene-label {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #4A6354;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 3px;
+    }
+
+    .story-scene-text {
+      font-size: 12.5px;
+      color: #2D3D34;
+      line-height: 1.4;
       font-weight: 500;
     }
 
-    .sticker-tag {
+    /* Dialogue & Script Prompt Box */
+    .story-script-card {
+      background: linear-gradient(180deg, #FFFFFF 0%, #F5F9F6 100%);
+      border: 1.5px solid #D2E4D7;
+      border-left: 4.5px solid var(--brand-green);
+      border-radius: 12px;
+      padding: 13px 15px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 4px rgba(1, 97, 53, 0.04);
+      position: relative;
+    }
+
+    .story-script-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 7px;
+    }
+
+    .story-script-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: var(--brand-yellow-light);
-      border: 1px solid rgba(201, 191, 0, 0.3);
-      padding: 5px 10px;
-      border-radius: var(--radius-sm);
-      font-size: 11px;
-      font-weight: 600;
-      color: #4A4600;
+      gap: 5px;
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--brand-green);
+    }
+
+    .story-dialogue-quote {
+      font-size: 14.5px;
+      font-weight: 500;
+      line-height: 1.55;
+      color: #0E1712;
+      letter-spacing: -0.01em;
+    }
+
+    /* Interactive Sticker Callout */
+    .story-sticker-card {
+      background: #FFFDF2;
+      border: 1px solid #EFE4AF;
+      border-radius: 10px;
+      padding: 8px 12px;
       margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .story-sticker-icon {
+      font-size: 15px;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .story-sticker-content {
+      flex: 1;
+    }
+
+    .story-sticker-title {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #7A6500;
+      margin-bottom: 2px;
+    }
+
+    .story-sticker-body {
+      font-size: 12px;
+      font-weight: 600;
+      color: #3D3500;
+      line-height: 1.35;
     }
 
     /* Buttons inside Card */
@@ -1871,7 +1954,12 @@
     }
 
     async function loadStories() {
-      stories = await sbFetch('stories?select=*&order=story_date.asc,time_slot.asc') || [];
+      const res = await sbFetch('stories?select=*&month=eq.Noviembre 2026&order=story_date.asc,time_slot.asc');
+      if (res && res.length) {
+        stories = res.filter(s => s.month === 'Noviembre 2026' && !(s.copy || '').toLowerCase().includes('seguinos'));
+      } else {
+        stories = [];
+      }
     }
 
     async function loadLogs() {
@@ -2130,13 +2218,28 @@
       renderHistoriasCards();
     }
 
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function copyStoryFromData(btn) {
+      const text = decodeURIComponent(btn.getAttribute('data-copy') || '');
+      copyText(text, btn);
+    }
+
     function renderHistoriasCards() {
       document.getElementById('historiasDayTitle').textContent = currentDayLabel;
-      const dayStories = stories.filter(s => s.day_label === currentDayLabel);
+      const dayStories = stories.filter(s => s.day_label === currentDayLabel && s.month === 'Noviembre 2026');
 
       const stream = document.getElementById('historiasStream');
       if (!dayStories.length) {
-        stream.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--text-secondary);">No hay historias programadas para este día.</div>';
+        stream.innerHTML = '<div style="padding: 24px; text-align: center; color: var(--text-secondary); font-size: 14px;">No hay historias programadas para este día.</div>';
         return;
       }
 
@@ -2144,33 +2247,73 @@
         const isDone = s.status === 'Publicada';
         const isSpotlight = !isDone && (idx === 0 || dayStories[idx - 1]?.status === 'Publicada');
 
+        // Determine specific badge for content type
+        let badgeLabel = '💬 Guión en Cámara';
+        const tLower = (s.title || '').toLowerCase();
+        const dLower = (s.description || '').toLowerCase();
+        const stk = (s.sticker || '').toLowerCase();
+
+        if (tLower.includes('placa') || dLower.includes('placa') || stk.includes('marti')) {
+          badgeLabel = '🎨 Placa Gráfica (Marti)';
+        } else if (stk.includes('encuesta') || stk.includes('pregunta') || stk.includes('votación') || tLower.includes('sticker') || tLower.includes('encuesta')) {
+          badgeLabel = '📊 Sticker Interactivo';
+        } else if (tLower.includes('repost') || dLower.includes('repost')) {
+          badgeLabel = '🔁 Repost de Reel';
+        } else if (tLower.includes('asmr') || dLower.includes('asmr') || tLower.includes('primer plano')) {
+          badgeLabel = '🎬 Clip Visual / ASMR';
+        }
+
+        // Show visual scene only if it adds context beyond the title and dialogue
+        const cleanDesc = (s.description || '').trim();
+        const cleanCopy = (s.copy || '').trim();
+        const hasVisualContext = cleanDesc && cleanDesc !== cleanCopy && !cleanDesc.startsWith(cleanCopy.slice(0, 25));
+
+        const encodedCopy = encodeURIComponent(cleanCopy);
+
         return `
           <div class="apple-card ${isSpotlight ? 'active-spotlight' : ''}">
             <div class="card-top-row">
-              <span class="card-time-badge">
-                <span class="card-time-dot"></span> ${s.time_slot}
-              </span>
+              <div style="display: flex; align-items: center; gap: 7px;">
+                <span class="story-index-tag">Historia ${idx + 1}</span>
+                <span class="card-time-badge">
+                  <span class="card-time-dot"></span> ${s.time_slot}
+                </span>
+              </div>
               <span class="card-status-badge ${isDone ? 'done' : (isSpotlight ? 'active' : '')}">
-                ${isDone ? `Publicada ✓ (${s.published_by || ''})` : (isSpotlight ? 'En turno actual' : 'Pendiente')}
+                ${isDone ? `Publicada ✓ (${escapeHtml(s.published_by || '')})` : (isSpotlight ? 'En turno actual' : 'Pendiente')}
               </span>
             </div>
 
-            <h3 class="card-title">${s.title}</h3>
-            <p class="card-desc">${s.description}</p>
+            <h3 class="card-title">${escapeHtml(s.title)}</h3>
 
-            ${s.sticker ? `
-              <div class="sticker-tag">
-                <span>🏷️</span> ${s.sticker}
+            ${hasVisualContext ? `
+              <div class="story-visual-scene">
+                <div class="story-scene-label">🎬 Escena & Cámara</div>
+                <div class="story-scene-text">${escapeHtml(cleanDesc)}</div>
               </div>
             ` : ''}
 
-            <div class="copy-speech-bubble">
-              <div class="copy-text-main">“${s.copy}”</div>
+            <div class="story-script-card">
+              <div class="story-script-header">
+                <span class="story-script-badge">${badgeLabel}</span>
+                <span style="font-size: 11px; color: var(--text-secondary); font-weight: 500;">Av. Luro 5901</span>
+              </div>
+              <div class="story-dialogue-quote">“${escapeHtml(cleanCopy)}”</div>
             </div>
 
+            ${s.sticker ? `
+              <div class="story-sticker-card">
+                <span class="story-sticker-icon">🏷️</span>
+                <div class="story-sticker-content">
+                  <div class="story-sticker-title">Elemento Interactivo</div>
+                  <div class="story-sticker-body">${escapeHtml(s.sticker)}</div>
+                </div>
+              </div>
+            ` : ''}
+
             <div class="card-action-row">
-              <button class="btn-secondary touchable" onclick="copyText('${escapeQuotes(s.copy)}', this)">
-                📋 Copiar Copy
+              <button class="btn-secondary touchable" data-copy="${encodedCopy}" onclick="copyStoryFromData(this)">
+                📋 Copiar Guión
               </button>
               <button class="btn-primary-green touchable ${isDone ? 'completed' : ''}" onclick="toggleStoryPublished('${s.id}', this)">
                 <span>${isDone ? '✓ Publicada' : 'Marcar Publicada'}</span>

@@ -1530,13 +1530,34 @@
         <h3 class="sheet-title">¿Quién está usando la app?</h3>
         <p class="sheet-subtitle">Seleccioná tu perfil para adaptar tu vista de trabajo</p>
 
-        <div class="profile-options-grid" id="modalProfilesList">
-          <!-- Rendered dynamically -->
+        <!-- Profile Selection Step -->
+        <div id="modalStepSelect">
+          <div class="profile-options-grid" id="modalProfilesList">
+            <!-- Rendered dynamically -->
+          </div>
+          <button class="touchable" style="width: 100%; margin-top: 16px; padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); background: var(--bg-card-subtle); font-size: 13px; font-weight: 600; color: #BA1A1A;" onclick="handleLogout()">
+            Cerrar Sesión
+          </button>
         </div>
 
-        <button class="touchable" style="width: 100%; margin-top: 16px; padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); background: var(--bg-card-subtle); font-size: 13px; font-weight: 600; color: #BA1A1A;" onclick="handleLogout()">
-          Cerrar Sesión
-        </button>
+        <!-- PIN Verification Step -->
+        <div id="modalStepPin" style="display: none; text-align: center;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px;">
+            <div class="profile-avatar-circle" id="targetUserAvatar" style="width: 38px; height: 38px; font-size: 14px;"></div>
+            <div style="text-align: left;">
+              <div id="targetUserName" style="font-weight: 700; font-size: 15px;"></div>
+              <div id="targetUserRole" style="font-size: 12px; color: var(--text-secondary);"></div>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 14px;">
+            Ingresá el PIN de este perfil para cambiar de usuario:
+          </p>
+          <input type="password" id="modalPinInput" class="pin-input" placeholder="••••" maxlength="6" inputmode="numeric" onkeydown="if(event.key==='Enter') confirmUserSwitch()">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px;">
+            <button class="btn-secondary touchable" onclick="cancelUserSwitch()">Cancelar</button>
+            <button class="btn-primary-green touchable" onclick="confirmUserSwitch()">Confirmar</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -2183,18 +2204,61 @@
       `).join('');
     }
 
+    let pendingUserSwitch = null;
+
     function switchUser(email) {
       const p = profiles.find(item => item.email === email);
       if (!p) return;
+
+      // If clicking current user, just close
+      if (currentUser && currentUser.email === p.email) {
+        closeProfileModal();
+        return;
+      }
+
+      pendingUserSwitch = p;
+      document.getElementById('modalStepSelect').style.display = 'none';
+      document.getElementById('modalStepPin').style.display = 'block';
+      document.getElementById('targetUserName').textContent = p.name;
+      document.getElementById('targetUserRole').textContent = p.role;
+      document.getElementById('targetUserAvatar').textContent = p.avatar;
+      document.getElementById('targetUserAvatar').style.background = p.color;
+      
+      const pinInput = document.getElementById('modalPinInput');
+      pinInput.value = '';
+      setTimeout(() => pinInput.focus(), 150);
+    }
+
+    function cancelUserSwitch() {
+      pendingUserSwitch = null;
+      document.getElementById('modalStepPin').style.display = 'none';
+      document.getElementById('modalStepSelect').style.display = 'block';
+    }
+
+    function confirmUserSwitch() {
+      if (!pendingUserSwitch) return;
+      const pinInput = document.getElementById('modalPinInput');
+      const pin = pinInput.value.trim();
+
+      if (String(pendingUserSwitch.pin).trim() !== String(pin).trim()) {
+        alert('PIN incorrecto para ' + pendingUserSwitch.name);
+        pinInput.value = '';
+        pinInput.focus();
+        return;
+      }
+
+      const p = pendingUserSwitch;
       currentUser = p;
-      localStorage.setItem('macrofer_user_email', email);
+      localStorage.setItem('macrofer_user_email', p.email);
       document.getElementById('headerUserName').textContent = p.name;
       document.getElementById('headerAvatar').textContent = p.avatar;
       document.getElementById('headerAvatar').style.background = p.color;
+      
+      cancelUserSwitch();
       closeProfileModal();
       switchTab(p.default_tab || 'historias');
-      logActivity('switch_user', 'session', `Cambio de usuario activo a: ${p.name}`);
-      showToast(`Perfil cambiado a: ${p.name}`);
+      logActivity('switch_user', 'session', `Cambio autenticado de usuario a: ${p.name}`);
+      showToast(`Sesión cambiada a: ${p.name}`);
     }
 
     // Markdown Importer
@@ -2218,6 +2282,7 @@
 
     // Profile Modal
     function openProfileModal() {
+      cancelUserSwitch();
       document.getElementById('profileModal').classList.add('open');
     }
     function closeProfileModal(e) {

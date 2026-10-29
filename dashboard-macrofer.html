@@ -593,12 +593,12 @@
       font-weight: 500;
     }
 
-    /* Apple Monthly Calendar Component */
+    /* Apple Monthly Calendar Component Redesign */
     .calendar-container {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-squircle);
-      padding: 16px;
+      padding: 18px 16px;
       margin: 0 16px 20px 16px;
       box-shadow: var(--shadow-apple);
     }
@@ -607,23 +607,23 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .cal-nav-btn {
       background: var(--bg-card-subtle);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-pill);
-      padding: 6px 12px;
+      padding: 7px 13px;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-primary);
     }
 
     .calendar-days-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      gap: 6px;
+      gap: 4px;
       text-align: center;
     }
 
@@ -631,20 +631,22 @@
       font-size: 11px;
       font-weight: 700;
       color: var(--text-secondary);
-      padding-bottom: 4px;
+      padding-bottom: 8px;
     }
 
     .cal-cell {
-      min-height: 52px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-subtle);
-      background: #FFFFFF;
-      padding: 4px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      background: var(--bg-card-subtle);
+      padding: 4px 2px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      gap: 2px;
+      justify-content: center;
+      gap: 3px;
+      position: relative;
+      transition: all 0.15s ease;
       cursor: pointer;
     }
     .cal-cell.empty {
@@ -653,36 +655,101 @@
       cursor: default;
     }
     .cal-cell.has-reel {
-      border-color: var(--brand-green);
-      background: var(--brand-green-light);
+      background: #E8F4EE;
+      border-color: rgba(1, 97, 53, 0.2);
     }
     .cal-cell.has-story {
-      border-color: #FCD34D;
       background: #FFFDF0;
+      border-color: rgba(217, 119, 6, 0.2);
     }
-    .cal-cell.active-day {
-      box-shadow: 0 0 0 2px var(--brand-green);
+    .cal-cell.selected-day {
+      background: #FFFFFF !important;
+      border: 2px solid var(--brand-green) !important;
+      box-shadow: 0 3px 10px rgba(1, 97, 53, 0.15);
+      transform: scale(1.04);
+      z-index: 2;
     }
 
     .cal-cell-num {
-      font-size: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+
+    .cal-indicators {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+    }
+    .cal-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+    }
+    .dot-reel {
+      background: var(--brand-green);
+    }
+    .dot-story {
+      background: #D97706;
+    }
+
+    /* Dynamic Summary Card */
+    .cal-summary-card {
+      margin-top: 16px;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      text-align: left;
+    }
+    .cal-summary-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .cal-summary-date {
+      font-size: 14px;
       font-weight: 700;
       color: var(--text-primary);
     }
-    .cal-cell-badge {
-      font-size: 8px;
+    .cal-summary-badge {
+      font-size: 11px;
       font-weight: 700;
-      padding: 1px 4px;
-      border-radius: 4px;
-      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
     }
-    .badge-reel {
-      background: var(--brand-green);
-      color: #FFFFFF;
+    .cal-summary-item {
+      padding: 8px 0;
+      border-top: 1px solid rgba(229, 229, 234, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
-    .badge-story {
-      background: #D97706;
-      color: #FFFFFF;
+    .cal-summary-item-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cal-summary-item-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.35;
+    }
+    .cal-summary-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--brand-green);
+      margin-top: 4px;
+      cursor: pointer;
     }
 
     .reels-list {
@@ -1303,9 +1370,14 @@
           <!-- Rendered dynamically -->
         </div>
 
-        <div style="display: flex; gap: 12px; justify-content: center; margin-top: 12px; font-size: 10px; font-weight: 700;">
-          <span style="display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; background: var(--brand-green); border-radius: 2px;"></span> Reel Semanal</span>
-          <span style="display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; background: #D97706; border-radius: 2px;"></span> Historias Diarias</span>
+        <div style="display: flex; gap: 14px; justify-content: center; margin-top: 12px; font-size: 11px; font-weight: 600; color: var(--text-secondary);">
+          <span style="display: flex; align-items: center; gap: 5px;"><span class="cal-dot dot-reel" style="width: 7px; height: 7px;"></span> Reel Semanal</span>
+          <span style="display: flex; align-items: center; gap: 5px;"><span class="cal-dot dot-story" style="width: 7px; height: 7px;"></span> Historias Diarias</span>
+        </div>
+
+        <!-- Dynamic Day Summary Card (No Redirection) -->
+        <div id="calDaySummary" class="cal-summary-card anim-fade-in" style="display: block;">
+          <!-- Rendered dynamically -->
         </div>
       </div>
 
@@ -1873,6 +1945,8 @@
       renderCalendar();
     }
 
+    let selectedCalDate = '2026-11-02';
+
     function renderCalendar() {
       const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
       document.getElementById('calendarMonthLabel').textContent = `${monthNames[calendarMonth]} ${calendarYear}`;
@@ -1906,43 +1980,106 @@
         const dayStories = stories.filter(s => s.story_date === dateStr);
 
         let cellClass = 'cal-cell touchable';
-        let badgeHtml = '';
+        let dotsHtml = '<div class="cal-indicators">';
 
         if (dayReel) {
           cellClass += ' has-reel';
-          badgeHtml = `<span class="cal-cell-badge badge-reel">R#${dayReel.id}</span>`;
-        } else if (dayStories.length > 0) {
+          dotsHtml += '<span class="cal-dot dot-reel"></span>';
+        }
+        if (dayStories.length > 0) {
           cellClass += ' has-story';
-          badgeHtml = `<span class="cal-cell-badge badge-story">${dayStories.length} St</span>`;
+          dotsHtml += '<span class="cal-dot dot-story"></span>';
+        }
+        dotsHtml += '</div>';
+
+        if (dateStr === selectedCalDate) {
+          cellClass += ' selected-day';
         }
 
         grid.innerHTML += `
-          <div class="${cellClass}" onclick="handleCalendarDateClick('${dateStr}', ${dayReel ? dayReel.id : 'null'})">
+          <div class="${cellClass}" onclick="handleCalendarDateClick('${dateStr}')">
             <span class="cal-cell-num">${day}</span>
-            ${badgeHtml}
+            ${dotsHtml}
           </div>
         `;
       }
+
+      renderCalDaySummary();
     }
 
-    function handleCalendarDateClick(dateStr, reelId) {
-      if (reelId) {
-        selectReelById(reelId);
-        switchTab('guiones');
-        showToast(`Abriendo Reel #${reelId}`);
+    function handleCalendarDateClick(dateStr) {
+      selectedCalDate = dateStr;
+      renderCalendar(); // re-renders to highlight selected day and update summary
+    }
+
+    function renderCalDaySummary() {
+      const summaryBox = document.getElementById('calDaySummary');
+      if (!summaryBox) return;
+
+      const dateParts = selectedCalDate.split('-');
+      const year = parseInt(dateParts[0]);
+      const month = parseInt(dateParts[1]) - 1;
+      const day = parseInt(dateParts[2]);
+
+      const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+      const dayNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+      const dateObj = new Date(year, month, day);
+      const dayName = dayNames[dateObj.getDay()];
+
+      const dayReel = reels.find(r => r.publish_date === selectedCalDate);
+      const dayStories = stories.filter(s => s.story_date === selectedCalDate);
+
+      let contentHtml = `
+        <div class="cal-summary-header">
+          <span class="cal-summary-date">${dayName} ${day} de ${monthNames[month]}</span>
+          <span class="cal-summary-badge" style="background: ${dayReel || dayStories.length ? '#E8F4EE' : '#F3F4F6'}; color: ${dayReel || dayStories.length ? '#016135' : '#86868B'};">
+            ${dayReel && dayStories.length ? 'Reel + Stories' : (dayReel ? 'Reel de Lanzamiento' : (dayStories.length ? `${dayStories.length} Stories Programadas` : 'Sin Contenido'))}
+          </span>
+        </div>
+      `;
+
+      if (!dayReel && dayStories.length === 0) {
+        contentHtml += `
+          <div style="font-size: 13px; color: var(--text-secondary); padding: 8px 0;">
+            No hay publicaciones programadas para esta fecha en el calendario.
+          </div>
+        `;
       } else {
-        // find matching story day label
-        const match = stories.find(s => s.story_date === dateStr);
-        if (match) {
-          currentDayLabel = match.day_label;
-          renderDayChips();
-          renderHistoriasCards();
-          switchTab('historias');
-          showToast(`Historias del ${match.day_label}`);
-        } else {
-          showToast(`Sin contenido programado para ${dateStr}`);
+        if (dayReel) {
+          contentHtml += `
+            <div class="cal-summary-item">
+              <div class="cal-summary-item-title">
+                <span class="cal-dot dot-reel"></span> 🎬 Reel #${dayReel.id}: ${dayReel.title}
+              </div>
+              <div class="cal-summary-item-desc">
+                <strong>Categoría:</strong> ${dayReel.category} • <strong>Protagonista:</strong> ${dayReel.cast_members} • <strong>Estado:</strong> ${dayReel.status}
+              </div>
+              <div class="cal-summary-action" onclick="selectReelById(${dayReel.id}); switchTab('guiones');">
+                Ver Guión y Teleprompter →
+              </div>
+            </div>
+          `;
+        }
+
+        if (dayStories.length > 0) {
+          const publishedCount = dayStories.filter(s => s.status === 'Publicada').length;
+          contentHtml += `
+            <div class="cal-summary-item">
+              <div class="cal-summary-item-title">
+                <span class="cal-dot dot-story"></span> 📱 Secuencia Diaria de Stories (${publishedCount}/${dayStories.length} listas)
+              </div>
+              <div class="cal-summary-item-desc">
+                ${dayStories.map(s => `• <strong>${s.time_slot}</strong>: ${s.title}`).join('<br>')}
+              </div>
+              <div class="cal-summary-action" onclick="selectStoryDay('${dayStories[0].day_label}'); switchTab('historias');">
+                Ir al CM Hub de Historias →
+              </div>
+            </div>
+          `;
         }
       }
+
+      summaryBox.innerHTML = contentHtml;
     }
 
     function renderControlTab() {

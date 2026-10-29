@@ -1040,6 +1040,262 @@
     /* ==========================================================================
        TAB 4: EQUIPO, AUDIT LOG & IMPORTADOR MARKDOWN
        ========================================================================== */
+    
+    /* ==========================================================================
+       BLOQUE DINÁMICO: ¿QUÉ TENGO QUE HACER HOY?
+       ========================================================================== */
+    .today-tasks-card {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(1, 97, 53, 0.22);
+      border-radius: var(--radius-squircle);
+      padding: 18px 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 18px -2px rgba(1, 97, 53, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .today-tasks-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--brand-green) 0%, #059669 50%, var(--brand-yellow) 100%);
+    }
+
+    .today-tasks-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .today-kicker {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--brand-green);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .today-day-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+    }
+
+    .today-heading {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .today-subtitle {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .today-user-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #F4F8F5;
+      border: 1px solid #DCECE0;
+      border-radius: var(--radius-md);
+      padding: 9px 12px;
+      margin-bottom: 12px;
+    }
+
+    .today-avatar-mini {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .today-user-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .today-user-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .today-user-role {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--brand-green);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Content highlight for the day */
+    .today-context-box {
+      background: #FFFDF2;
+      border: 1px solid #F3E8B8;
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #4D4300;
+      line-height: 1.35;
+    }
+
+    /* Progress Bar */
+    .today-progress-container {
+      margin-bottom: 14px;
+    }
+
+    .today-progress-text {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-bottom: 5px;
+    }
+
+    .today-progress-bar-bg {
+      height: 6px;
+      background: var(--bg-card-subtle);
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .today-progress-bar-fill {
+      height: 100%;
+      background: var(--brand-green);
+      border-radius: var(--radius-pill);
+      transition: width 0.25s ease;
+    }
+
+    /* Task Items Checklist */
+    .today-task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .today-task-item {
+      background: #FAFAFA;
+      border: 1px solid #EBEBEB;
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .today-task-item:hover {
+      background: #F5F7F6;
+      border-color: #D6E3DB;
+    }
+
+    .today-task-item.completed {
+      background: #F3F8F5;
+      border-color: #D1E5D8;
+    }
+
+    .today-task-checkbox {
+      width: 19px;
+      height: 19px;
+      border-radius: 6px;
+      border: 2px solid #C4C4C4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: all 0.15s ease;
+      background: #FFFFFF;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .today-task-item.completed .today-task-checkbox {
+      background: var(--brand-green);
+      border-color: var(--brand-green);
+      color: #FFFFFF;
+    }
+
+    .today-task-text {
+      font-size: 13px;
+      color: var(--text-primary);
+      line-height: 1.45;
+      flex: 1;
+    }
+
+    .today-task-item.completed .today-task-text {
+      text-decoration: line-through;
+      color: var(--text-secondary);
+      opacity: 0.8;
+    }
+
+    /* Quick Action Shortcuts */
+    .today-actions-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(229, 229, 234, 0.6);
+    }
+
+    .today-btn-quick {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 8px 10px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .today-btn-quick:hover {
+      background: #FFFFFF;
+      border-color: var(--brand-green);
+      color: var(--brand-green);
+    }
+
     .team-stream {
       padding: 0 16px;
       display: flex;
@@ -1584,6 +1840,10 @@
     <!-- TAB 4: EQUIPO, AUDITORÍA & IMPORTADOR MD   -->
     <!-- ========================================== -->
     <main id="tab-equipo" style="display: none;" class="anim-fade-in">
+      <!-- BLOQUE DINÁMICO: ¿QUÉ TENGO QUE HACER HOY? -->
+      <div id="todayTaskContainer" style="padding: 16px 16px 0 16px;">
+        <!-- Rendered by renderTodayTasks() -->
+      </div>
       <div class="view-subheader">
         <div class="view-kicker">Organigrama & Operaciones</div>
         <div class="view-title-row">
@@ -1921,9 +2181,11 @@
         renderControlTab();
         renderDayChips();
         renderHistoriasCards();
+      renderTodayTasks();
         renderReelChips();
         renderReelDetail();
         renderTeamCards();
+        renderTodayTasks();
 
         // Switch to user default tab
         switchTab(currentUser ? (currentUser.default_tab || 'historias') : 'historias');
@@ -1934,6 +2196,7 @@
           renderControlTab();
           renderDayChips();
           renderHistoriasCards();
+      renderTodayTasks();
           renderReelChips();
           renderReelDetail();
         }).catch(err => console.warn('Background sync note:', err));
@@ -2017,6 +2280,10 @@
           btn.classList.remove('active');
         }
       });
+      if (tabName === 'equipo') {
+        renderTodayTasks();
+        renderTeamCards();
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -2216,6 +2483,7 @@
       currentDayLabel = label;
       renderDayChips();
       renderHistoriasCards();
+      renderTodayTasks();
     }
 
     function escapeHtml(str) {
@@ -2340,6 +2608,7 @@
       setTimeout(() => btnElement.classList.remove('anim-jello'), 600);
 
       renderHistoriasCards();
+      renderTodayTasks();
 
       // Persist in Supabase
       await sbFetch(`stories?id=eq.${storyId}`, {
@@ -2442,6 +2711,207 @@
     // ==========================================
     // TAB 4: EQUIPO, PROFILES & MARKDOWN IMPORTER
     // ==========================================
+    
+    // ==========================================
+    // TAB 4: BLOQUE ¿QUÉ TENGO QUE HACER HOY?
+    // ==========================================
+    function getTasksForUserAndDay(userName, dayNum, dayReel, dayStories) {
+      const uName = (userName || '').toLowerCase();
+      const reelTitle = dayReel ? dayReel.title : '';
+      const reelSpeaker = dayReel ? dayReel.speaker : '';
+
+      if (uName.includes('juani')) {
+        const tasks = [];
+        if (dayReel) {
+          tasks.push(`🎬 Grabar / editar corte final del Reel de hoy: <strong>"${reelTitle}"</strong> (${reelSpeaker}) con la Sony FX3.`);
+          tasks.push(`✂️ Aplicar subtítulos dinámicos palabra a palabra, zoom suave y master de audio a -14 LUFS.`);
+          tasks.push(`☁️ Exportar en formato vertical 9:16 y subir el render final a Google Drive para revisión.`);
+        } else {
+          tasks.push(`🎥 Preparar luces, trípode y micrófonos en showroom para las próximas jornadas de grabación.`);
+          tasks.push(`🎬 Rodar tomas de apoyo (b-roll ASMR) y backstage con Nai & Emily para historias diarias.`);
+        }
+        tasks.push(`🤝 Coordinar con Agustina la selección de herramientas prioritarias y chequear tomas con los vendedores.`);
+        return tasks;
+      }
+
+      if (uName.includes('marti')) {
+        const tasks = [
+          `🎨 Diseñar la Placa Gráfica 9:16 con ofertas y precios de las 11:30 AM para historias.`,
+          `🔗 Generar enlace con UTM / link directo a macrofer.com.ar para el sticker de compra web.`,
+          `📅 Programar publicaciones, copys oficiales y hashtags en Meta Business Suite.`,
+          `🖼️ Supervisar coherencia visual con el manual de marca (paleta, tipografías y logo).`
+        ];
+        return tasks;
+      }
+
+      if (uName.includes('agustina')) {
+        const tasks = [
+          `📦 Validar stock físico en góndola y depósito de los productos destacados del día.`,
+          `💳 Confirmar precios de contado, descuentos por transferencia y promociones bancarias vigentes.`,
+          `🤝 Coordinar con Juani y los vendedores la selección de máquinas para la próxima jornada de grabación.`,
+          `🔐 Custodiar el equipamiento audiovisual en oficina y registrar balance de consultas generadas.`
+        ];
+        return tasks;
+      }
+
+      if (uName.includes('nai') || uName.includes('emily')) {
+        const tasks = [
+          `🤳 10:25 AM: Grabar video selfie de apertura desde el pasillo comercial de Av. Luro 5901.`,
+          `📱 10:30 a 11:30 AM: Publicar las ${dayStories.length} historias programadas de hoy en sus horarios exactos.`,
+          `📊 Colocar sticker interactivo (Encuesta, Caja de Preguntas o Sticker de Enlace).`,
+          `💬 Responder comentarios en Instagram y derivar consultas calientes al WhatsApp de ventas.`
+        ];
+        return tasks;
+      }
+
+      if (uName.includes('martín') || uName.includes('martin')) {
+        const tasks = [];
+        if (dayReel) {
+          tasks.push(`👁️ Revisar y dar visto bueno final al corte del Reel: <strong>"${reelTitle}"</strong>.`);
+          tasks.push(`💰 Asignar presupuesto publicitario diario en Meta Ads para amplificar el Reel.`);
+        } else {
+          tasks.push(`📊 Analizar métricas de alcance, interacción y consultas comerciales de la semana.`);
+        }
+        tasks.push(`📈 Supervisar facturación de mostrador y pedidos generados en macrofer.com.ar.`);
+        tasks.push(`🎙️ Participación como vocero oficial en videos testimoniales e institucionales.`);
+        return tasks;
+      }
+
+      if (uName.includes('seba') || uName.includes('ale')) {
+        return [
+          `🔧 Poner a punto máquinas y herramientas para demostraciones prácticas en cámara.`,
+          `💬 Asesoramiento técnico en mostrador sobre repuestos, tanza, mezcla 2T y service.`,
+          `🚚 Planificar y despachar envíos pesados y entregas mayoristas en la región (Ale en ruta).`
+        ];
+      }
+
+      return [
+        `📌 Revisar plan diario de contenidos de Macrofer Paseo Ferretero.`,
+        `🤝 Coordinar con el equipo comercial en Av. Luro 5901.`
+      ];
+    }
+
+    function toggleTodayTask(taskIdx) {
+      const user = currentUser || profiles[0];
+      const storageKey = `macrofer_tasks_done_${user.id || user.name}_${currentDayLabel}`;
+      let completedSet = new Set();
+      try {
+        const saved = localStorage.getItem(storageKey);
+        if (saved) completedSet = new Set(JSON.parse(saved));
+      } catch (e) {}
+
+      if (completedSet.has(taskIdx)) {
+        completedSet.delete(taskIdx);
+      } else {
+        completedSet.add(taskIdx);
+      }
+
+      localStorage.setItem(storageKey, JSON.stringify([...completedSet]));
+      renderTodayTasks();
+    }
+
+    function renderTodayTasks() {
+      const container = document.getElementById('todayTaskContainer');
+      if (!container) return;
+
+      const user = currentUser || profiles[0];
+      const userName = user.name || 'Juani';
+      const userColor = user.color || '#2563EB';
+      const userAvatar = user.avatar || 'J';
+      const userRole = user.role || 'Producción Audiovisual & Edición';
+
+      // Find content for currentDayLabel
+      const dayStories = stories.filter(s => s.day_label === currentDayLabel && s.month === 'Noviembre 2026');
+      
+      const dayMatch = currentDayLabel.match(/(\d+)/);
+      const dayNum = dayMatch ? parseInt(dayMatch[1], 10) : 2;
+      const dayIso = `2026-11-${String(dayNum).padStart(2, '0')}`;
+      
+      const dayReel = reels.find(r => r.publish_date === dayIso);
+
+      const tasks = getTasksForUserAndDay(userName, dayNum, dayReel, dayStories);
+
+      const storageKey = `macrofer_tasks_done_${user.id || userName}_${currentDayLabel}`;
+      let completedSet = new Set();
+      try {
+        const saved = localStorage.getItem(storageKey);
+        if (saved) completedSet = new Set(JSON.parse(saved));
+      } catch (e) {}
+
+      const completedCount = tasks.filter((_, idx) => completedSet.has(idx)).length;
+      const progressPercent = tasks.length > 0 ? Math.round((completedCount / tasks.length) * 100) : 0;
+
+      let contextSnippet = '';
+      if (dayReel) {
+        contextSnippet = `🎬 <strong>Reel del día:</strong> ${escapeHtml(dayReel.title)} (${escapeHtml(dayReel.speaker)}) • 📱 ${dayStories.length} Historias`;
+      } else if (dayStories.length) {
+        contextSnippet = `📱 <strong>Historias del día:</strong> ${dayStories.length} programadas (10:25 AM a 11:45 AM)`;
+      } else {
+        contextSnippet = `🗓️ <strong>Plan del día:</strong> Contenido y operaciones en salón de Av. Luro 5901`;
+      }
+
+      container.innerHTML = `
+        <div class="today-tasks-card">
+          <div class="today-tasks-top-row">
+            <span class="today-kicker">📌 Mi Hoja de Ruta Diaria</span>
+            <span class="today-day-badge">${escapeHtml(currentDayLabel)}</span>
+          </div>
+
+          <h2 class="today-heading">¿Qué tengo que hacer hoy?</h2>
+          <div class="today-subtitle">
+            Hola <strong>${escapeHtml(userName)}</strong>, estas son tus prioridades sincronizadas para hoy:
+          </div>
+
+          <div class="today-user-bar">
+            <div class="today-avatar-mini" style="background: ${userColor};">
+              ${escapeHtml(userAvatar)}
+            </div>
+            <div class="today-user-info">
+              <div class="today-user-name">${escapeHtml(userName)}</div>
+              <div class="today-user-role">${escapeHtml(userRole)}</div>
+            </div>
+          </div>
+
+          <div class="today-context-box">
+            ${contextSnippet}
+          </div>
+
+          <div class="today-progress-container">
+            <div class="today-progress-text">
+              <span>Progreso de hoy</span>
+              <span>${completedCount} de ${tasks.length} completadas (${progressPercent}%)</span>
+            </div>
+            <div class="today-progress-bar-bg">
+              <div class="today-progress-bar-fill" style="width: ${progressPercent}%;"></div>
+            </div>
+          </div>
+
+          <div class="today-task-list">
+            ${tasks.map((t, idx) => {
+              const isDone = completedSet.has(idx);
+              return `
+                <div class="today-task-item ${isDone ? 'completed' : ''}" onclick="toggleTodayTask(${idx})">
+                  <div class="today-task-checkbox">
+                    ${isDone ? '✓' : ''}
+                  </div>
+                  <div class="today-task-text">${t}</div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+
+          <div class="today-actions-row">
+            <button class="today-btn-quick touchable" onclick="switchTab('historias')">
+              📱 Ir a Historias (${dayStories.length})
+            </button>
+            <button class="today-btn-quick touchable" onclick="switchTab('guiones')">
+              🎬 Ver Guiones de Reels
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
     function renderTeamCards() {
       const container = document.getElementById('teamContainer');
       container.innerHTML = profiles.map(m => `

@@ -2,7 +2,7 @@
 # Macrofer Paseo Ferretero • Mar del Plata
 > **Frecuencia:** Lunes a Sábado • Franja matutina (10:25 a 11:45 AM)  
 > **Ejecución en Local:** Nai y Emily (Community Managers) con celular y micrófono  
-> **Diseño de Placas:** Marti  
+> **Diseño de Placas:** Valen  
 > **Custodia de Equipos & Precios:** Agustina  
 > **Supervisión de Tono:** Juani y Martín  
 
@@ -25,7 +25,7 @@
 * **Historia 3 (11:00 AM) [INTERACCIÓN]:** Sticker de encuesta interactiva sobre foto del pasto crecido:  
   * *Texto:* *"¿En tu casa ya arrancó la temporada de cortar el pasto todos los findes?"*  
   * *Opciones:* `[Sí, todos los findes 🌿]` / `[Todavía zafa... 😅]`
-* **Historia 4 (11:30 AM) [DISEÑO MARTI]:** Placa limpia con las 3 bordeadoras más vendidas, precio de contado/transferencia y **Sticker de Link directo al e-commerce**.
+* **Historia 4 (11:30 AM) [DISEÑO VALEN]:** Placa limpia con las 3 bordeadoras más vendidas, precio de contado/transferencia y **Sticker de Link directo al e-commerce**.
 
 ---
 
@@ -37,7 +37,7 @@
 * **Historia 2 (10:50 AM):** Primer plano estético (ASMR) cortando un tramo de tanza reforzada.
 * **Historia 3 (11:15 AM) [INTERACCIÓN]:** Sticker de **Caja de Preguntas**:  
   * *Texto:* *"¿Qué máquina o herramienta estás necesitando poner a punto esta semana? Te pasamos stock y precio por privado 👇"*.
-* **Historia 4 (11:45 AM) [DISEÑO MARTI]:** Placa informativa: *"Envíos en el día en Mar del Plata y despacho a todo el país • Comprá en macrofer.com.ar"*.
+* **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa informativa: *"Envíos en el día en Mar del Plata y despacho a todo el país • Comprá en macrofer.com.ar"*.
 
 ---
 
@@ -49,7 +49,7 @@
 * **Historia 3 (11:15 AM) [INTERACCIÓN]:** Sticker de encuesta:  
   * *Texto:* *"A la hora de armar o cortar en obra... ¿sos de medir dos veces antes o te mandás de una?"*  
   * *Opciones:* `[Mido 2 veces con regla 📏]` / `[A ojo y que Dios ayude 🙈]`
-* **Historia 4 (11:45 AM) [DISEÑO MARTI]:** Placa gráfica con el set de medición Bahco (escuadras, reglas y cintas métricas) con cuotas sin interés.
+* **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa gráfica con el set de medición Bahco (escuadras, reglas y cintas métricas) con cuotas sin interés.
 
 ---
 
@@ -63,7 +63,7 @@
 * **Historia 3 (11:05 AM) [INTERACCIÓN]:** Sticker de votación:  
   * *Texto:* *"Para el patio de tu casa... ¿preferís eléctrica o a nafta?"*  
   * *Opciones:* `[⚡ Eléctrica (liviana)]` / `[⛽ Nafta (potencia pura)]`
-* **Historia 4 (11:35 AM) [DISEÑO MARTI]:** Placa comparativa con una opción eléctrica y una a combustión, con precio y cuotas.
+* **Historia 4 (11:35 AM) [DISEÑO VALEN]:** Placa comparativa con una opción eléctrica y una a combustión, con precio y cuotas.
 
 ---
 
@@ -74,7 +74,7 @@
 * **Historia 2 (11:00 AM) [INTERACCIÓN]:** Sticker de **Caja de Respuestas**:  
   * *Texto:* *"Confesá acá abajo: ¿qué fue lo último que compraste en la ferretería que no tenías planeado llevarte? 😂👇"*.
 * **Historia 3 (11:25 AM):** Nai leyendo en video selfie 2 o 3 respuestas graciosas que llegaron a la caja.
-* **Historia 4 (11:45 AM) [DISEÑO MARTI]:** Placa completa con las promociones bancarias, cuotas sin interés y descuentos por transferencia para compras del fin de semana.
+* **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa completa con las promociones bancarias, cuotas sin interés y descuentos por transferencia para compras del fin de semana.
 
 ---
 
@@ -82,7 +82,7 @@
 * **Historia 0 (09:45 AM - ASMR):** Primer plano estético del café saliendo en la máquina o el termo con mate, con el murmullo de fondo del local abriendo sus puertas. Texto: *"Arranca el sábado en Macrofer ☕🔧"*.
 * **Historia 1 (10:30 AM):** Emily con un cliente en mostrador con muy buena onda: *"Acá lo tenemos a Carlos, vino a buscar insumos para el fin de semana. ¿Qué te toca encarar hoy?"* (Cliente cuenta brevemente su proyecto).
 * **Historia 2 (11:30 AM):** Emily mostrando el salón comercial en movimiento: *"Recordá que hoy sábado estamos de corrido hasta las 13:30 hs en Av. Luro 5901"*.
-* **Historia 3 (12:00 PM) [DISEÑO MARTI]:** Placa: *"Si no llegaste a pasar hoy, macrofer.com.ar está abierta las 24 hs. Comprá online y retirá el lunes sin hacer fila"*.
+* **Historia 3 (12:00 PM) [DISEÑO VALEN]:** Placa: *"Si no llegaste a pasar hoy, macrofer.com.ar está abierta las 24 hs. Comprá online y retirá el lunes sin hacer fila"*.
 
 ---
 
@@ -102,7 +102,7 @@
 * **Historia 3 (11:10 AM) [INTERACCIÓN]:** Sticker de encuesta:  
   * *Texto:* *"¿Cuál es la superficie que más te cuesta dejar limpia en casa?"*  
   * *Opciones:* `[Vereda con verdín 🧱]` / `[Paredes con salitre 🌊]`
-* **Historia 4 (11:45 AM) [DISEÑO MARTI]:** Placa de Marti con los 2 modelos de hidros (Gamma 1400W y Black & Decker reforzada), precio en cuotas y botón de enlace directo a la web.
+* **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa de Valen con los 2 modelos de hidros (Gamma 1400W y Black & Decker reforzada), precio en cuotas y botón de enlace directo a la web.
 
 ---
 
@@ -114,7 +114,7 @@
 * **Historia 2 (11:00 AM) [INTERACCIÓN]:** Sticker de **Caja de Preguntas**:  
   * *Texto:* *"¿Desde qué ciudad o barrio nos estás siguiendo? Te contamos cuánto tarda en llegar tu pedido 👇"*.
 * **Historia 3 (11:30 AM):** Nai muestra el camión culata de reparto cargado con pallets listo para arrancar.
-* **Historia 4 (11:45 AM) [DISEÑO MARTI]:** Placa informativa: *"Envíos seguros a todo el país • Seguimiento en tiempo real • Factura A y B en macrofer.com.ar"*.
+* **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa informativa: *"Envíos seguros a todo el país • Seguimiento en tiempo real • Factura A y B en macrofer.com.ar"*.
 
 ---
 
@@ -126,7 +126,7 @@
 * **Historia 3 (11:15 AM) [INTERACCIÓN]:** Sticker de encuesta interactiva:  
   * *Texto:* *"A la hora de mezclar nafta y aceite 2T... ¿cómo hacés la medida?"*  
   * *Opciones:* `[Uso vasito graduado 🧪]` / `[Confieso que 'a ojo' 🫣]`
-* **Historia 4 (11:45 AM) [DISEÑO MARTI]:** Placa de aceites 2T oficiales (Husqvarna y Gamma) + bidones dosificadores con precio y link de compra.
+* **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa de aceites 2T oficiales (Husqvarna y Gamma) + bidones dosificadores con precio y link de compra.
 
 ---
 
@@ -135,7 +135,7 @@
   * *Diálogo:* *"Ayer nos dejaron un montón de dudas sobre cómo cuidar las hidrolavadoras para que no se queme la bomba. Hoy vinimos con el especialista a responderles."*
 * **Historia 1 (10:40 AM):** Vendedor explicando en 25 segundos con la manguera en mano: *"Paso clave antes de prender el motor: abrir la canilla y apretar el gatillo hasta que salga agua continua sin aire. Recién ahí se enchufa y se prende"*.
 * **Historia 2 (11:10 AM):** Paneo a la góndola de accesorios: lanzas turbo, cepillos giratorios y mangueras de repuesto.
-* **Historia 3 (11:40 AM) [DISEÑO MARTI]:** Placa gráfica con accesorios de limpieza y aplicadores de espuma de nieve (Snow Foam) para lavado de vehículos.
+* **Historia 3 (11:40 AM) [DISEÑO VALEN]:** Placa gráfica con accesorios de limpieza y aplicadores de espuma de nieve (Snow Foam) para lavado de vehículos.
 
 ---
 
@@ -146,7 +146,7 @@
 * **Historia 2 (11:15 AM) [INTERACCIÓN]:** Sticker de **Caja de Respuestas**:  
   * *Texto:* *"¿Hace cuántos años venís a Macrofer? Contanos tu anécdota de obra o mostrador 👇💙"*.
 * **Historia 3 (11:35 AM):** Paneo del salón comercial con los vendedores atendiendo sonrientes con el mate al lado.
-* **Historia 4 (11:45 AM) [DISEÑO MARTI]:** Placa institucional sobria: *"Más de 40 años acompañando el crecimiento de Mar del Plata y la región • Av. Pedro Luro 5901"*.
+* **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa institucional sobria: *"Más de 40 años acompañando el crecimiento de Mar del Plata y la región • Av. Pedro Luro 5901"*.
 
 ---
 
@@ -154,7 +154,7 @@
 * **Historia 0 (09:45 AM):** Primer plano de una hidrolavadora siendo probada en el banco de pruebas del local con el agua corriendo. Texto: *"Sábado operativo en Macrofer ⚡"*.
 * **Historia 1 (10:30 AM):** Testimonio espontáneo de 10 segundos de un cliente en la caja retirando su máquina para el fin de semana.
 * **Historia 2 (11:30 AM):** Emily recordando: *"¡Últimas 2 horas de atención presencial! Recordá que cerramos 13:30 hs puntual"*.
-* **Historia 3 (12:00 PM) [DISEÑO MARTI]:** Placa con botón directo de WhatsApp para chequear stock antes de que termine el turno de atención.
+* **Historia 3 (12:00 PM) [DISEÑO VALEN]:** Placa con botón directo de WhatsApp para chequear stock antes de que termine el turno de atención.
 
 ---
 
@@ -174,7 +174,7 @@
   * *Texto:* *"¿Qué proyecto de pintura tenés pendiente antes de que empiece el calor fuerte?"*  
   * *Opciones:* `[Pintar la pileta 🏊‍♂️]` / `[Frente y rejas de casa 🏠]`
 * **Historia 3 (11:30 AM):** Seba muestra el pasillo de pinturas de Macrofer con las latas apiladas listas para salir.
-* **Historia 4 (11:45 AM) [DISEÑO MARTI]:** Placa de Marti con el **Combo Pileta Lista** (Pintura caucho clorado + Rodillo antigota + Diluyente) con precio especial y link a la web.
+* **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa de Valen con el **Combo Pileta Lista** (Pintura caucho clorado + Rodillo antigota + Diluyente) con precio especial y link a la web.
 
 ---
 
@@ -185,7 +185,7 @@
 * **Historia 2 (11:00 AM):** Seba muestra la diferencia entre un rodillo común de lana y un rodillo antigota texturado para no dejar marcas en las paredes.
 * **Historia 3 (11:20 AM) [INTERACCIÓN]:** Sticker de **Caja de Preguntas**:  
   * *Texto:* *"¿Cuántos metros mide tu pileta o pared? Dejanos las medidas y te calculamos los litros exactos 👇"*.
-* **Historia 4 (11:45 AM) [DISEÑO MARTI]:** Placa técnica de Marti con impermeabilizantes de frentes y techos con cuotas sin interés.
+* **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa técnica de Valen con impermeabilizantes de frentes y techos con cuotas sin interés.
 
 ---
 
@@ -197,7 +197,7 @@
 * **Historia 3 (11:15 AM) [INTERACCIÓN]:** Sticker de votación:  
   * *Texto:* *"¿Vos habrías adivinado la amoladora tocándola 3 segundos?"*  
   * *Opciones:* `[Obvio, soy de taller 🛠️]` / `[Ni por casualidad 😂]`
-* **Historia 4 (11:45 AM) [DISEÑO MARTI]:** Placa con las 3 herramientas que aparecieron en el desafío (Amoladora DeWalt y Rotomartillo) con descuento por transferencia.
+* **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa con las 3 herramientas que aparecieron en el desafío (Amoladora DeWalt y Rotomartillo) con descuento por transferencia.
 
 ---
 
@@ -207,7 +207,7 @@
 * **Historia 1 (10:40 AM):** Emily muestra la diferencia visual entre un disco de corte finito de 1mm y uno grueso de desbaste de 6mm.  
   * *Texto en historia:* *"JAMÁS uses un disco de desbaste para cortar. Se puede fracturar"*.
 * **Historia 2 (11:10 AM):** Paneo a la estantería completa de discos de corte fino Bahco y Norton.
-* **Historia 3 (11:40 AM) [DISEÑO MARTI]:** Placa con packs de 25 y 50 unidades de discos de corte para talleres y cuadrillas de obra.
+* **Historia 3 (11:40 AM) [DISEÑO VALEN]:** Placa con packs de 25 y 50 unidades de discos de corte para talleres y cuadrillas de obra.
 
 ---
 
@@ -219,7 +219,7 @@
   * *Texto:* *"Al usar amoladora... ¿te ponés antiparras protectoras SIEMPRE?"*  
   * *Opciones:* `[Siempre protegido 🥽]` / `[A veces me confío 🫣]`
 * **Historia 3 (11:30 AM):** Nai mostrando los elementos de protección personal: antiparras anti-empaño, guantes de nitrilo/descarne y protectores auditivos de copa.
-* **Historia 4 (11:45 AM) [DISEÑO MARTI]:** Placa de Marti: *"Combo Protección de Obra (Antiparras + Guantes + Barbijo) con descuento llevando tu pack de discos"*.
+* **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa de Valen: *"Combo Protección de Obra (Antiparras + Guantes + Barbijo) con descuento llevando tu pack de discos"*.
 
 ---
 
@@ -246,18 +246,18 @@
 * **Historia 3 (11:10 AM) [INTERACCIÓN]:** Sticker de encuesta:  
   * *Texto:* *"En tu caja de herramientas... ¿sos del orden obsesivo o tenés todo suelto?"*  
   * *Opciones:* `[Orden milimétrico 📏]` / `[Un caos pero encuentro todo 😅]`
-* **Historia 4 (11:45 AM) [DISEÑO MARTI]:** Placa con las 3 opciones de cajas portaherramientas y chalecos técnicos con opciones de pago en cuotas.
+* **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa con las 3 opciones de cajas portaherramientas y chalecos técnicos con opciones de pago en cuotas.
 
 ---
 
-### Martes 24 de Noviembre | "Preparando el Cierre de Mes (Día -3 con Marti & Agustina)"
-* **Historia 0 (10:25 AM):** Nai entra a la oficina donde están Agustina y Marti trabajando con las planillas de precios:  
+### Martes 24 de Noviembre | "Preparando el Cierre de Mes (Día -3 con Valen & Agustina)"
+* **Historia 0 (10:25 AM):** Nai entra a la oficina donde están Agustina y Valen trabajando con las planillas de precios:  
   * *Diálogo:* *"Buen martes. Faltan poquitos días para terminar noviembre y acá estamos en la cocina de las 'Ofertas del Mes' que se vienen para diciembre..."*
 * **Historia 1 (10:40 AM):** Nai enfoca de lejos la pantalla de la compu con un spoiler sutil (un taladro DeWalt con precio tachado):  
   * *Diálogo:* *"Agus, tirale un adelanto a la gente... ¿qué máquina va a entrar con descuento fuerte?".* Agustina sonríe: *"Se vienen combos ideales para el arbolito de Navidad"*.
 * **Historia 2 (11:15 AM) [INTERACCIÓN]:** Sticker de **Caja de Preguntas**:  
   * *Texto:* *"¿Qué herramienta o máquina te gustaría que esté en las Ofertas del Mes de diciembre? Las leemos 👇"*.
-* **Historia 3 (11:45 AM) [DISEÑO MARTI]:** Placa informativa de las promociones de fin de mes vigentes en `macrofer.com.ar`.
+* **Historia 3 (11:45 AM) [DISEÑO VALEN]:** Placa informativa de las promociones de fin de mes vigentes en `macrofer.com.ar`.
 
 ---
 
@@ -269,7 +269,7 @@
 * **Historia 3 (11:35 AM) [INTERACCIÓN]:** Sticker de encuesta:  
   * *Texto:* *"¿Sabías que en Macrofer hacemos entregas directas a pie de obra y a talleres?"*  
   * *Opciones:* `[Sí, siempre pido 🚚]` / `[No sabía, buenísimo 👏]`
-* **Historia 4 (11:45 AM) [DISEÑO MARTI]:** Placa comercial: *"Venta Mayorista y Distribución Regional • Atención personalizada B2B • Tel: 0223 478-9601"*.
+* **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa comercial: *"Venta Mayorista y Distribución Regional • Atención personalizada B2B • Tel: 0223 478-9601"*.
 
 ---
 
@@ -278,7 +278,7 @@
   * *Diálogo:* *"Muchos nos preguntan si estas cajas reforzadas aguantan el trato rudo de una camioneta de obra. Vamos a probarlo."*
 * **Historia 1 (10:35 AM):** El vendedor pone la valija cerrada en el piso y se sube parado con los dos pies arriba: la valija ni se inmuta.
 * **Historia 2 (11:00 AM):** Primer plano mostrando los pestillos metálicos y la junta estanca que no deja entrar agua ni polvo al interior.
-* **Historia 3 (11:40 AM) [DISEÑO MARTI]:** Placa de bolsos de lona impermeable y cinturones de cuero con precio promocional.
+* **Historia 3 (11:40 AM) [DISEÑO VALEN]:** Placa de bolsos de lona impermeable y cinturones de cuero con precio promocional.
 
 ---
 
@@ -289,13 +289,13 @@
 * **Historia 2 (11:15 AM) [INTERACCIÓN]:** Sticker limpio de interacción sin texto agresivo:  
   * *Texto:* *"Gracias por acompañarnos y ser parte de esta gran familia ferretera 💙"*.
 * **Historia 3 (11:35 AM):** Foto histórica del local en sus primeros años comparada con la imagen actual de Av. Luro 5901.
-* **Historia 4 (11:45 AM) [DISEÑO MARTI]:** Placa institucional sobria en verde y amarillo con el logo oficial y la frase: *"El legado sigue vivo en cada persona que trabaja con el corazón"*.
+* **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa institucional sobria en verde y amarillo con el logo oficial y la frase: *"El legado sigue vivo en cada persona que trabaja con el corazón"*.
 
 ---
 
 ### Sábado 28 de Noviembre | "Cierre de Noviembre & Lanzamiento de Ofertas del Mes"
 * **Historia 0 (09:45 AM):** Primer plano del mostrador en plena actividad un sábado a la mañana, con clientes consultando y retirando pedidos. Texto: *"Último sábado de noviembre en Macrofer ⚡"*.
 * **Historia 1 (10:30 AM):** Emily saludando: *"¡Buen sábado! Cerramos un mes increíble junto a ustedes y ya tenemos listas las ofertas que van a quedar fijas para diciembre"*.
-* **Historia 2 (11:00 AM):** Presentación oficial de las **"Ofertas del Mes"** preparadas por Marti: un carrusel de placas con las mejores oportunidades para cerrar el año.
+* **Historia 2 (11:00 AM):** Presentación oficial de las **"Ofertas del Mes"** preparadas por Valen: un carrusel de placas con las mejores oportunidades para cerrar el año.
 * **Historia 3 (11:30 AM):** Recordatorio de horario (hasta 13:30 hs) y recordatorio de que las ofertas quedan guardadas en la historia destacada **"OFERTAS DICIEMBRE"**.
 * **Historia 4 (12:00 PM):** Botón directo de WhatsApp comercial y despedida del equipo deseando un excelente fin de semana a todo Mar del Plata.

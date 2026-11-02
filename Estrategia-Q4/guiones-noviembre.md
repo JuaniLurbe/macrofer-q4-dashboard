@@ -2,7 +2,7 @@
 # Macrofer Paseo Ferretero • Mar del Plata
 > **Dirección Creativa y Rodaje:** Juani  
 > **Asesoramiento de Negocio & Stock:** Agustina  
-> **Programación & Placas:** Marti  
+> **Programación & Placas:** Valen  
 > **Supervisión Comercial:** Martín  
 > **Criterio de Tono:** Lenguaje profesional, cercano y técnico. Evitar términos vulgares o poco cuidados (como *"mugre"*, *"chatarra"*, etc.) para mantener la autoridad y el prestigio de la marca.
 

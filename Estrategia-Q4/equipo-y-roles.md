@@ -25,7 +25,7 @@
          ┌──────────────────────────────┴──────────────────────────────┐
          │                                                             │
 ┌────────┴──────────┐                                         ┌────────┴──────────┐
-│   MARTI (Diseño   │                                         │ NAI & EMILY (CMs) │
+│   VALEN (Diseño   │                                         │ NAI & EMILY (CMs) │
 │ & Prog. en META)  │                                         │ Historias Diarias,│
 │ 3 Reels/semana    │                                         │ Comunidad y DMs   │
 └───────────────────┘                                         └───────────────────┘
@@ -67,7 +67,7 @@
 
 ---
 
-### 1.5. Marti — *Diseñadora & Programadora de Contenidos*
+### 1.5. Valen — *Diseñadora & Programadora de Contenidos*
 * **Programación en META Suite:** Programa y calendariza los **3 reels semanales**, testeando y seleccionando los horarios con mayor tasa de interacción para el público de Macrofer.
 * **Diseño Gráfico Funcional:** Diseña placas gráficas con promociones bancarias, cuotas sin interés, tablas de descuentos por transferencia y detalles que necesiten un refuerzo visual (principalmente adaptados a formato vertical para Stories y carruseles).
 * **Cierre Mensual (Día -3):** Tres días antes de que termine cada mes, prepara la pieza de **"Ofertas del Mes"** (publicación que queda fija en el feed y portada de Historias Destacadas), coordinando previamente con Agustina los precios y artículos seleccionados.
@@ -85,7 +85,7 @@ SEMANA 1 (Estrategia)         SEMANA 2 (Producción)         SEMANA 3 (Estrategi
 │ ───────────────────── │     │ ───────────────────── │     │ ───────────────────── │
 │ Jueves/Viernes:       │     │ Jueves/Viernes:       │     │ Jueves/Viernes:       │
 │ Juani entrega Guiones │     │ Edición & Entrega     │     │ Juani entrega Guiones │
-│ y Preproducción       │     │ a Marti p/programar   │     │ y Preproducción       │
+│ y Preproducción       │     │ a Valen p/programar   │     │ y Preproducción       │
 └───────────────────────┘     └───────────────────────┘     └───────────────────────┘
 ```
 
@@ -104,7 +104,7 @@ SEMANA 1 (Estrategia)         SEMANA 2 (Producción)         SEMANA 3 (Estrategi
 - [ ] Cerrar siempre con un llamado claro a la acción (enlace a `macrofer.com.ar`, sticker de interacción o consulta al WhatsApp).
 - [ ] Reintegrar el celular y micrófono a Agustina al finalizar la jornada.
 
-### C. Para el Cierre de Mes (Marti)
+### C. Para el Cierre de Mes (Valen)
 - [ ] Día -3: Validación de lista de precios y ofertas con Agustina.
 - [ ] Día -2: Diseño de placas fijas en feed y banners de Historias Destacadas.
 - [ ] Día 1: Fijado del post en perfil de Instagram y actualización de historias destacadas del mes entrante.

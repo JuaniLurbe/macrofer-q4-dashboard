@@ -74,17 +74,17 @@ El equipo de comunicación y contenidos opera como un engranaje sincronizado ent
 | :--- | :--- | :--- | :--- |
 | **El Jefe Supremo (Capitán)** | **Martín** | • Dirección estratégica general y foco en venta.<br>• Analiza métricas comerciales y sugiere mejoras de proceso.<br>• Intervenciones quirúrgicas de alto impacto para no saturar el canal. | Feedback estratégico en hitos clave y validación comercial. |
 | **Líder Creativo & Filmmaker** *(A la par)* | **Juani** | • Dirección creativa, tono de marca y guionado audiovisual.<br>• Presencia fija: **Miércoles de 10:30 a 12:30 hs** (rodaje vs. reunión).<br>• Envío de **Preproducción de Contenidos** y Sistema Estratégico de Historias.<br>• Trabaja codo a codo con Agustina en la bajada estratégica. | Reels editados, guiones quincenales y sistema de historias. |
-| **Asesora Clave de Negocio** *(A la par)* | **Agustina** | • Asesoramiento interno y dueña de la información oficial (proveedores, stock, precios).<br>• Respaldo y resolución rápida ante contingencias o urgencias comerciales.<br>• Custodia del celular corporativo y micrófono (resguardo y condiciones de uso). | Validación comercial con Marti y entrega de equipamiento a CMs/Juani. |
-| **Diseñadora Gráfica & META** | **Marti** | • Programación de **3 reels semanales en META Suite** en los mejores horarios.<br>• Diseño de placas gráficas (promos bancarias, cuotas, detalles de historias).<br>• **3 días antes de fin de mes:** Prepara la publicación fija y destacada de *"Ofertas del Mes"* (coordinando con Agustina). | Calendarización semanal y placas de ofertas mensuales. |
+| **Asesora Clave de Negocio** *(A la par)* | **Agustina** | • Asesoramiento interno y dueña de la información oficial (proveedores, stock, precios).<br>• Respaldo y resolución rápida ante contingencias o urgencias comerciales.<br>• Custodia del celular corporativo y micrófono (resguardo y condiciones de uso). | Validación comercial con Valen y entrega de equipamiento a CMs/Juani. |
+| **Diseñadora Gráfica & META** | **Valen** | • Programación de **3 reels semanales en META Suite** en los mejores horarios.<br>• Diseño de placas gráficas (promos bancarias, cuotas, detalles de historias).<br>• **3 días antes de fin de mes:** Prepara la publicación fija y destacada de *"Ofertas del Mes"* (coordinando con Agustina). | Calendarización semanal y placas de ofertas mensuales. |
 | **Community Managers** | **Nai y Emily** | • Generación diaria de historias siguiendo el documento estratégico.<br>• Construcción de comunidad digital cercana mostrando el día a día y ofertas.<br>• Moderación activa: respuesta a comentarios y mensajes directos (DMs).<br>• Uso responsable del celular corporativo y micrófono de Agustina. | Historias diarias, engagement y derivación comercial. |
 
 ### 4.2. Ritmo Operativo Bisemanal (El "Miércoles Macrofer")
 * **Miércoles Semana A (10:30 a 12:30):** Grabación intensiva de reels y tomas en showroom/mostrador.
-* **Jueves / Viernes:** Juani edita y entrega el material audiovisual a Marti para programación.
+* **Jueves / Viernes:** Juani edita y entrega el material audiovisual a Valen para programación.
 * **Miércoles Semana B (10:30 a 12:30):** Reunión de equipo de análisis, métricas, feedback de Martín/Agustina y planificación de la siguiente quincena.
 * **Post-Reunión Semana B:** Juani envía el documento de preproducción con guiones para que el equipo los estudie con anticipación.
-* **Diario (Lunes a Sábado):** Nai y Emily en historias y DMs; Marti con soporte gráfico y monitoreo en META.
-* **Día -3 de cada mes:** Marti solicita a Agustina las ofertas del mes y diseña la publicación fija del perfil.
+* **Diario (Lunes a Sábado):** Nai y Emily en historias y DMs; Valen con soporte gráfico y monitoreo en META.
+* **Día -3 de cada mes:** Valen solicita a Agustina las ofertas del mes y diseña la publicación fija del perfil.
 
 ---
 

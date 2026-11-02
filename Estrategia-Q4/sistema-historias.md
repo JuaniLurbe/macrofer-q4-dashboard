@@ -1,7 +1,7 @@
 # Sistema y Manual de Historias Diarias de Instagram
 # Macrofer Paseo Ferretero
 > **Responsables de Ejecución:** Nai y Emily (Community Managers)  
-> **Soporte Gráfico:** Marti (Diseñadora)  
+> **Soporte Gráfico:** Valen (Diseñadora)  
 > **Custodia de Celular & Mic:** Agustina  
 > **Supervisión y Tono:** Juani y Martín  
 
@@ -15,7 +15,7 @@ Las historias de Macrofer **no son un catálogo frío ni un folleto estático**.
 1. **Rostro y Humanidad (Emily / Nai a cámara):** Siempre se arranca en primera persona (selfie o cámara en mano), con energía, saludando y conectando con el día real en Mar del Plata (el clima, el café, el movimiento de la mañana).
 2. **Dinámica con el Equipo:** Involucrar a los chicos de depósito, vendedores de mostrador y cajeros con preguntas rápidas, desafíos o mini-entrevistas espontáneas.
 3. **Stickers de Interacción Real:** Cada día debe tener un puente de respuesta con la audiencia (caja de preguntas, encuestas *"Team A o Team B"*, votaciones de fútbol o herramientas).
-4. **Cierre Comercial Inequívoco:** Cada secuencia concluye con una placa limpia diseñada por **Marti** con precio claro, cuotas y **Sticker de Enlace directo a `macrofer.com.ar`** o llamado al WhatsApp.
+4. **Cierre Comercial Inequívoco:** Cada secuencia concluye con una placa limpia diseñada por **Valen** con precio claro, cuotas y **Sticker de Enlace directo a `macrofer.com.ar`** o llamado al WhatsApp.
 
 ---
 
@@ -26,7 +26,7 @@ Las historias se publican en una secuencia encadenada entre las **10:25 AM y las
 ```
 10:25 AM ────────► 10:35 AM ────────► 10:50 AM ────────► 11:15 AM ────────► 11:45 AM
  Historia 0         Historia 1-2       Historia 3         Historia 4         Historia 5-6
- (Gancho/Saludo)    (Recorrido/Góndola)(Equipo/Juego)     (Interacción)      (Placa Marti/Link)
+ (Gancho/Saludo)    (Recorrido/Góndola)(Equipo/Juego)     (Interacción)      (Placa Valen/Link)
 ```
 
 ---
@@ -39,7 +39,7 @@ Las historias se publican en una secuencia encadenada entre las **10:25 AM y las
 * **10:45 AM (Historia 2 - Mini entrevista al equipo):** *"Che, decile rápido a la gente cuántas cajas entraron hoy..."*. Reacción espontánea del equipo de depósito.
 * **11:00 AM (Historia 3 - Sticker Caja de Preguntas):** *"¿Qué máquina, herramienta o insumo estás buscando esta semana para tu taller u obra? Te pasamos stock y precio por privado 👇"*.
 * **11:20 AM (Historia 4 - Unboxing rápido):** Abriendo una caja recién llegada con el producto estrella.
-* **11:45 AM (Historia 5 - Cierre con Marti):** Placa con precio promocional, cuotas sin interés y Sticker de Link directo a la web.
+* **11:45 AM (Historia 5 - Cierre con Valen):** Placa con precio promocional, cuotas sin interés y Sticker de Link directo a la web.
 
 ---
 
@@ -47,7 +47,7 @@ Las historias se publican en una secuencia encadenada entre las **10:25 AM y las
 * **10:25 AM (Historia 0):** *"Buen martes a todos. Hoy elegimos 5 productos estrella con precios que le compiten mano a mano a cualquier plataforma del país"*.
 * **10:35 AM a 10:50 AM (Historias 1 a 4):** Recorrido rápido por góndolas mostrando 4 a 5 máquinas concretas en 5 segundos cada una (ej. motosierra, amoladora, taladro inalámbrico, rotomartillo).
 * **11:15 AM (Historia 5):** Sticker de encuesta: *"¿Cuál de estos te hace falta para renovar tu set?"*.
-* **11:40 AM (Historia 6 - Diseño de Marti):** Carrusel de placas de Marti con los 5 precios y link a la sección de ofertas.
+* **11:40 AM (Historia 6 - Diseño de Valen):** Carrusel de placas de Valen con los 5 precios y link a la sección de ofertas.
 
 ---
 
@@ -63,7 +63,7 @@ Las historias se publican en una secuencia encadenada entre las **10:25 AM y las
 * **10:25 AM (Historia 0):** Rescate de las preguntas que dejaron en la semana: *"Ayer nos preguntaban mucho qué pintura rinde más para pared exterior o pileta. Vinimos a buscar al experto"*.
 * **10:40 AM (Historias 1 y 2):** Vendedor de mostrador explicando en 20 segundos sin tecnicismos la diferencia entre 2 opciones.
 * **11:00 AM (Historia 3 - Ping Pong rápido al staff):** 3 preguntas al paso: *"¿A batería o a cable?", "¿Phillips o plano?", "¿Mate dulce o amargo en el taller?"*.
-* **11:30 AM (Historia 4 - Marti):** Placa gráfica con el producto recomendado y botón de compra online.
+* **11:30 AM (Historia 4 - Valen):** Placa gráfica con el producto recomendado y botón de compra online.
 
 ---
 
@@ -72,7 +72,7 @@ Las historias se publican en una secuencia encadenada entre las **10:25 AM y las
 * **10:35 AM (Historia 1):** Caminando al sector de embalaje: *"¿Qué estamos preparando acá?"*.
 * **10:50 AM (Historia 2):** Mostrando el embalaje seguro, la etiqueta de destino y la factura comercial.
 * **11:15 AM (Historia 3):** Sticker de pregunta: *"¿Desde qué ciudad nos estás mirando hoy?"*.
-* **11:45 AM (Historia 4 - Diseño Marti):** Placa informativa: *"Envíos a todo el país + 12 cuotas sin interés en macrofer.com.ar"*.
+* **11:45 AM (Historia 4 - Diseño Valen):** Placa informativa: *"Envíos a todo el país + 12 cuotas sin interés en macrofer.com.ar"*.
 
 ---
 

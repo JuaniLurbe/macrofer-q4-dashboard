@@ -1727,7 +1727,7 @@
           <option value="martin@macrofer.com">Martín (Capitán & Dirección)</option>
           <option value="juani@macrofer.com">Juani (Producción & Edición)</option>
           <option value="agustina@macrofer.com">Agustina (Estrategia de Negocio & Operaciones)</option>
-          <option value="marti@macrofer.com">Marti (Diseño Gráfico & META)</option>
+          <option value="valen@macrofer.com">Valen (Diseño Gráfico & META)</option>
           <option value="cm@macrofer.com" selected>Nai & Emily (Community Managers)</option>
           <option value="ventas@macrofer.com">Seba & Ale (Ventas en Cámara)</option>
         </select>
@@ -1995,7 +1995,7 @@
           <div class="protocol-step">
             <div class="protocol-num">4</div>
             <div class="protocol-text">
-              <h4>Diseño Gráfico & Placas de Historias (Marti)</h4>
+              <h4>Diseño Gráfico & Placas de Historias (Valen)</h4>
               <p>Creación de las placas 9:16 de oferta (11:45 AM) y programación en META Business Suite.</p>
             </div>
           </div>
@@ -2163,7 +2163,7 @@
       { id: '1', name: 'Martín', email: 'martin@macrofer.com', pin: '1234', role: 'Capitán & Dirección General', avatar: 'M', color: '#016135', default_tab: 'control' },
       { id: '2', name: 'Juani', email: 'juani@macrofer.com', pin: '2026', role: 'Producción Audiovisual & Edición', avatar: 'J', color: '#2563EB', default_tab: 'guiones' },
       { id: '3', name: 'Agustina', email: 'agustina@macrofer.com', pin: '2026', role: 'Estrategia de Negocio, Stock & Operaciones', avatar: 'A', color: '#3B82F6', default_tab: 'control' },
-      { id: '4', name: 'Marti', email: 'marti@macrofer.com', pin: '1145', role: 'Diseño Gráfico & Programación META', avatar: 'MA', color: '#9333EA', default_tab: 'historias' },
+      { id: '4', name: 'Valen', email: 'valen@macrofer.com', pin: '1145', role: 'Diseño Gráfico & Programación META', avatar: 'V', color: '#9333EA', default_tab: 'historias' },
       { id: '5', name: 'Nai & Emily', email: 'cm@macrofer.com', pin: '1025', role: 'Community Managers & Historias', avatar: 'NE', color: '#D97706', default_tab: 'historias' },
       { id: '6', name: 'Seba & Ale', email: 'ventas@macrofer.com', pin: '5901', role: 'Ventas & Talentos en Cámara', avatar: 'SA', color: '#059669', default_tab: 'guiones' }
     ];
@@ -2626,8 +2626,8 @@
         const dLower = (s.description || '').toLowerCase();
         const stk = (s.sticker || '').toLowerCase();
 
-        if (tLower.includes('placa') || dLower.includes('placa') || stk.includes('marti')) {
-          badgeLabel = '🎨 Placa Gráfica (Marti)';
+        if (tLower.includes('placa') || dLower.includes('placa') || stk.includes('valen') || stk.includes('marti')) {
+          badgeLabel = '🎨 Placa Gráfica (Valen)';
         } else if (stk.includes('encuesta') || stk.includes('pregunta') || stk.includes('votación') || tLower.includes('sticker') || tLower.includes('encuesta')) {
           badgeLabel = '📊 Sticker Interactivo';
         } else if (tLower.includes('repost') || dLower.includes('repost')) {
@@ -2839,7 +2839,7 @@
         return tasks;
       }
 
-      if (uName.includes('marti')) {
+      if (uName.includes('valen') || uName.includes('marti')) {
         const tasks = [
           `🎨 Diseñar la Placa Gráfica 9:16 con ofertas y precios de las 11:30 AM para historias.`,
           `🔗 Generar enlace con UTM / link directo a macrofer.com.ar para el sticker de compra web.`,
@@ -3203,7 +3203,7 @@
       if (name.includes('Martín')) return 'Supervisión general de ventas, aprobación final de pauta en META y vocero de marca en videos testimoniales.';
       if (name.includes('Juani')) return 'Producción audiovisual, manejo de cámara Sony FX3 y edición integral de los Reels.';
       if (name.includes('Agustina')) return 'Asesoramiento estratégico interno, fuente oficial de productos, marcas y stock en góndola, promociones bancarias, custodia del equipamiento y articulación comercial con Juani.';
-      if (name.includes('Marti')) return 'Diseño gráfico exclusivo (placas 9:16 de ofertas a las 11:45 AM, carruseles) y programación en META Business Suite.';
+      if (name.includes('Valen') || name.includes('Marti')) return 'Diseño gráfico exclusivo (placas 9:16 de ofertas a las 11:45 AM, carruseles) y programación en META Business Suite.';
       if (name.includes('Nai')) return 'Publicación de historias (10:25 a 11:45 AM), colocación de stickers y derivación a WhatsApp.';
       return 'Demostraciones técnicas en salón (Seba) y distribución mayorista en ruta (Ale).';
     }

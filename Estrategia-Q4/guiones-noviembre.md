@@ -101,19 +101,17 @@
 
 ---
 
-### Video 8 (Entretenimiento): "POV: Venís a Macrofer por un Tarugo..." 🛒
-* **Protagonista:** Cliente y Vendedora/Cajera.
-* **Locación:** Entrada, pasillos y caja de Macrofer.
-* **Propósito:** Identificación con el amante de las herramientas y humor de retail.
+### Video 8 (Entretenimiento): "El Efecto Bola de Nieve (Solo Venía por 8 Tarugos)" 🛒
+**Protagonistas:** Agustina (Compradora) & Seba (Vendedor)  
+**Locación:** Mostrador Principal de Av. Luro 5901  
+**Duración:** 45 seg  
 
-| Tiempo | Visual / Cámara | Audio / Diálogo | Texto en Pantalla |
-| :--- | :--- | :--- | :--- |
-| **00:00 - 00:04** | El cliente entra por la puerta de Luro 5901 repitiendo con convicción a cámara: | *"Entro, pido cuatro tarugos del 8 para el cuadro del pasillo, pago y salgo. Solo cuatro tarugos. Mantengamos el foco."* | **POV: "Solo vengo por cuatro tarugos" 🎯** |
-| **00:04 - 00:10** | El cliente gira en el primer pasillo y divisa el sector de máquinas inalámbricas en exhibición. Su expresión cambia por completo. | Efecto sonoro de revelación cinematográfica. | **EL PARAÍSO DEL TALLER ✨** |
-| **00:10 - 00:22** | Montaje dinámico con música rítmica: 1. Probando el balance ergonómico de un taladro percutor DeWalt. 2. Abriendo una valija Bahco de tubos con admiración. 3. Evaluando unos guantes anticorte técnicos. 4. Sumando una cinta métrica imantada. | Voz interior en off:<br>*"Bueno, pero este taladro está en cuotas sin interés... y este juego de tubos siempre hace falta... y mirá esta cinta métrica reforzada..."* | **10 minutos después...** |
-| **00:22 - 00:35** | Plano en la caja: El cliente frente a la cajera con un chango repleto de cajas, discos y máquinas, sosteniendo la bolsita de tarugos. | Cajera con una sonrisa cordial: *"¿Efectivo o cuotas?"*<br>Cliente sonriendo resignado: *"Cuotas... y sumame un juego de mechas por las dudas."* | **ETIQUETÁ A ESE AMIGO QUE NO PUEDE SALIR CON LAS MANOS VACÍAS 😂** |
-
----
+* **00:00 - 00:04:** Agustina apoya apurada una bolsita con 8 tarugos del 8: *"Hola Seba, cobrame estos ocho tarugos del 8 que estoy apuradísima, me llevo solo esto."*
+* **00:04 - 00:10:** Seba con picardía: *"Dale Agus, son $500... ¿algo más?"* — *"No no, solo esto."*
+* **00:10 - 00:18:** Seba: *"¿Y tenés cómo colocarlos en la pared de tu casa?"* — Agustina duda: *"Eh... no, no tengo."*
+* **00:18 - 00:28:** Seba le saca un taladro percutor 650W y juego de mechas widia Bahco para pared.
+* **00:28 - 00:38:** Seba le suma nivel torpedo magnético y tornillos fix dorados para que no le quede torcido.
+* **00:38 - 00:46:** Agustina con un changuito desbordado de herramientas: *"Te juro que yo solamente venía por ocho tarugos..."*
 
 ### Video 9 (Entretenimiento): "¿Quién Sabe Más de Herramientas?" (Desafío de Staff) ⏱️
 * **Protagonistas:** Dos vendedores de mostrador y un conductor.
@@ -171,3 +169,29 @@
 | **00:08 - 00:25** | Tomas cinematográficas cuidadas: 1. El depósito operando a capacidad plena. 2. Integrantes del equipo trabajando con orgullo y compañerismo. 3. Una unidad de reparto saliendo a la calle. 4. Martín observando la actividad del local. | *"A pesar de que el tiempo pase y ya no estés físicamente con nosotros, no hay un solo día en que no recuerde el inicio de este camino. Estarías orgulloso de ver cómo creció el equipo... y de cómo la comunidad sigue confiando en la casa que fundaste con tanto esfuerzo."* | **EL SUEÑO QUE CRECIÓ** |
 | **00:25 - 00:42** | Martín en el salón comercial iluminado, rodeado de la actividad diaria del equipo: | *"Seguimos trabajando bajo las enseñanzas que nos dejaste: valor en la palabra, vocación de servicio y cuidado por nuestra gente. Quedate tranquilo... el rumbo sigue firme y acá seguimos honrando tu legado todos los días."* | **EL LEGADO SIGUE VIVO** |
 | **00:42 - 00:50** | Fundido suave con el Isologotipo institucional de Macrofer sobre fondo verde. | Texto en pantalla: *"A la memoria de Roberto, y a todos los que construyen con el corazón."* | **ROBERTO • FUNDADOR<br>MACROFER** |
+
+
+---
+
+# 🚀 VIDEOS ESPECIALES DE ALTA CONVERSIÓN (CATÁLOGO Q4)
+
+### Video 13 (Venta Alta Gama): "Rider Severbon MT24AC: El Cortacésped Definitivo" 🚜⚡
+**Protagonista:** Esteban / Conductor en Parque  
+**Locación:** Predio Parquizado o Showroom de Av. Luro 5901  
+**Duración:** 50 seg  
+
+* **00:00 - 00:04:** Gancho de alto impacto: *"Si tenés un parque grande o sos jardinero y seguís empujando una máquina a pie... literalmente estás perdiendo dos días enteros de tu vida por mes."*
+* **00:04 - 00:12:** El dolor de 4 horas empujando bajo el sol vs. terminar con la cintura rota.
+* **00:12 - 00:26:** Solución con el Rider Severbon MT24AC: motor 223cc (7.5 HP), caja automática CVT por pedal, 60 cm de corte y 8 alturas regulables.
+* **00:26 - 00:36:** Corte en retroceso activo y cesto gigante de 150 Litros con descarga directa desde el asiento.
+* **00:36 - 00:48:** Cierre en salón de Av. Luro 5901. CTA: *Comentá TRACTOR para recibir cotización de contado y 12 cuotas fijas.*
+
+### Video 14 (Venta Novedad): "Guantes Bahco con Luz LED Integrada" 🧤💡
+**Protagonista:** Emily  
+**Locación:** Taller y Mostrador de Av. Luro  
+**Duración:** 38 seg  
+
+* **00:00 - 00:04:** Emily renegando abajo de una bacha con una linterna en la boca que se le cae. Gancho: *"Sostener la linterna con la boca o apoyar el celular para que se caiga... se terminó."*
+* **00:04 - 00:14:** Presentación de los guantes técnicos Bahco con 2 LEDs potentes en índice y pulgar que apuntan exactamente a donde trabajan tus dedos.
+* **00:14 - 00:28:** Pruebas en tableros eléctricos, cañerías y vano motor con las manos 100% libres.
+* **00:28 - 00:38:** Cierre en mostrador: *Comentá GUANTES y te mandamos precio y stock directo.*

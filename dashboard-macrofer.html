@@ -1105,6 +1105,189 @@
       background: #014E2A;
     }
 
+    /* WhatsApp Brief Generator & Modal (Option A) */
+    .btn-whatsapp-brief {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-pill);
+      padding: 10px 16px;
+      font-size: 13.5px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(37, 211, 102, 0.28);
+      transition: all 0.18s ease;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn-whatsapp-brief:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 14px rgba(37, 211, 102, 0.36);
+      filter: brightness(1.04);
+    }
+
+    .btn-whatsapp-brief:active {
+      transform: translateY(0);
+    }
+
+    .btn-whatsapp-shortcut {
+      background: #E8F8EE;
+      border: 1px solid #C4EAD3;
+      color: #075E54;
+      border-radius: var(--radius-pill);
+      padding: 5px 11px;
+      font-size: 11.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-whatsapp-shortcut:hover {
+      background: #D5F2E0;
+      border-color: #25D366;
+      color: #128C7E;
+    }
+
+    .wa-modal-sheet {
+      max-width: 580px;
+      max-height: 88vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 640px) {
+      .wa-modal-sheet {
+        border-radius: 24px !important;
+        margin-top: auto !important;
+        margin-bottom: auto !important;
+      }
+    }
+
+    .wa-modal-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .wa-modal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #E7F7ED;
+      color: #016135;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid #BFE7CD;
+      margin-top: 6px;
+    }
+
+    .modal-close-icon-btn {
+      background: #F1F5F3;
+      border: 1px solid #D6E4DB;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .modal-close-icon-btn:hover {
+      background: #E2ECE5;
+      color: var(--text-primary);
+    }
+
+    .wa-message-textarea {
+      width: 100%;
+      height: 310px;
+      background: #F8FAF9;
+      border: 1.5px solid #D6E4DB;
+      border-radius: 14px;
+      padding: 14px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 13px;
+      line-height: 1.55;
+      color: #1E293B;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.15s ease;
+      box-sizing: border-box;
+    }
+
+    .wa-message-textarea:focus {
+      border-color: #25D366;
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.15);
+    }
+
+    .wa-modal-actions {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .btn-wa-copy {
+      background: #F1F5F3;
+      color: #1E293B;
+      border: 1px solid #CFDCD4;
+      border-radius: var(--radius-pill);
+      padding: 12px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-wa-copy:hover {
+      background: #E5EDE8;
+      border-color: #BACBC0;
+    }
+
+    .btn-wa-send {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-pill);
+      padding: 12px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.28);
+      transition: all 0.15s ease;
+    }
+
+    .btn-wa-send:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+
+
     /* Structured Scene Stream */
     .structured-script-stream {
       display: flex;
@@ -2311,6 +2494,14 @@
           <p class="card-desc" id="reelMetaDisplay" style="margin-bottom: 14px;">Protagonista: Esteban • Locación: Salón Pasillo Jardín</p>
 
           <!-- Toggle between Mode Resumen vs Guión Completo -->
+          
+          <!-- WhatsApp Brief Quick Action -->
+          <div style="margin-bottom: 14px;">
+            <button class="btn-whatsapp-brief touchable" onclick="openReelWhatsAppModal()" title="Generar mensaje y ficha de rodaje para enviar por WhatsApp">
+              <span>📲</span> Enviar Ficha de Rodaje por WhatsApp
+            </button>
+          </div>
+
           <div class="script-mode-toggle">
             <button class="script-mode-btn active touchable" id="btnModeResumen" onclick="setScriptMode('resumen')">Modo Resumen (0-3s + CTA)</button>
             <button class="script-mode-btn touchable" id="btnModeCompleto" onclick="setScriptMode('completo')">Guión Completo / Teleprompter</button>
@@ -2354,6 +2545,9 @@
                 </div>
                 <button class="btn-copy-script touchable" onclick="copyFullScript(this)" title="Copiar guión completo">
                   📋 Copiar
+                </button>
+                                <button class="btn-whatsapp-shortcut touchable" onclick="openReelWhatsAppModal()" title="Ficha para WhatsApp">
+                  📲 WhatsApp
                 </button>
                 <button class="btn-prompter-mode touchable" onclick="openTeleprompterModal()" title="Modo Teleprompter">
                   🖥️ Prompter
@@ -2494,6 +2688,41 @@
     </main>
 
     <!-- ========================================== -->
+    
+    <!-- ========================================== -->
+    <!-- WHATSAPP BRIEF MODAL (OPTION A)            -->
+    <!-- ========================================== -->
+    <div class="modal-backdrop" id="reelWhatsAppModal" onclick="closeReelWhatsAppModalOnBackdrop(event)">
+      <div class="modal-sheet wa-modal-sheet anim-slide-bottom" onclick="event.stopPropagation()">
+        <div class="sheet-handle"></div>
+        <div class="wa-modal-header-row">
+          <div>
+            <div style="font-size: 17px; font-weight: 800; color: var(--text-primary); display: flex; align-items: center; gap: 7px;">
+              <span>📲</span> Ficha de Rodaje para WhatsApp
+            </div>
+            <div class="wa-modal-badge" id="waModalRecipientBadge">
+              <span>👤</span> Para: <strong id="waModalRecipientText" style="margin-left: 3px;">Equipo</strong>
+            </div>
+          </div>
+          <button class="modal-close-icon-btn touchable" onclick="closeReelWhatsAppModal()" title="Cerrar ventana">✕</button>
+        </div>
+        <p style="font-size: 12.5px; color: var(--text-secondary); margin: 6px 0 12px 0; line-height: 1.4;">
+          Mensaje detallado con la ficha de rodaje, qué le toca hacer en cámara, utilería y enlace al teleprompter. Podés editar el texto antes de enviarlo:
+        </p>
+
+        <textarea id="waMessagePreview" class="wa-message-textarea" spellcheck="false" placeholder="Generando ficha de rodaje..."></textarea>
+
+        <div class="wa-modal-actions">
+          <button class="btn-wa-copy touchable" onclick="copyReelWhatsAppBrief(this)">
+            <span id="waCopyBtnIcon">📋</span> <span id="waCopyBtnText">Copiar Mensaje</span>
+          </button>
+          <button class="btn-wa-send touchable" onclick="sendReelWhatsAppBrief()">
+            <span>🟢</span> Abrir en WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- PROFILE SWITCHER MODAL (APPLE SHEET)       -->
     <!-- ========================================== -->
     <div class="modal-backdrop" id="profileModal" onclick="closeProfileModal(event)">
@@ -3432,6 +3661,168 @@
           </div>
         </div>
       `).join('');
+    }
+
+    
+    // ==========================================
+    // FICHA DE RODAJE PARA WHATSAPP (OPCIÓN A)
+    // ==========================================
+    function cleanCastGreeting(castStr) {
+      if (!castStr) return 'Equipo';
+      let cleaned = castStr.replace(/\(.*?\)/g, '').trim();
+      if (cleaned.includes('/')) {
+        const parts = cleaned.split('/').map(p => p.trim());
+        if (/vendedor|conductor|técnico|demostrador/i.test(parts[1])) {
+          cleaned = parts[0];
+        } else {
+          cleaned = parts.join(' y ');
+        }
+      }
+      cleaned = cleaned.replace(/&/g, 'y').replace(/\s+/g, ' ').trim();
+      return cleaned;
+    }
+
+    function extractRoleInstructions(reel) {
+      if (!reel) return '';
+      const raw = reel.script_full || '';
+      
+      if (raw.includes('[ESCENA')) {
+        const lines = raw.split('\n');
+        const dialogueLines = [];
+
+        for (let line of lines) {
+          const trimmed = line.trim();
+          if (trimmed.startsWith('🗣️') || /^[A-ZÁÉÍÓÚÑ\s]{2,18}:\s*"/i.test(trimmed)) {
+            dialogueLines.push(trimmed.replace(/^🗣️\s*/, ''));
+          } else if (trimmed.startsWith('Subtítulo:') || trimmed.startsWith('Texto en pantalla:')) {
+            dialogueLines.push(trimmed);
+          }
+        }
+
+        if (dialogueLines.length > 0) {
+          const topDialogues = dialogueLines.slice(0, 5).map(d => `  • ${d}`).join('\n');
+          return `Tu actuación y líneas principales:\n${topDialogues}${dialogueLines.length > 5 ? '\n  • (El resto de las líneas podés leerlas en el teleprompter)' : ''}`;
+        }
+      }
+
+      if (reel.category === 'Entretenimiento') {
+        return 'Actuación en tono fresco y humor cotidiano. Interacción fluida y espontánea frente a cámara, sin poses rígidas.';
+      } else if (reel.category === 'Educativo' || reel.category === 'Técnico') {
+        return 'Explicación técnica y didáctica. Mostrá la herramienta o material en tus manos con seguridad, marcando el detalle clave para que el cliente aprenda algo nuevo.';
+      } else if (reel.category === 'Testimonial') {
+        return 'Relato en primera persona, mirando a cámara con tono cercano, sincero y orgullo de pertenecer a la historia de Macrofer.';
+      } else {
+        return 'Demostración práctica de producto. Mostrá la herramienta en acción, transmitiendo confianza y destacando la solución real que le da al cliente.';
+      }
+    }
+
+    function generateWhatsAppBrief(reel) {
+      if (!reel) return '';
+      const greeting = cleanCastGreeting(reel.cast_members);
+      const checklistText = (reel.checklist || [])
+        .map(item => `  ☑️ ${item}`)
+        .join('\n');
+
+      const roleText = extractRoleInstructions(reel);
+
+      const message = 
+`🎬 *FICHA DE RODAJE — MACROFER* 🛠️
+¡Hola *${greeting}*! Te comparto la ficha completa con todo lo que te toca para la grabación de este video:
+
+📌 *Video:* Reel #${reel.id} — *${reel.title}*
+📂 *Categoría:* ${reel.category}
+⏱️ *Duración estimada:* ${reel.duration}
+📍 *Locación:* ${reel.location}
+👥 *En cámara:* ${reel.cast_members}
+
+🎯 *¿De qué se trata el video?*
+${reel.body}
+
+⚡ *Gancho Inicial (0 a 3 seg — ¡Energía bien arriba!):*
+"${reel.hook}"
+
+🗣️ *Tu papel / Qué tenés que hacer:*
+${roleText}
+
+🧰 *Utilería y materiales que necesitás tener listos:*
+${checklistText || '  ☑️ Salón y mostrador despejado'}
+
+🛒 *Llamado a la Acción (Cierre / CTA):*
+"${reel.cta}"
+
+💡 *Consejos de Juani para romperla en cámara:*
+• En los primeros 3 segundos no saludamos: vamos directo al gancho o la acción.
+• Mirá fijo a la lente del celular como si le hablaras a un cliente amigo en el mostrador.
+• Ritmo seguro y entusiasta; si te trabás o sale desprolijo no pasa nada, pausamos 2 seg y repetimos la frase.
+
+📱 *Repasá el guión completo y modo Teleprompter acá:*
+https://macrofer-q4-dashboard.vercel.app
+(Pestaña Guiones ➔ Reel #${reel.id})`;
+
+      return message;
+    }
+
+    function openReelWhatsAppModal() {
+      const r = reels.find(item => item.id === currentReelId) || reels[0];
+      if (!r) return;
+
+      const recipient = cleanCastGreeting(r.cast_members);
+      const briefText = generateWhatsAppBrief(r);
+
+      const recipientTextEl = document.getElementById('waModalRecipientText');
+      if (recipientTextEl) recipientTextEl.textContent = recipient;
+
+      const textareaEl = document.getElementById('waMessagePreview');
+      if (textareaEl) textareaEl.value = briefText;
+
+      const modal = document.getElementById('reelWhatsAppModal');
+      if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+
+      if (currentUser && currentUser.name) {
+        logActivity('whatsapp_brief', 'whatsapp', `${currentUser.name} generó la ficha de rodaje por WhatsApp para Reel #${r.id} (${recipient})`);
+      }
+    }
+
+    function closeReelWhatsAppModal() {
+      const modal = document.getElementById('reelWhatsAppModal');
+      if (modal) modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function closeReelWhatsAppModalOnBackdrop(event) {
+      if (event && event.target && event.target.id === 'reelWhatsAppModal') {
+        closeReelWhatsAppModal();
+      }
+    }
+
+    function copyReelWhatsAppBrief(btn) {
+      const textarea = document.getElementById('waMessagePreview');
+      const text = textarea ? textarea.value : '';
+      if (!text) return;
+
+      copyText(text, btn);
+      const iconEl = document.getElementById('waCopyBtnIcon');
+      const textEl = document.getElementById('waCopyBtnText');
+      if (textEl) textEl.textContent = '¡Ficha Copiada!';
+      if (iconEl) iconEl.textContent = '✓';
+      setTimeout(() => {
+        if (textEl) textEl.textContent = 'Copiar Mensaje';
+        if (iconEl) iconEl.textContent = '📋';
+      }, 2200);
+      showToast('✓ Ficha de WhatsApp copiada');
+    }
+
+    function sendReelWhatsAppBrief() {
+      const textarea = document.getElementById('waMessagePreview');
+      const text = textarea ? textarea.value : '';
+      if (!text) return;
+
+      const url = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(text);
+      window.open(url, '_blank');
+      showToast('🟢 Abriendo WhatsApp...');
     }
 
     function renderReelDetail() {

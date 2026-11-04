@@ -1075,6 +1075,32 @@
       box-shadow: 0 2px 6px rgba(1, 97, 53, 0.2);
     }
 
+    
+    /* Delete Reel Button for Juani */
+    .btn-delete-reel {
+      background: #FFF5F5;
+      border: 1px solid #FFD1D1;
+      border-radius: var(--radius-md);
+      color: #D32F2F;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-delete-reel:hover {
+      background: #FFEBEE;
+      border-color: #E57373;
+      color: #B71C1C;
+    }
+
     .btn-prompter-mode:hover {
       background: #014E2A;
     }
@@ -2353,6 +2379,12 @@
             <button class="btn-primary-green touchable" style="width: 100%; padding: 12px;" onclick="toggleReelFilmed()">
               <span id="btnFilmedText">✓ Marcar como Filmado (Enviar a Edición)</span>
             </button>
+            <!-- BOTÓN EXCLUSIVO DE JUANI PARA ELIMINAR / SACAR VIDEOS -->
+            <div id="juaniDeleteReelContainer" style="display: none;">
+              <button class="btn-delete-reel touchable" onclick="confirmDeleteCurrentReel()">
+                🗑️ Eliminar este Video del Plan (Exclusivo Juani)
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -3424,6 +3456,13 @@
       const btn = document.getElementById('btnFilmedText');
       btn.textContent = isFilmed ? '✓ Reel Filmado (Guardado)' : 'Marcar como Filmado (Enviar a Edición)';
 
+      // Solo Juani puede ver la opción de eliminar videos
+      const delContainer = document.getElementById('juaniDeleteReelContainer');
+      if (delContainer) {
+        const uName = (currentUser && currentUser.name ? currentUser.name : '').toLowerCase();
+        delContainer.style.display = uName.includes('juani') ? 'block' : 'none';
+      }
+
       // Checklist
       const checkContainer = document.getElementById('checklistItems');
       const items = Array.isArray(r.checklist) ? r.checklist : [];
@@ -3433,6 +3472,51 @@
           <span>${item}</span>
         </label>
       `).join('');
+    }
+
+    async function confirmDeleteCurrentReel() {
+      const uName = (currentUser && currentUser.name ? currentUser.name : '').toLowerCase();
+      if (!uName.includes('juani')) {
+        alert('Solo Juani (Producción Audiovisual) tiene permisos para eliminar videos.');
+        return;
+      }
+
+      const r = reels.find(item => item.id === currentReelId);
+      if (!r) return;
+
+      const confirmMsg = `¿Estás seguro de que querés eliminar el Video #${r.id}: "${r.title}"?\n\nEsta acción lo sacará del plan de rodaje, de la base de datos y del calendario.`;
+      if (!confirm(confirmMsg)) return;
+
+      const deletedTitle = r.title;
+      const deletedId = r.id;
+
+      // Optimistically remove from local array
+      reels = reels.filter(item => item.id !== deletedId);
+
+      // Select next available reel
+      if (reels.length > 0) {
+        currentReelId = reels[0].id;
+      } else {
+        currentReelId = null;
+      }
+
+      renderReelChips();
+      renderReelDetail();
+      renderControlTab();
+      renderCalendar();
+      if (typeof renderTodayTasks === 'function') renderTodayTasks();
+
+      // Delete from Supabase
+      try {
+        await sbFetch(`reels?id=eq.${deletedId}`, {
+          method: 'DELETE'
+        });
+        await logActivity('delete_reel', String(deletedId), `Juani eliminó del plan el Reel #${deletedId} ("${deletedTitle}")`);
+        showToast(`Video #${deletedId} eliminado del plan`);
+      } catch (err) {
+        console.error('Error deleting reel:', err);
+        showToast(`Video #${deletedId} eliminado`);
+      }
     }
 
     async function toggleReelFilmed() {
@@ -3913,6 +3997,7 @@
       const p = pendingUserSwitch;
       currentUser = p;
       localStorage.setItem('macrofer_user_email', p.email);
+      if (typeof renderReelDetail === 'function') renderReelDetail();
       document.getElementById('headerUserName').textContent = p.name;
       document.getElementById('headerAvatar').textContent = p.avatar;
       document.getElementById('headerAvatar').style.background = p.color;

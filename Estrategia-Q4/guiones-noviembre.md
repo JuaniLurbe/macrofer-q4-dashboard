@@ -102,16 +102,16 @@
 ---
 
 ### Video 8 (Entretenimiento): "El Efecto Bola de Nieve (Solo Venía por 8 Tarugos)" 🛒
-**Protagonistas:** Agustina (Compradora) & Seba (Vendedor)  
+**Protagonistas:** Cristian (Comprador) & Seba (Vendedor)  
 **Locación:** Mostrador Principal de Av. Luro 5901  
 **Duración:** 45 seg  
 
-* **00:00 - 00:04:** Agustina apoya apurada una bolsita con 8 tarugos del 8: *"Hola Seba, cobrame estos ocho tarugos del 8 que estoy apuradísima, me llevo solo esto."*
-* **00:04 - 00:10:** Seba con picardía: *"Dale Agus, son $500... ¿algo más?"* — *"No no, solo esto."*
-* **00:10 - 00:18:** Seba: *"¿Y tenés cómo colocarlos en la pared de tu casa?"* — Agustina duda: *"Eh... no, no tengo."*
+* **00:00 - 00:04:** Cristian apoya apurado una bolsita con 8 tarugos del 8: *"Hola Seba, cobrame estos ocho tarugos del 8 que estoy apuradísimo, me llevo solo esto."*
+* **00:04 - 00:10:** Seba con picardía: *"Dale Cris, son $500... ¿algo más?"* — *"No no, solo esto."*
+* **00:10 - 00:18:** Seba: *"¿Y tenés cómo colocarlos en la pared de tu casa?"* — Cristian duda: *"Eh... no, no tengo."*
 * **00:18 - 00:28:** Seba le saca un taladro percutor 650W y juego de mechas widia Bahco para pared.
 * **00:28 - 00:38:** Seba le suma nivel torpedo magnético y tornillos fix dorados para que no le quede torcido.
-* **00:38 - 00:46:** Agustina con un changuito desbordado de herramientas: *"Te juro que yo solamente venía por ocho tarugos..."*
+* **00:38 - 00:46:** Cristian con un changuito desbordado de herramientas: *"Te juro que yo solamente venía por ocho tarugos..."*
 
 ### Video 9 (Entretenimiento): "¿Quién Sabe Más de Herramientas?" (Desafío de Staff) ⏱️
 * **Protagonistas:** Dos vendedores de mostrador y un conductor.
@@ -176,7 +176,7 @@
 # 🚀 VIDEOS ESPECIALES DE ALTA CONVERSIÓN (CATÁLOGO Q4)
 
 ### Video 13 (Venta Alta Gama): "Rider Severbon MT24AC: El Cortacésped Definitivo" 🚜⚡
-**Protagonista:** Esteban / Conductor en Parque  
+**Protagonista:** Seba  
 **Locación:** Predio Parquizado o Showroom de Av. Luro 5901  
 **Duración:** 50 seg  
 

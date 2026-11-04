@@ -1,7 +1,7 @@
 # Calendario Maestro de Historias Diarias — Noviembre
 # Macrofer Paseo Ferretero • Mar del Plata
 > **Frecuencia:** Lunes a Sábado • Franja matutina (10:25 a 11:45 AM)  
-> **Ejecución en Local:** Nai y Emily (Community Managers) con celular y micrófono  
+> **Ejecución en Local:** Guada y Emily (Community Managers) con celular y micrófono  
 > **Diseño de Placas:** Valen  
 > **Custodia de Equipos & Precios:** Agustina  
 > **Supervisión de Tono:** Juani y Martín  
@@ -30,9 +30,9 @@
 ---
 
 ### Martes 03 de Noviembre | "La Trastienda del Taller: Repuestos & Service"
-* **Historia 0 (10:25 AM):** Nai en selfie caminando hacia el mostrador de repuestos:  
+* **Historia 0 (10:25 AM):** Guada en selfie caminando hacia el mostrador de repuestos:  
   * *Diálogo:* *"Buen martes. Ayer muchos nos preguntaban por privado: 'Che, ¿tienen repuestos de tanza y carreteles para mi máquina vieja?'. La respuesta es corta: sí, tenemos todo."*
-* **Historia 1 (10:30 AM):** Nai se acerca al mostrador donde un vendedor está acomodando rollos de tanza:  
+* **Historia 1 (10:30 AM):** Guada se acerca al mostrador donde un vendedor está acomodando rollos de tanza:  
   * *Acción:* *"Contale rápido a la gente qué grosor de tanza es el más común para no romper el carretel"*. Vendedor muestra dos rollos (redonda vs. cuadrada) en 15 segundos.
 * **Historia 2 (10:50 AM):** Primer plano estético (ASMR) cortando un tramo de tanza reforzada.
 * **Historia 3 (11:15 AM) [INTERACCIÓN]:** Sticker de **Caja de Preguntas**:  
@@ -68,12 +68,12 @@
 ---
 
 ### Viernes 06 de Noviembre | "El Humor del Finde + Promos Bancarias"
-* **Historia 0 (10:25 AM):** Nai en selfie riéndose:  
+* **Historia 0 (10:25 AM):** Guada en selfie riéndose:  
   * *Diálogo:* *"Buen viernes para todos. Hoy subimos un video con el que estoy 100% segura de que más de uno se va a sentir muy tocado..."*
 * **Historia 1 (10:40 AM):** Repost del **Reel 3 (POV: Vengo solo por cuatro tarugos...)**.
 * **Historia 2 (11:00 AM) [INTERACCIÓN]:** Sticker de **Caja de Respuestas**:  
   * *Texto:* *"Confesá acá abajo: ¿qué fue lo último que compraste en la ferretería que no tenías planeado llevarte? 😂👇"*.
-* **Historia 3 (11:25 AM):** Nai leyendo en video selfie 2 o 3 respuestas graciosas que llegaron a la caja.
+* **Historia 3 (11:25 AM):** Guada leyendo en video selfie 2 o 3 respuestas graciosas que llegaron a la caja.
 * **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa completa con las promociones bancarias, cuotas sin interés y descuentos por transferencia para compras del fin de semana.
 
 ---
@@ -107,13 +107,13 @@
 ---
 
 ### Martes 10 de Noviembre | "Despacho de Envíos Pesados a Toda la Región"
-* **Historia 0 (10:25 AM):** Nai entrando con el celular al sector de depósito y embalaje:  
+* **Historia 0 (10:25 AM):** Guada entrando con el celular al sector de depósito y embalaje:  
   * *Diálogo:* *"Buen martes. Muchos piensan que Macrofer es solo el local de Av. Luro, pero miren todo lo que está saliendo hoy hacia la zona..."*
-* **Historia 1 (10:35 AM):** Nai se acerca al personal de expedición que está embalando una caja de rotomartillos y una hidro con film negro y cinta de embalaje con el logo de Macrofer.  
+* **Historia 1 (10:35 AM):** Guada se acerca al personal de expedición que está embalando una caja de rotomartillos y una hidro con film negro y cinta de embalaje con el logo de Macrofer.  
   * *Diálogo:* *"Che, ¿para dónde sale este bulto?".* El chico del depósito responde: *"Para Balcarce / Miramar / Necochea"*.
 * **Historia 2 (11:00 AM) [INTERACCIÓN]:** Sticker de **Caja de Preguntas**:  
   * *Texto:* *"¿Desde qué ciudad o barrio nos estás siguiendo? Te contamos cuánto tarda en llegar tu pedido 👇"*.
-* **Historia 3 (11:30 AM):** Nai muestra el camión culata de reparto cargado con pallets listo para arrancar.
+* **Historia 3 (11:30 AM):** Guada muestra el camión culata de reparto cargado con pallets listo para arrancar.
 * **Historia 4 (11:45 AM) [DISEÑO VALEN]:** Placa informativa: *"Envíos seguros a todo el país • Seguimiento en tiempo real • Factura A y B en macrofer.com.ar"*.
 
 ---
@@ -131,7 +131,7 @@
 ---
 
 ### Jueves 12 de Noviembre | "Respondiendo Dudas Técnicas de la Audiencia"
-* **Historia 0 (10:25 AM):** Nai en selfie con la pantalla de preguntas del martes:  
+* **Historia 0 (10:25 AM):** Guada en selfie con la pantalla de preguntas del martes:  
   * *Diálogo:* *"Ayer nos dejaron un montón de dudas sobre cómo cuidar las hidrolavadoras para que no se queme la bomba. Hoy vinimos con el especialista a responderles."*
 * **Historia 1 (10:40 AM):** Vendedor explicando en 25 segundos con la manguera en mano: *"Paso clave antes de prender el motor: abrir la canilla y apretar el gatillo hasta que salga agua continua sin aire. Recién ahí se enchufa y se prende"*.
 * **Historia 2 (11:10 AM):** Paneo a la góndola de accesorios: lanzas turbo, cepillos giratorios y mangueras de repuesto.
@@ -179,7 +179,7 @@
 ---
 
 ### Martes 17 de Noviembre | "Tip de Pintor: Caucho Clorado vs. Al Agua"
-* **Historia 0 (10:25 AM):** Nai junto a Seba frente al sector de pinturas de pileta:  
+* **Historia 0 (10:25 AM):** Guada junto a Seba frente al sector de pinturas de pileta:  
   * *Diálogo:* *"Buen martes. La duda que nos llega todos los días en mostrador: 'Seba, ¿cuál me conviene para mi pileta: pintura al agua o caucho clorado?' Acá te lo resume en 20 segundos."*
 * **Historia 1 (10:35 AM):** Seba con las 2 latas en mano: *"Si tu pileta es de hormigón nueva o querés secado rápido y máxima resistencia al cloro químico: caucho clorado. Si buscás facilidad de aplicación sin olor fuerte y limpieza con agua: látex para piletas base acuosa"*.
 * **Historia 2 (11:00 AM):** Seba muestra la diferencia entre un rodillo común de lana y un rodillo antigota texturado para no dejar marcas en las paredes.
@@ -283,7 +283,7 @@
 ---
 
 ### Viernes 27 de Noviembre | "Carta a Papá: El Homenaje a Roberto" 💙✨
-* **Historia 0 (10:25 AM):** Nai con voz tranquila, sentida y cálida, desde un rincón del salón comercial:  
+* **Historia 0 (10:25 AM):** Guada con voz tranquila, sentida y cálida, desde un rincón del salón comercial:  
   * *Diálogo:* *"Buen viernes para todos. Hoy queremos cerrar la semana compartiendo con ustedes algo muy íntimo y muy importante para nosotros. Un homenaje a quien empezó todo esto."*
 * **Historia 1 (10:45 AM):** Repost del **Reel 12 (Carta a Papá - Homenaje de Martín a Roberto)**.
 * **Historia 2 (11:15 AM) [INTERACCIÓN]:** Sticker limpio de interacción sin texto agresivo:  

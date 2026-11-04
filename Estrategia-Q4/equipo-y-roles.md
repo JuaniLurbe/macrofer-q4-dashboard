@@ -59,7 +59,7 @@
 
 ---
 
-### 1.4. Nai y Emily — *Community Managers & Generadoras de Comunidad*
+### 1.4. Guada y Emily — *Community Managers & Generadoras de Comunidad*
 * **Misión:** Crear comunidad digital real y cercana, combinando la cotidianeidad del local con la venta de productos estrella y ofertas.
 * **Historias Diarias:** Generan contenido diario en Instagram/TikTok ejecutando el *Documento Estratégico de Historias* de Juani, pero con la cintura para interpretar lo que está sucediendo en el día a día (anécdotas en el mostrador, llegada de mercadería pesada, consultas de clientes).
 * **Gestión de Interacciones:** Atención rápida a comentarios en reels, mensajes directos (DMs) y derivación de consultas de precios hacia la web o WhatsApp comercial.
@@ -98,7 +98,7 @@ SEMANA 1 (Estrategia)         SEMANA 2 (Producción)         SEMANA 3 (Estrategi
 - [ ] Los colaboradores que participan en el reel ya leyeron el guión enviado por Juani.
 - [ ] El showroom y los productos a mostrar están limpios y listos en exhibición.
 
-### B. Para las Historias Diarias (Nai y Emily)
+### B. Para las Historias Diarias (Guada y Emily)
 - [ ] Seguir la pauta temática del *Sistema de Historias*.
 - [ ] Mostrar caras reales, productos en uso y contexto del local.
 - [ ] Cerrar siempre con un llamado claro a la acción (enlace a `macrofer.com.ar`, sticker de interacción o consulta al WhatsApp).

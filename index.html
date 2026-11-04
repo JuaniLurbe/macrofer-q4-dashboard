@@ -2333,8 +2333,8 @@
           <option value="juani@macrofer.com">Juani (Producción & Edición)</option>
           <option value="agustina@macrofer.com">Agustina (Estrategia de Negocio & Operaciones)</option>
           <option value="valen@macrofer.com">Valen (Diseño Gráfico & META)</option>
-          <option value="cm@macrofer.com" selected>Nai & Emily (Community Managers)</option>
-          <option value="ventas@macrofer.com">Seba & Ale (Ventas en Cámara)</option>
+          <option value="guada@macrofer.com">Guada (Equipo Macrofer)</option>
+          <option value="ventas@macrofer.com" selected>Vendedores (Guiones de Rodaje)</option>
         </select>
       </div>
 
@@ -2364,7 +2364,7 @@
 
       <button class="profile-pill-btn touchable" onclick="openProfileModal()">
         <div class="profile-avatar-circle" id="headerAvatar">NE</div>
-        <span class="profile-pill-name" id="headerUserName">Nai & Emily</span>
+        <span class="profile-pill-name" id="headerUserName">Vendedores</span>
         <span class="profile-pill-chevron">▾</span>
       </button>
     </header>
@@ -2647,7 +2647,7 @@
           <div class="protocol-step">
             <div class="protocol-num">5</div>
             <div class="protocol-text">
-              <h4>Publicación Diaria & Conversión (Nai & Emily)</h4>
+              <h4>Publicación Diaria & Conversión (Guada & Emily)</h4>
               <p>Publicación de historias (10:25 a 11:45 AM), stickers interactivos y derivación a WhatsApp.</p>
             </div>
           </div>
@@ -2843,8 +2843,8 @@
       { id: '2', name: 'Juani', email: 'juani@macrofer.com', pin: '2026', role: 'Producción Audiovisual & Edición', avatar: 'J', color: '#2563EB', default_tab: 'guiones' },
       { id: '3', name: 'Agustina', email: 'agustina@macrofer.com', pin: '2026', role: 'Estrategia de Negocio, Stock & Operaciones', avatar: 'A', color: '#3B82F6', default_tab: 'control' },
       { id: '4', name: 'Valen', email: 'valen@macrofer.com', pin: '1145', role: 'Diseño Gráfico & Programación META', avatar: 'V', color: '#9333EA', default_tab: 'historias' },
-      { id: '5', name: 'Nai & Emily', email: 'cm@macrofer.com', pin: '1025', role: 'Community Managers & Historias', avatar: 'NE', color: '#D97706', default_tab: 'historias' },
-      { id: '6', name: 'Seba & Ale', email: 'ventas@macrofer.com', pin: '5901', role: 'Ventas & Talentos en Cámara', avatar: 'SA', color: '#059669', default_tab: 'guiones' }
+      { id: '5', name: 'Guada', email: 'guada@macrofer.com', pin: '2424', role: 'Equipo Macrofer', avatar: 'G', color: '#EC4899', default_tab: 'historias' },
+      { id: '6', name: 'Vendedores', email: 'ventas@macrofer.com', pin: '5901', role: 'Ventas & Talentos en Cámara', avatar: 'V', color: '#059669', default_tab: 'guiones' }
     ];
     let profiles = FALLBACK_PROFILES;
 
@@ -3412,9 +3412,31 @@
     // ==========================================
     // TAB 3: GUIONES & FULL SCRIPTS
     // ==========================================
+    function getVisibleReels() {
+      const uName = (currentUser && currentUser.name ? currentUser.name : '').toLowerCase();
+      // Perfil Vendedores: solo ven los guiones a filmar (pendientes)
+      if (uName.includes('vendedor')) {
+        return reels.filter(r => r.status !== 'Filmado');
+      }
+      return reels;
+    }
+
     function renderReelChips() {
       const scroller = document.getElementById('reelsScroller');
-      scroller.innerHTML = reels.map(r => `
+      if (!scroller) return;
+      const list = getVisibleReels();
+      
+      if (!list.length) {
+        scroller.innerHTML = '<div style="padding: 10px 14px; font-size: 13px; color: var(--text-secondary);">🎉 ¡Todos los videos del plan fueron filmados!</div>';
+        return;
+      }
+      
+      // Si el reel actual no está en la lista visible, seleccionar el primero
+      if (!list.some(r => r.id === currentReelId)) {
+        currentReelId = list[0].id;
+      }
+
+      scroller.innerHTML = list.map(r => `
         <button class="reel-chip touchable ${r.id === currentReelId ? 'active' : ''}" onclick="selectReelById(${r.id})">
           #${r.id} ${r.title.substring(0, 16)}...
         </button>
@@ -3757,7 +3779,8 @@ ${checklistText || '  ☑️ Salón y mostrador despejado'}
 
 📱 *Repasá el guión completo y modo Teleprompter acá:*
 https://macrofer-q4-dashboard.vercel.app
-(Pestaña Guiones ➔ Reel #${reel.id})`;
+🔑 *Acceso Vendedores (PIN):* 5901
+(Entrá con el perfil *Vendedores* ➔ Pestaña Guiones ➔ Reel #${reel.id})`;
 
       return message;
     }
@@ -3826,7 +3849,13 @@ https://macrofer-q4-dashboard.vercel.app
     }
 
     function renderReelDetail() {
-      const r = reels.find(item => item.id === currentReelId);
+      const list = typeof getVisibleReels === 'function' ? getVisibleReels() : reels;
+      let r = list.find(item => item.id === currentReelId);
+      if (!r && list.length > 0) {
+        currentReelId = list[0].id;
+        r = list[0];
+      }
+      if (!r) return;
       if (!r) return;
 
       document.getElementById('reelDurationPill').textContent = r.duration;
@@ -3954,7 +3983,7 @@ https://macrofer-q4-dashboard.vercel.app
           tasks.push(`☁️ Exportar en formato vertical 9:16 y subir el render final a Google Drive para revisión.`);
         } else {
           tasks.push(`🎥 Preparar luces, trípode y micrófonos en showroom para las próximas jornadas de grabación.`);
-          tasks.push(`🎬 Rodar tomas de apoyo (b-roll ASMR) y backstage con Nai & Emily para historias diarias.`);
+          tasks.push(`🎬 Rodar tomas de apoyo (b-roll ASMR) y backstage con Guada & Emily para historias diarias.`);
         }
         tasks.push(`🤝 Coordinar con Agustina la selección de herramientas prioritarias y chequear tomas con los vendedores.`);
         return tasks;
@@ -3980,7 +4009,7 @@ https://macrofer-q4-dashboard.vercel.app
         return tasks;
       }
 
-      if (uName.includes('nai') || uName.includes('emily')) {
+      if (uName.includes('guada') || uName.includes('emily')) {
         const tasks = [
           `🤳 10:25 AM: Grabar video selfie de apertura desde el pasillo comercial de Av. Luro 5901.`,
           `📱 10:30 a 11:30 AM: Publicar las ${dayStories.length} historias programadas de hoy en sus horarios exactos.`,
@@ -4003,7 +4032,7 @@ https://macrofer-q4-dashboard.vercel.app
         return tasks;
       }
 
-      if (uName.includes('seba') || uName.includes('ale')) {
+      if (uName.includes('vendedor') || uName.includes('seba') || uName.includes('ale')) {
         return [
           `🔧 Poner a punto máquinas y herramientas para demostraciones prácticas en cámara.`,
           `💬 Asesoramiento técnico en mostrador sobre repuestos, tanza, mezcla 2T y service.`,
@@ -4325,8 +4354,8 @@ https://macrofer-q4-dashboard.vercel.app
       if (name.includes('Juani')) return 'Producción audiovisual, manejo de cámara Sony FX3 y edición integral de los Reels.';
       if (name.includes('Agustina')) return 'Asesoramiento estratégico interno, fuente oficial de productos, marcas y stock en góndola, promociones bancarias, custodia del equipamiento y articulación comercial con Juani.';
       if (name.includes('Valen') || name.includes('Marti')) return 'Diseño gráfico exclusivo (placas 9:16 de ofertas a las 11:45 AM, carruseles) y programación en META Business Suite.';
-      if (name.includes('Nai')) return 'Publicación de historias (10:25 a 11:45 AM), colocación de stickers y derivación a WhatsApp.';
-      return 'Demostraciones técnicas en salón (Seba) y distribución mayorista en ruta (Ale).';
+      if (name.includes('Guada')) return 'Publicación y seguimiento de historias diarias, interacción y soporte de equipo.';
+      return 'Demostraciones técnicas de productos en salón, guiones de rodaje y atención.';
     }
 
     function renderModalProfiles() {
@@ -4388,6 +4417,7 @@ https://macrofer-q4-dashboard.vercel.app
       const p = pendingUserSwitch;
       currentUser = p;
       localStorage.setItem('macrofer_user_email', p.email);
+      if (typeof renderReelChips === 'function') renderReelChips();
       if (typeof renderReelDetail === 'function') renderReelDetail();
       document.getElementById('headerUserName').textContent = p.name;
       document.getElementById('headerAvatar').textContent = p.avatar;

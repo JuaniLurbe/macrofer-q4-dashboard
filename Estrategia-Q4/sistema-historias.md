@@ -1,6 +1,6 @@
 # Sistema y Manual de Historias Diarias de Instagram
 # Macrofer Paseo Ferretero
-> **Responsables de Ejecución:** Nai y Emily (Community Managers)  
+> **Responsables de Ejecución:** Guada y Emily (Community Managers)  
 > **Soporte Gráfico:** Valen (Diseñadora)  
 > **Custodia de Celular & Mic:** Agustina  
 > **Supervisión y Tono:** Juani y Martín  
@@ -12,7 +12,7 @@
 Las historias de Macrofer **no son un catálogo frío ni un folleto estático**. Son una **ventana en vivo y en primera persona** a lo que pasa todos los días en el local de Av. Pedro Luro 5901.
 
 ### Los 4 Pilares de cada secuencia diaria:
-1. **Rostro y Humanidad (Emily / Nai a cámara):** Siempre se arranca en primera persona (selfie o cámara en mano), con energía, saludando y conectando con el día real en Mar del Plata (el clima, el café, el movimiento de la mañana).
+1. **Rostro y Humanidad (Emily / Guada a cámara):** Siempre se arranca en primera persona (selfie o cámara en mano), con energía, saludando y conectando con el día real en Mar del Plata (el clima, el café, el movimiento de la mañana).
 2. **Dinámica con el Equipo:** Involucrar a los chicos de depósito, vendedores de mostrador y cajeros con preguntas rápidas, desafíos o mini-entrevistas espontáneas.
 3. **Stickers de Interacción Real:** Cada día debe tener un puente de respuesta con la audiencia (caja de preguntas, encuestas *"Team A o Team B"*, votaciones de fútbol o herramientas).
 4. **Cierre Comercial Inequívoco:** Cada secuencia concluye con una placa limpia diseñada por **Valen** con precio claro, cuotas y **Sticker de Enlace directo a `macrofer.com.ar`** o llamado al WhatsApp.
@@ -34,7 +34,7 @@ Las historias se publican en una secuencia encadenada entre las **10:25 AM y las
 ## 3. Plantillas de Secuencia por Día de la Semana
 
 ### LUNES | "El Gran Desembarco" (Stock, Novedades y Necesidad de Taller)
-* **10:25 AM (Historia 0 - Gancho):** Emily/Nai desde la entrada o el playón: *"¡Arrancamos la semana explotados de stock en Macrofer! Miren todo lo que llegó hoy..."*.
+* **10:25 AM (Historia 0 - Gancho):** Emily/Guada desde la entrada o el playón: *"¡Arrancamos la semana explotados de stock en Macrofer! Miren todo lo que llegó hoy..."*.
 * **10:35 AM (Historia 1 - El Depósito):** Cámara rápida hacia depósito: camión descargando pallets, cajas de herramientas o insumos pesados.
 * **10:45 AM (Historia 2 - Mini entrevista al equipo):** *"Che, decile rápido a la gente cuántas cajas entraron hoy..."*. Reacción espontánea del equipo de depósito.
 * **11:00 AM (Historia 3 - Sticker Caja de Preguntas):** *"¿Qué máquina, herramienta o insumo estás buscando esta semana para tu taller u obra? Te pasamos stock y precio por privado 👇"*.
@@ -84,7 +84,7 @@ Las historias se publican en una secuencia encadenada entre las **10:25 AM y las
 
 ---
 
-## 4. Checklist Operativo para Nai y Emily
+## 4. Checklist Operativo para Guada y Emily
 
 - [ ] **Al llegar (09:30 - 10:00 AM):** Pedir el celular corporativo y el micrófono a **Agustina**. Verificar batería y lente de cámara limpio.
 - [ ] **Coordinación (10:15 AM):** Chequear qué producto o tema toca según el día y consultar con Agustina si hay alguna oferta puntual que destacar.

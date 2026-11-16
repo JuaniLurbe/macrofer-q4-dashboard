@@ -2852,8 +2852,8 @@
     let stories = [];
     let activityLogs = [];
     let currentTab = 'historias';
-    let currentDayLabel = 'Lunes 02 Nov';
-    let currentReelId = 1;
+    let currentDayLabel = 'Lunes 16 Nov';
+    let currentReelId = 5;
     let calendarMonth = 10; // 0-indexed: 10 = Noviembre
     let calendarYear = 2026;
     let scriptMode = 'resumen';
@@ -2997,7 +2997,7 @@
     // SUPABASE DATA LOADERS & AUDIT LOG
     // ==========================================
     async function loadReels() {
-      reels = await sbFetch('reels?select=*&order=id.asc') || [];
+      reels = await sbFetch('reels?select=*&order=publish_date.asc,id.asc') || [];
     }
 
     async function loadStories() {
@@ -3086,7 +3086,7 @@
       renderCalendar();
     }
 
-    let selectedCalDate = '2026-11-02';
+    let selectedCalDate = '2026-11-16';
 
     function renderCalendar() {
       const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];

@@ -8,6 +8,25 @@
 
 ---
 
+## 🎬 CRONOGRAMA OFICIAL REESTRUCTURADO DE REELS (NOVIEMBRE - DICIEMBRE 2026)
+
+| Fecha de Publicación | Video | Categoría | Protagonista(s) | Estado |
+| :--- | :--- | :---: | :--- | :---: |
+| **Lunes 02 Nov** | **#1** — 5 Ofertas para Cortar el Pasto | 🛒 Venta | Esteban | **Publicado ✓** |
+| **Miércoles 04 Nov** | **#2** — La Regla Bahco: Precisión Profesional | 📚 Educativo | Miguel | **Publicado ✓** |
+| **Lunes 16 Nov** *(Hoy)* | **#5** — Mezcla 2 Tiempos: La Proporción Exacta | 📚 Educativo | Miguel | **Filmado ✓** |
+| **Miércoles 18 Nov** | **#8** — Cómo Nos Ve el Jefe en Macrofer (Trend IA) | 😂 Humor | Esteban, Emily & Martín | **Filmado ✓** |
+| **Viernes 20 Nov** | **#10** — Portaherramientas para Obra (Chaleco Bahco) | 🛒 Venta | Dani | **Filmado ✓** |
+| **Lunes 23 Nov** | **#9** — El Código Secreto de las Cintas Aisladoras | 📚 Educativo | Cristian | **Filmado ✓** |
+| **Miércoles 25 Nov** | **#13** — Rider Severbon MT24AC: El Cortacésped Definitivo | 🛒 Venta | Seba | **Filmado ✓** |
+| **Sábado 28 Nov** | **#14** — Guantes Bahco con Luz LED Integrada | 🛒 Novedad | Emily | **Filmado ✓** |
+| **Lunes 30 Nov** | **#7** — Temporada Pintura: El Miguel Ángel de MdQ | 🛒 Venta | Miguel | **Filmado ✓** |
+| **Miércoles 02 Dic** | **#3** — El Efecto Bola de Nieve (8 Tarugos) | 😂 Humor | Cristian & Seba | **Filmado ✓** |
+
+> *Nota de Producción:* Los videos #4 (Hidrolavadoras), #11 (Vlog Ale) y #12 (Carta a Papá) fueron dados de baja del plan para priorizar los 8 videos filmados y validados.
+
+---
+
 # 🟢 SEMANA 1 (Del Lunes 02/11 al Sábado 07/11)
 **Eje de la Semana:** Lanzamiento de Temporada Verde (Pasto, Jardinería y Puesta a Punto)  
 **Reel de la Semana (Venta):** Esteban — 5 ofertas para cortar el pasto (Lunes 02/11)  

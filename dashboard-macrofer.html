@@ -3001,9 +3001,9 @@
     }
 
     async function loadStories() {
-      const res = await sbFetch('stories?select=*&month=eq.Noviembre 2026&order=story_date.asc,time_slot.asc');
+      const res = await sbFetch('stories?select=*&month=neq.ARCHIVADO&order=story_date.asc,time_slot.asc');
       if (res && res.length) {
-        stories = res.filter(s => s.month === 'Noviembre 2026' && !(s.copy || '').toLowerCase().includes('seguinos'));
+        stories = res.filter(s => s.month !== 'ARCHIVADO' && !(s.copy || '').toLowerCase().includes('seguinos'));
       } else {
         stories = [];
       }
@@ -3287,7 +3287,7 @@
 
     function renderHistoriasCards() {
       document.getElementById('historiasDayTitle').textContent = currentDayLabel;
-      const dayStories = stories.filter(s => s.day_label === currentDayLabel && s.month === 'Noviembre 2026');
+      const dayStories = stories.filter(s => s.day_label === currentDayLabel && s.month !== 'ARCHIVADO');
 
       const stream = document.getElementById('historiasStream');
       if (!dayStories.length) {
@@ -4107,11 +4107,12 @@ https://macrofer-q4-dashboard.vercel.app
       const isLeader = uLower.includes('juani') || uLower.includes('agustina') || uLower.includes('martín') || uLower.includes('martin');
 
       // Find content for currentDayLabel
-      const dayStories = stories.filter(s => s.day_label === currentDayLabel && s.month === 'Noviembre 2026');
+      const dayStories = stories.filter(s => s.day_label === currentDayLabel && s.month !== 'ARCHIVADO');
       
       const dayMatch = currentDayLabel.match(/(\d+)/);
       const dayNum = dayMatch ? parseInt(dayMatch[1], 10) : 2;
-      const dayIso = `2026-11-${String(dayNum).padStart(2, '0')}`;
+      const isDic = currentDayLabel.toLowerCase().includes('dic');
+      const dayIso = isDic ? `2026-12-${String(dayNum).padStart(2, '0')}` : `2026-11-${String(dayNum).padStart(2, '0')}`;
       const dayReel = reels.find(r => r.publish_date === dayIso);
 
       let contextSnippet = '';
